@@ -3,6 +3,7 @@ set encoding=utf-8
 set showcmd 			    " display incomplete commands
 set mouse=a                 " enable the mouse
 set t_Co=256                " set 256 colors mode
+set number                  " show line numbers
 set autoindent
 syntax on
 let g:SuperTabDefaultCompletionType = "context"

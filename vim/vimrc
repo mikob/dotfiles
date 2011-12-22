@@ -1,0 +1,41 @@
+set nocompatible   		    " choose no compatibility with legacy vi
+set encoding=utf-8
+set showcmd 			    " display incomplete commands
+set mouse=a                 " enable the mouse
+set t_Co=256                " set 256 colors mode
+set autoindent
+syntax on
+let g:SuperTabDefaultCompletionType = "context"
+
+"" Pathogen
+call pathogen#infect()
+call pathogen#helptags()
+
+"" Theme
+colorscheme wombat256
+set guifont=Inconsolata\ Medium\ 11  " font
+
+"" File type specialities
+filetype plugin indent on 	         " load file type plugins + indentation
+autocmd FileType html,htmldjango let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango source ~/.vim/bundle/closetag/plugin/closetag.vim
+
+"" Whitespace
+set nowrap
+set tabstop=4 shiftwidth=4
+set expandtab 			    " use spaces, not tabs
+set backspace=indent,eol,start  " backspace through everything in insert mode
+
+"" Searching
+set hlsearch   			" highlight matches
+set incsearch 			" set incremental searching
+set ignorecase			" auto make searches case insensitive
+set smartcase 			" ...unless they contain at least one capital letter
+
+"" Keyboard remapping
+" Command T
+noremap <leader>o <Esc>:CommandT<CR>
+noremap <leader>O <Esc>:CommandTFlush<CR>
+noremap <leader>m <Esc>:CommandTBuffer<CR>
+" CTags
+noremap <F12> <Esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>

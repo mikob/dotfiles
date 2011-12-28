@@ -23,7 +23,8 @@ autocmd FileType html,xhtml,xml,htmldjango source ~/.vim/bundle/closetag/plugin/
 
 "" Whitespace
 set nowrap
-set tabstop=4 shiftwidth=4
+set tabstop=4 shiftwidth=4 
+set softtabstop=4           " backspace through the tab
 set expandtab 			    " use spaces, not tabs
 set backspace=indent,eol,start  " backspace through everything in insert mode
 

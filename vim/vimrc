@@ -18,6 +18,7 @@ set guifont=Inconsolata\ Medium\ 11  " font
 
 "" File type specialities
 filetype plugin indent on 	         " load file type plugins + indentation
+autocmd BufRead,BufNewFile *.jsm set filetype=javascript
 autocmd FileType html,htmldjango let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango source ~/.vim/bundle/closetag/plugin/closetag.vim
 

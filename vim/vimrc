@@ -4,6 +4,7 @@ set showcmd 			    " display incomplete commands
 set mouse=a                 " enable the mouse
 set t_Co=256                " set 256 colors mode
 set number                  " show line numbers
+set cc=80                   " show color column at 80
 set autoindent
 syntax on
 let g:SuperTabDefaultCompletionType = "context"
@@ -28,6 +29,10 @@ set tabstop=4 shiftwidth=4
 set softtabstop=4           " backspace through the tab
 set expandtab 			    " use spaces, not tabs
 set backspace=indent,eol,start  " backspace through everything in insert mode
+
+"" Save folding
+au BufWinLeave * silent! mkview
+au BufWinEnter * silent! loadview
 
 "" Searching
 set hlsearch   			" highlight matches

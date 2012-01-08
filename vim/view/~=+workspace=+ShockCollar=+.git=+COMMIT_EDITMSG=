@@ -8,13 +8,13 @@ setlocal nobinary
 setlocal bufhidden=
 setlocal buflisted
 setlocal buftype=
-setlocal cindent
+setlocal nocindent
 setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=j1,J1
+setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=80
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=//%s
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -30,8 +30,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
-if &filetype != 'javascript'
-setlocal filetype=javascript
+if &filetype != 'gitcommit'
+setlocal filetype=gitcommit
 endif
 setlocal foldcolumn=0
 setlocal foldenable
@@ -44,18 +44,18 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=croql
+setlocal formatoptions=tcq
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=0
+setlocal iminsert=2
+setlocal imsearch=2
 setlocal include=
-setlocal includeexpr=
+setlocal includeexpr=substitute(v:fname,'^[^/]\\+/','','')
 setlocal indentexpr=
 setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
+setlocal keywordprg=git\ --git-dir='/home/miko/workspace/ShockCollar/.git'\ show
 setlocal nolinebreak
 setlocal nolisp
 setlocal nolist
@@ -66,8 +66,8 @@ setlocal modifiable
 setlocal nrformats=octal,hex
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=javascriptcomplete#CompleteJS
-setlocal path=
+setlocal omnifunc=
+setlocal path=~/workspace/ShockCollar/.git,~/workspace/ShockCollar,
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
@@ -88,12 +88,12 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'javascript'
-setlocal syntax=javascript
+if &syntax != 'gitcommit'
+setlocal syntax=gitcommit
 endif
 setlocal tabstop=4
-setlocal tags=~/workspace/ShockCollar/.git/tags,./tags,./TAGS,tags,TAGS
-setlocal textwidth=0
+setlocal tags=~/workspace/ShockCollar/.git/gitcommit.tags,~/workspace/ShockCollar/.git/tags,./tags,./TAGS,tags,TAGS
+setlocal textwidth=72
 setlocal thesaurus=
 setlocal noundofile
 setlocal nowinfixheight
@@ -101,56 +101,12 @@ setlocal nowinfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-49,80fold
-82,108fold
-110,121fold
-123,314fold
-316,333fold
-335,365fold
-367,389fold
-391,411fold
-391,411fold
-413,441fold
-443,451fold
-453,484fold
-486,551fold
-553,574fold
-576,640fold
-642,695fold
-697,799fold
-801,817fold
-82
-normal zo
-110
-normal zc
-123
-normal zo
-316
-normal zo
-335
-normal zo
-391
-normal zo
-391
-normal zc
-391
-normal zo
-413
-normal zo
-453
-normal zc
-486
-normal zo
-642
-normal zo
-697
-normal zo
-let s:l = 533 - ((28 * winheight(0) + 19) / 39)
+let s:l = 2 - ((1 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-533
-normal! 025l
+2
+normal! 0
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

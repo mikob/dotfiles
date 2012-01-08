@@ -48,7 +48,7 @@ setlocal formatoptions=croql
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
 setlocal iminsert=0
-setlocal imsearch=0
+setlocal imsearch=2
 setlocal include=
 setlocal includeexpr=
 setlocal indentexpr=
@@ -81,7 +81,7 @@ setlocal noshortname
 setlocal nosmartindent
 setlocal softtabstop=4
 setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellcapcheck=
 setlocal spellfile=
 setlocal spelllang=en
 setlocal statusline=
@@ -92,7 +92,7 @@ if &syntax != 'javascript'
 setlocal syntax=javascript
 endif
 setlocal tabstop=4
-setlocal tags=~/workspace/ShockCollar/.git/tags,./tags,./TAGS,tags,TAGS
+setlocal tags=~/workspace/ShockCollar/.git/javascript.tags,~/workspace/ShockCollar/.git/tags,./tags,./TAGS,tags,TAGS
 setlocal textwidth=0
 setlocal thesaurus=
 setlocal noundofile
@@ -101,56 +101,12 @@ setlocal nowinfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-49,80fold
-82,108fold
-110,121fold
-123,314fold
-316,333fold
-335,365fold
-367,389fold
-391,411fold
-391,411fold
-413,441fold
-443,451fold
-453,484fold
-486,551fold
-553,574fold
-576,640fold
-642,695fold
-697,799fold
-801,817fold
-82
-normal zo
-110
-normal zc
-123
-normal zo
-316
-normal zo
-335
-normal zo
-391
-normal zo
-391
-normal zc
-391
-normal zo
-413
-normal zo
-453
-normal zc
-486
-normal zo
-642
-normal zo
-697
-normal zo
-let s:l = 533 - ((28 * winheight(0) + 19) / 39)
+let s:l = 21 - ((19 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-533
-normal! 025l
+21
+normal! 08l
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

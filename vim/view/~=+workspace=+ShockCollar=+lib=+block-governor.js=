@@ -39,7 +39,7 @@ setlocal foldexpr=0
 setlocal foldignore=#
 setlocal foldlevel=0
 setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
+setlocal foldmethod=syntax
 setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
@@ -100,13 +100,54 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 560 - ((8 * winheight(0) + 11) / 22)
+62
+normal zo
+77
+normal zo
+80
+normal zo
+85
+normal zo
+80
+normal zo
+77
+normal zo
+62
+normal zo
+107
+normal zo
+140
+normal zo
+181
+normal zo
+213
+normal zo
+225
+normal zo
+213
+normal zo
+181
+normal zo
+267
+normal zo
+292
+normal zo
+450
+normal zo
+491
+normal zo
+583
+normal zc
+711
+normal zo
+777
+normal zo
+let s:l = 510 - ((22 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-560
-normal! 07l
+510
+normal! 033l
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

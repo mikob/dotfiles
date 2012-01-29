@@ -6,6 +6,7 @@ set t_Co=256                " set 256 colors mode
 set number                  " show line numbers
 set cc=80                   " show color column at 80
 set autoindent
+set smartindent
 syntax on
 let g:SuperTabDefaultCompletionType = "context"
 

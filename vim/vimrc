@@ -10,6 +10,12 @@ set smartindent
 syntax on
 let g:SuperTabDefaultCompletionType = "context"
 
+"" Folding
+set foldmethod=syntax
+set foldlevelstart=1
+
+let javaScript_fold=1
+
 "" Pathogen
 call pathogen#infect()
 call pathogen#helptags()

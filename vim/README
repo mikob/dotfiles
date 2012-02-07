@@ -1,0 +1,1 @@
+Any changes to submodules should be made in the submodule overrides in order to prevent interferance with git submodules.

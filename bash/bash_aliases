@@ -2,3 +2,4 @@
 alias rm="trash-rm"
 alias wf="ssh mikob@mikob.webfactional.com"
 alias sc="/home/miko/workspace/ShockCollar/bin/RunCfx.sh"
+alias 4574="cd /home/miko/Documents/ECE\ 4574"

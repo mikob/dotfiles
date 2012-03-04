@@ -56,3 +56,5 @@ noremap <leader>m <Esc>:CommandTBuffer<CR>
 noremap <F12> <Esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 " NERD Tree
 noremap <F2> <Esc>:NERDTreeToggle<CR>
+" Custom find/replace
+noremap <F3> <Esc>:promptrepl<CR>

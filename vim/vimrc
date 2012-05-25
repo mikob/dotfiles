@@ -9,6 +9,7 @@ if exists('+colorcolumn')
 endif
 set autoindent
 set smartindent
+set nocindent               " need for proper js indenting
 set wildmode=list:longest,list:full " the autocomplete list setting
 syntax on
 let g:SuperTabDefaultCompletionType = "context"
@@ -16,8 +17,6 @@ let g:SuperTabDefaultCompletionType = "context"
 "" Folding
 " set foldmethod=syntax
 set foldlevelstart=1
-
-let javaScript_fold=1
 
 "" Pathogen
 call pathogen#infect()

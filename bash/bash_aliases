@@ -3,6 +3,9 @@ alias rm="trash-rm"
 alias wf="ssh mikob@mikob.webfactional.com"
 alias sc="/home/miko/workspace/ShockCollar/bin/RunCfx.sh"
 alias 4574="cd /home/miko/Documents/ECE\ 4574"
+alias ack="ack-grep"
+alias opn="nautilus '$pwd'"
+alias jumpssh="ssh -A -t jumphost-002.sjc1.yammer.com ssh$@"
 
 # Miko's custom shell function
 function cds() { cd "$@" && ls; }

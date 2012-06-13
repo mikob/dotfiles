@@ -15,6 +15,9 @@ syntax on
 let g:SuperTabDefaultCompletionType = "context"
 
 "" Folding
+" use ack-grep for searching
+set grepprg=ack-grep\ -a
+
 " set foldmethod=syntax
 set foldlevelstart=1
 
@@ -26,18 +29,19 @@ call pathogen#helptags()
 colorscheme wombat256
 set guifont=Inconsolata\ Medium\ 11  " font
 
-"" File type specialities
-filetype plugin indent on 	         " load file type plugins + indentation
-autocmd BufRead,BufNewFile *.jsm set filetype=javascript
-autocmd FileType html,htmldjango let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango source ~/.vim/bundle/closetag/plugin/closetag.vim
-
 "" Whitespace
 set nowrap
 set tabstop=4 shiftwidth=4 
 set softtabstop=4           " backspace through the tab
 set expandtab 			    " use spaces, not tabs
 set backspace=indent,eol,start  " backspace through everything in insert mode
+
+"" File type specialities
+filetype plugin indent on 	         " load file type plugins + indentation
+autocmd BufRead,BufNewFile *.jsm set filetype=javascript
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd FileType html,htmldjango let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango source ~/.vim/bundle/closetag/plugin/closetag.vim
 
 "" Save folding
 au BufWinLeave * silent! mkview

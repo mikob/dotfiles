@@ -25,6 +25,9 @@ set foldlevelstart=1
 call pathogen#infect()
 call pathogen#helptags()
 
+"" Ctrl-P
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 "" Theme
 colorscheme wombat256
 set guifont=Inconsolata\ Medium\ 11  " font

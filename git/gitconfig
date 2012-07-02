@@ -1,0 +1,15 @@
+[user]
+	name = mborys
+	email = mikob@vt.edu
+[alias]
+    co = checkout
+    cm = commit -m
+    br = branch
+[giggle]
+	main-window-maximized = false
+	main-window-geometry = 1048x797+160+112
+	history-view-vpane-position = 362
+	file-view-vpane-position = 720
+	main-window-view = HistoryView
+[color]
+	ui = true

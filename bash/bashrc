@@ -103,6 +103,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 export PATH=/opt/microchip/mplabc32/v2.01/bin:$PATH
+export PATH=/opt/vagrant/bin:$PATH
+export WORKFEED_DIR=/home/mborys/workspace/workfeed
 
 PS1="\[\e[0;36m\]\u:\[\e[1;34m\]\w\[\e[0;33m\]\$\[\e[0;37m\] "
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
+

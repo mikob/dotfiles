@@ -1,9 +1,0 @@
-Create symbolic links to the appropriate folders and dot files:
-Make sure you have a .bash_aliases and .vimviews
-
-/vim --> ~/.vim
-/bash/bashrc --> ~/.bashrc
-/bash/bash_aliases --> ~/.bash_aliases
-/vim/
-
-

@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# Map caps-lock to escape key
 cur_dir="$(pwd)"
-xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
 rm ~/.bash_aliases
 rm ~/.bashrc
@@ -21,4 +19,3 @@ ln -s $cur_dir/tmux.conf ~/.tmux.conf
 # git stuff
 git config --global color.ui true
 
-source ~/.bashrc

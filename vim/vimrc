@@ -7,9 +7,10 @@ set relativenumber          " show relative line numbers
 if exists('+colorcolumn')
     set colorcolumn=80      " line 80 column
 endif
-set autoindent
-set smartindent
-set nocindent               " need for proper js indenting
+" set autoindent
+" set smartindent
+" set nocindent               " need for proper js indenting
+filetype indent on
 set wildmode=list:longest,list:full " the autocomplete list setting
 syntax on
 let g:SuperTabDefaultCompletionType = "context"

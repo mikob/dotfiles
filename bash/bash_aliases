@@ -1,11 +1,18 @@
 # Miko's custom aliases
 alias rm="trash-rm"
 alias wf="ssh mikob@mikob.webfactional.com"
-alias sc="/home/miko/workspace/ShockCollar/bin/RunCfx.sh"
-alias 4574="cd /home/miko/Documents/ECE\ 4574"
-alias ack="ack-grep"
 alias opn="nautilus '$pwd'"
-alias jumpssh="ssh -A -t jumphost-002.sjc1.yammer.com ssh$@"
+alias fnd="find ./ -iname $@"
+alias ack="ack-grep"
 
 # Miko's custom shell function
 function cds() { cd "$@" && ls; }
+
+# Miko's custom open ack results in vim
+function ackvim() { 
+    ack "$@" && read;
+    vim "-c bufdo /$@" $(ack -l $@);
+}
+
+# Comp specific
+alias jumpssh="ssh -A -t jumphost-002.sjc1.yammer.com ssh$@"

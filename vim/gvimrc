@@ -6,3 +6,6 @@ let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 colorscheme solarized
+
+"" Textmode style tabheadings, lessens rendering artifacting, snappier perf
+:se guioptions=agim

@@ -13,4 +13,3 @@ function ackvim() {
     ack "$@" && read;
     vim "-c bufdo /$@" $(ack -l $@);
 }
-

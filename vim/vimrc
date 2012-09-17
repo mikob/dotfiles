@@ -35,8 +35,8 @@ set guifont=Inconsolata\ Medium\ 11  " font
 
 "" Whitespace
 set nowrap
-set tabstop=4 shiftwidth=4 
-set softtabstop=4           " backspace through the tab
+set tabstop=2 shiftwidth=2 
+set softtabstop=2           " backspace through the tab
 set expandtab 			    " use spaces, not tabs
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
@@ -71,3 +71,5 @@ noremap <F3> <Esc>:promptrepl<CR>
 " Reselect visual block after indent with ctrl
 vnoremap <Ctrl-<> < <gv
 vnoremap <Ctrl->> > >gv
+
+set nocindent               " need for proper js indenting

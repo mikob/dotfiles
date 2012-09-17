@@ -3,7 +3,7 @@
 # for examples
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+if [[ -n "$PS1" ]]; then
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -105,8 +105,12 @@ fi
 export PATH=/opt/microchip/mplabc32/v2.01/bin:$PATH
 export PATH=/opt/vagrant/bin:$PATH
 export WORKFEED_DIR=/home/mborys/workspace/workfeed
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 
 PS1="\[\e[0;36m\]\u:\[\e[1;34m\]\w\[\e[0;33m\]\$\[\e[0;37m\] "
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
 
+# map caps lock to escape
 xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+
+if [[ -s $HOME/.rvm/scripts/rvm ]]; then source $HOME/.rvm/scripts/rvm; fi
+fi

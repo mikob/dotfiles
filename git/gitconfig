@@ -5,6 +5,7 @@
     co = checkout
     cm = commit -m
     br = branch
+    st = status
 [giggle]
 	main-window-maximized = false
 	main-window-geometry = 1048x797+160+112

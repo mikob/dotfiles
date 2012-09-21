@@ -106,6 +106,7 @@ export PATH=/opt/microchip/mplabc32/v2.01/bin:$PATH
 export PATH=/opt/vagrant/bin:$PATH
 export WORKFEED_DIR=/home/mborys/workspace/workfeed
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
+export JAVA_HOME=/usr/lib/jvm/java-7-oracle/
 
 PS1="\[\e[0;36m\]\u:\[\e[1;34m\]\w\[\e[0;33m\]\$\[\e[0;37m\] "
 

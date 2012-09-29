@@ -1,0 +1,15 @@
+let g:netrw_dirhistmax  =10
+<<<<<<< HEAD
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/miko/workspace/ShockCollarSite/.git'
+let g:netrw_dirhist_2='/home/miko'
+let g:netrw_dirhist_3='/home/miko/Documents/ECE 4574/Proj 1/skynet/output'
+let g:netrw_dirhist_4='/home/miko/dotfiles/bash'
+let g:netrw_dirhist_5='/Users/mborys/workspace/babou'
+let g:netrw_dirhist_6='/home/mborys/workspace/vagrant-dev-environment/HOWTO'
+let g:netrw_dirhist_7='/home/mborys/workspace/ntf/config'
+let g:netrw_dirhist_8='/home/mborys/dotfiles/vim/view'
+let g:netrw_dirhist_9='/home/mikob/dotfiles'
+=======
+let g:netrw_dirhist_cnt =0
+>>>>>>> da124dc9806415a507402ec7e3bd97906283d520

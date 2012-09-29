@@ -7,14 +7,18 @@ set relativenumber          " show relative line numbers
 if exists('+colorcolumn')
     set colorcolumn=80      " line 80 column
 endif
+<<<<<<< HEAD
+set autoindent
+set smartindent
+=======
 " set autoindent
 " set smartindent
 " set nocindent               " need for proper js indenting
 filetype indent on
+>>>>>>> da124dc9806415a507402ec7e3bd97906283d520
 set wildmode=list:longest,list:full " the autocomplete list setting
 syntax on
 let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabNoCompleteAfter = [';','\s', '{', '}', '"', "'", ':', ')']
 
 "" Folding
 " use ack-grep for searching
@@ -36,8 +40,8 @@ set guifont=Inconsolata\ Medium\ 11  " font
 
 "" Whitespace
 set nowrap
-set tabstop=4 shiftwidth=4 
-set softtabstop=4           " backspace through the tab
+set tabstop=2 shiftwidth=2 
+set softtabstop=2           " backspace through the tab
 set expandtab 			    " use spaces, not tabs
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
@@ -72,3 +76,5 @@ noremap <F3> <Esc>:promptrepl<CR>
 " Reselect visual block after indent with ctrl
 vnoremap <Ctrl-<> < <gv
 vnoremap <Ctrl->> > >gv
+
+set nocindent               " need for proper js indenting

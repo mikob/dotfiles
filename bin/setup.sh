@@ -2,11 +2,11 @@
 
 cur_dir="$(pwd)"
 
+touch ~/.bash_aliases
 touch ~/.gitconfig
 
 rm ~/.bash_aliases
 rm ~/.bashrc
-rm ~/.gitconfig
 rm ~/.vimrc
 rm ~/.gvimrc
 rm -r ~/.vim

@@ -14,6 +14,7 @@ filetype indent on
 set wildmode=list:longest,list:full " the autocomplete list setting
 syntax on
 let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabNoCompleteAfter = [';','\s', '{', '}', '"', "'", ':', ')']
 
 "" Folding
 " use ack-grep for searching
@@ -71,5 +72,3 @@ noremap <F3> <Esc>:promptrepl<CR>
 " Reselect visual block after indent with ctrl
 vnoremap <Ctrl-<> < <gv
 vnoremap <Ctrl->> > >gv
-
-set nocindent               " need for proper js indenting

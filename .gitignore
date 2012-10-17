@@ -1,2 +1,4 @@
 *.swp
 vim/view
+vim/.netrwhist
+vim/bundle/snipmate/*

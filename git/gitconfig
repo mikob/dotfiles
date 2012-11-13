@@ -14,3 +14,5 @@
 	main-window-view = HistoryView
 [color]
 	ui = true
+[core]
+	excludesfile = /home/miko/.gitignore_global

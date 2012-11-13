@@ -107,7 +107,7 @@ export PATH=/opt/vagrant/bin:$PATH
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 export JAVA_HOME=/usr/lib/jvm/java-7-oracle/bin/javac
 
-PS1="\[\e[0;36m\]\u:\[\e[1;34m\]\w\[\e[0;33m\]\$\[\e[0;37m\] "
+PS1="\[\e[0;36m\]\u:\[\e[1;34m\]\w\[\e[0;33m\]\$(__git_ps1)\$\[\e[0;37m\] "
 
 # map caps lock to escape
 xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'

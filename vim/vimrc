@@ -8,13 +8,13 @@ if exists('+colorcolumn')
     set colorcolumn=80      " line 80 column
 endif
 " set autoindent
-" set smartindent
-" set nocindent               " need for proper js indenting
-filetype indent on
+set smartindent
+set nocindent               " need for proper js indenting
+filetype indent plugin on
 set wildmode=list:longest,list:full " the autocomplete list setting
 syntax on
 let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabNoCompleteAfter = [';','\s', '{', '}', '"', "'", ':', ')']
+let g:SuperTabNoCompleteAfter = [';','\s', '{', '}', '"', "'", ':', ')', '#']
 
 "" Folding
 " use ack-grep for searching

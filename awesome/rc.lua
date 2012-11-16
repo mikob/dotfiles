@@ -54,11 +54,11 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
+    awful.layout.suit.floating,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral,
@@ -125,7 +125,7 @@ function volume (mode, widget)
         io.popen("amixer -q -c " .. cardid .. " sset " .. channel .. " 5%-"):read("*all")
         volume("update", widget)
     else
-        io.popen("amixer -c " .. cardid .. " sset " .. channel .. " toggle"):read("*all")
+        io.popen("amixer -c " .. cardid .. " sset " .. channel .. " unmute"):read("*all")
         volume("update", widget)
     end
 end

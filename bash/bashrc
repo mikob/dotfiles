@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Auto jump
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+
 # If not running interactively, don't do anything
 if [[ -n "$PS1" ]]; then
 
@@ -114,3 +117,6 @@ xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
 if [[ -s $HOME/.rvm/scripts/rvm ]]; then source $HOME/.rvm/scripts/rvm; fi
 fi
+
+export WORKON_HOME="~/.virtualenvs"
+source `which virtualenvwrapper.sh`

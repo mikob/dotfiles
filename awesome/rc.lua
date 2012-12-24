@@ -427,3 +427,7 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 --
 --
 
+--- {{{ Spawn some commands
+awful.util.spawn_with_shell("dropbox start")
+awful.util.spawn_with_shell(". ~/.bashrc")
+--- }}}

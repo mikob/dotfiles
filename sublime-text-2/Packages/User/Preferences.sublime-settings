@@ -1,0 +1,12 @@
+{
+	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
+	"ignored_packages":
+	[
+	],
+	"rulers":
+	[
+		80
+	],
+	"vintage_lines.force_mode": true,
+	"vintage_start_in_command_mode": true
+}

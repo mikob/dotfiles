@@ -102,36 +102,36 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 -- {{{ Wibox
 -- Volume Widget
-cardid  = 0
-channel = "Master"
-function volume (mode, widget)
-    if mode == "update" then
-        local fd = io.popen("amixer -c " .. cardid .. " -- sget " .. channel)
-        local status = fd:read("*all")
-        fd:close()
-        
-        local volume = string.match(status, "(%d?%d?%d)%%")
-        volume = string.format("% 3d", volume)
-
-        status = string.match(status, "%[(o[^%]]*)%]")
-
-        if string.find(status, "on", 1, true) then
-            volume = volume .. "%"
-        else
-            volume = volume .. "M"
-        end
-        widget.text = volume
-    elseif mode == "up" then
-        io.popen("amixer -q -c " .. cardid .. " sset " .. channel .. " 5%+"):read("*all")
-        volume("update", widget)
-    elseif mode == "down" then
-        io.popen("amixer -q -c " .. cardid .. " sset " .. channel .. " 5%-"):read("*all")
-        volume("update", widget)
-    else
-        io.popen("amixer -c " .. cardid .. " sset " .. channel .. " unmute"):read("*all")
-        volume("update", widget)
-    end
-end
+--cardid  = 0
+--channel = "Master"
+--function volume (mode, widget)
+--    if mode == "update" then
+--        local fd = io.popen("amixer -c " .. cardid .. " -- sget " .. channel)
+--        local status = fd:read("*all")
+--        fd:close()
+--        
+--        local volume = string.match(status, "(%d?%d?%d)%%")
+--        volume = string.format("% 3d", volume)
+--
+--        status = string.match(status, "%[(o[^%]]*)%]")
+--
+--        if string.find(status, "on", 1, true) then
+--            volume = volume .. "%"
+--        else
+--            volume = volume .. "M"
+--        end
+--        widget.text = volume
+--    elseif mode == "up" then
+--        io.popen("amixer -q -c " .. cardid .. " sset " .. channel .. " 5%+"):read("*all")
+--        volume("update", widget)
+--    elseif mode == "down" then
+--        io.popen("amixer -q -c " .. cardid .. " sset " .. channel .. " 5%-"):read("*all")
+--        volume("update", widget)
+--    else
+--        io.popen("amixer -c " .. cardid .. " sset " .. channel .. " unmute"):read("*all")
+--        volume("update", widget)
+--    end
+--end
 
 -- Refresh the volume display every 10 seconds
 --awful.hooks.timer.register(10, function() volume("update", tb_volume) end)
@@ -140,13 +140,13 @@ end
 mytextclock = awful.widget.textclock({ align = "right" })
 
 -- Volume --
-tb_volume = widget({ type = "textbox", name = "tb_volume", align = "right" })
-tb_volume:buttons({
-    button({ }, 4, function() volume("up", tb_volume) end),
-    button({ }, 5, function() volume("down", tb_volume) end),
-    button({ }, 1, function() volume("mute", tb_volume) end),
-})
-volume("update", tb_volume)
+--tb_volume = widget({ type = "textbox", name = "tb_volume", align = "right" })
+--tb_volume:buttons({
+--    button({ }, 4, function() volume("up", tb_volume) end),
+--    button({ }, 5, function() volume("down", tb_volume) end),
+--    button({ }, 1, function() volume("mute", tb_volume) end),
+--})
+--volume("update", tb_volume)
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -221,7 +221,6 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
-        tb_volume,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
@@ -240,9 +239,9 @@ root.buttons(awful.util.table.join(
 -- {{{ Key bindings
 -- for volume
 globalkeys = awful.util.table.join(
-    awful.key({ }, "XF86AudioRaiseVolume", function() volume("up", tb_volume) end),
-    awful.key({ }, "XF86AudioLowerVolume", function() volume("down", tb_volume) end),
-    awful.key({ }, "XF86AudioMute", function() volume("mute", tb_volume) end),
+    --awful.key({ }, "XF86AudioRaiseVolume", function() volume("up", tb_volume) end),
+    --awful.key({ }, "XF86AudioLowerVolume", function() volume("down", tb_volume) end),
+    --awful.key({ }, "XF86AudioMute", function() volume("mute", tb_volume) end),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
@@ -419,3 +418,9 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 --
 --
 
+--- {{{ Spawn some commands
+awful.util.spawn_with_shell("dropbox start")
+awful.util.spawn_with_shell("nm-applet")
+awful.util.spawn_with_shell("gnome-sound-applet")
+awful.util.spawn_with_shell(". ~/.bashrc")
+--- }}}

@@ -1,0 +1,912 @@
+{
+	"folder_history":
+	[
+		"/home/mikob/workspace/shockcollar"
+	],
+	"last_window_id": 1,
+	"settings":
+	{
+	},
+	"windows":
+	[
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+					[
+						"oldPa",
+						"oldParentItem"
+					],
+					[
+						"old",
+						"oldParentId"
+					],
+					[
+						"childI",
+						"childItem"
+					],
+					[
+						"commonLis",
+						"commonListDndCtrl"
+					],
+					[
+						"pare",
+						"parentId"
+					],
+					[
+						"comm",
+						"commonListDndCtrl"
+					],
+					[
+						"commonLi",
+						"commonListTree"
+					],
+					[
+						"blockListD",
+						"blockListDndCtrl"
+					],
+					[
+						"dn",
+						"dndSource"
+					],
+					[
+						"RE",
+						"RecursiveQueryEngine"
+					],
+					[
+						"Re",
+						"RecursiveQueryEngine"
+					],
+					[
+						"S",
+						"SimpleQueryEngine"
+					],
+					[
+						"id",
+						"idProperty"
+					],
+					[
+						"Ob",
+						"Observable"
+					],
+					[
+						"commonList",
+						"commonListStore"
+					]
+				]
+			},
+			"buffers":
+			[
+				{
+					"file": "/home/mikob/workspace/shockcollar/data/shockcollar/widgets/SiteTree.js",
+					"settings":
+					{
+						"buffer_size": 11834,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/mikob/workspace/shockcollar/data/shockcollar/widgets/EditSiteTree.js",
+					"settings":
+					{
+						"buffer_size": 10627,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/mikob/workspace/shockcollar/data/shockcollar/panels/BlockLists.js",
+					"settings":
+					{
+						"buffer_size": 20973,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/mikob/workspace/shockcollar/data/shockcollar/util/DomainGroupStorage.js",
+					"settings":
+					{
+						"buffer_size": 7008,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/mikob/workspace/shockcollar/data/media/css/SetupAndSettings.css",
+					"settings":
+					{
+						"buffer_size": 4007,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/mikob/workspace/shockcollar/data/dojo/dijit/tree/dndSource.js",
+					"settings":
+					{
+						"buffer_size": 18027,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/mikob/workspace/shockcollar/data/dojo/dijit/Tree.js",
+					"settings":
+					{
+						"buffer_size": 59087,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/mikob/workspace/shockcollar/data/dojo/dijit/tree/ObjectStoreModel.js",
+					"settings":
+					{
+						"buffer_size": 8676,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/mikob/workspace/shockcollar/data/shockcollar/util/QueryEngine.js",
+					"settings":
+					{
+						"buffer_size": 4600,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/mikob/workspace/shockcollar/data/dojo/dojo/store/Memory.js",
+					"settings":
+					{
+						"buffer_size": 5051,
+						"line_ending": "Unix"
+					}
+				}
+			],
+			"build_system": "",
+			"command_palette":
+			{
+				"height": 222.0,
+				"selected_items":
+				[
+					[
+						":w",
+						":w - Save"
+					],
+					[
+						":save all",
+						"File: Save All"
+					],
+					[
+						":",
+						"File: Save All"
+					],
+					[
+						":wa",
+						":w - Save"
+					],
+					[
+						":save",
+						":w - Save"
+					],
+					[
+						":packa",
+						"Package Control: Remove Package"
+					],
+					[
+						":install ",
+						"Package Control: Install Package"
+					],
+					[
+						":x",
+						"Set Syntax: XSL"
+					],
+					[
+						":w ",
+						":w - Save"
+					],
+					[
+						":new",
+						"File: New View into File"
+					],
+					[
+						":insta",
+						"Package Control: Install Package"
+					],
+					[
+						":install",
+						"Package Control: Install Package"
+					],
+					[
+						"Package Control: ",
+						"Package Control: Install Package"
+					],
+					[
+						":clo",
+						"File: Close All"
+					]
+				],
+				"width": 467.0
+			},
+			"console":
+			{
+				"height": 139.0
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+				"/home/mikob/workspace/shockcollar/data/dojo/dijit/Tree.js",
+				"/home/mikob/workspace/shockcollar/data/dojo/dijit/_tree/dndSource.js",
+				"/home/mikob/workspace/shockcollar/data/dojo/dojo/store/Memory.js",
+				"/home/mikob/workspace/shockcollar/data/dojo/dijit/tree/ObjectStoreModel.js",
+				"/home/mikob/workspace/shockcollar/data/setup/setup.js",
+				"/home/mikob/workspace/shockcollar/data/dojo/dojo/store/Observable.js",
+				"/home/mikob/workspace/shockcollar/data/shockcollar/util/QueryEngine.js",
+				"/home/mikob/workspace/shockcollar/data/media/css/PageBox.css",
+				"/home/mikob/workspace/shockcollar/data/dojo/dojo/store/util/SimpleQueryEngine.js.uncompressed.js",
+				"/home/mikob/workspace/shockcollar/data/dojo/dijit/tree/ObjectStoreModel.js.uncompressed.js",
+				"/home/mikob/workspace/shockcollar/data/dojo/dijit/Tree.js.uncompressed.js",
+				"/home/mikob/workspace/shockcollar/data/dojo/dojo/store/Observable.js.uncompressed.js",
+				"/home/mikob/workspace/shockcollar/data/dojo/dojo/store/Memory.js.uncompressed.js",
+				"/home/mikob/workspace/shockcollar/data/shockcollar/util/DomainGroupStorage.js",
+				"/home/mikob/workspace/shockcollar/data/dojo/dojo/store/util/QueryResults.js.uncompressed.js",
+				"/home/mikob/workspace/shockcollar/data/shockcollar/util/RecursiveQueryEngine.js",
+				"/home/mikob/workspace/shockcollar/data/views/setup_latest.dtl",
+				"/home/mikob/workspace/shockcollar/data/views/base_interface.dtl",
+				"/home/mikob/workspace/shockcollar/data/dojo/dojo/data/ObjectStore.js.uncompressed.js",
+				"/home/mikob/workspace/shockcollar/data/shockcollar/util/Log.js",
+				"/home/mikob/workspace/shockcollar/lib/util.js",
+				"/home/mikob/workspace/shockcollar/data/shockcollar/util/Util.js",
+				"/home/mikob/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+				"/home/mikob/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+				"/home/mikob/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+				"/home/mikob/workspace/shockcollar/data/shockcollar/panels/BlockLists.js",
+				"/home/mikob/.mozilla/firefox/75jwaxbq.Dev3/jetpack/jid1-u6nQDbYs4ZJDAw@jetpack/simple-storage/store.json",
+				"/home/mikob/workspace/shockcollar/data/shockcollar/widgets/SiteTree.js",
+				"/home/mikob/workspace/shockcollar/TODO",
+				"/home/mikob/workspace/shockcollar/data/dojo/dijit/main.js",
+				"/home/mikob/workspace/shockcollar/lib/main.js",
+				"/home/mikob/workspace/shockcollar/lib/block-governor.js",
+				"/home/mikob/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+				"/usr/share/applications/sublime.desktop",
+				"/usr/share/applications/defaults.list",
+				"/opt/Sublime Text 2/Pristine Packages/Vintage.sublime-package"
+			],
+			"find":
+			{
+				"height": 35.0
+			},
+			"find_in_files":
+			{
+				"height": 0.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+					"oldParent",
+					"onItemDelete",
+					"getChildren",
+					"setData",
+					"array",
+					"onDndDrop",
+					"dndParams",
+					"onDndDrop",
+					"dndController",
+					"origin",
+					"childItem",
+					"child",
+					"store.get",
+					"try",
+					"query",
+					"queryUpd",
+					"Model",
+					"onitemchild",
+					"query",
+					"this.store",
+					"_.",
+					"array",
+					"_.",
+					"_index",
+					"arrayUtil",
+					"SimpleQ",
+					"_index",
+					"index",
+					"root",
+					"item",
+					"fresh",
+					"error",
+					"DomainGroupStorage",
+					"blockListStore",
+					"put",
+					"_identical",
+					"_exists",
+					"Util",
+					"\n *\n *",
+					"\n ",
+					"            // ",
+					"in",
+					"gedit"
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+					"_index"
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"folders":
+			[
+				{
+					"path": "/home/mikob/workspace/shockcollar"
+				}
+			],
+			"groups":
+			[
+				{
+					"selected": 1,
+					"sheets":
+					[
+						{
+							"buffer": 0,
+							"file": "/home/mikob/workspace/shockcollar/data/shockcollar/widgets/SiteTree.js",
+							"settings":
+							{
+								"buffer_size": 11834,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										2836,
+										2836
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"vintage_lines.line": 87,
+									"vintage_lines.lines": 313,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 1530.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/home/mikob/workspace/shockcollar/data/shockcollar/widgets/EditSiteTree.js",
+							"settings":
+							{
+								"buffer_size": 10627,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										4000,
+										4000
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"vintage_lines.line": 88,
+									"vintage_lines.lines": 243,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 1003.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 2,
+							"file": "/home/mikob/workspace/shockcollar/data/shockcollar/panels/BlockLists.js",
+							"settings":
+							{
+								"buffer_size": 20973,
+								"regions":
+								{
+									"bookmark_a":
+									{
+										"flags": 144,
+										"regions":
+										[
+											[
+												20960,
+												20960
+											]
+										]
+									},
+									"bookmark_b":
+									{
+										"flags": 144,
+										"regions":
+										[
+											[
+												4377,
+												4377
+											]
+										]
+									}
+								},
+								"selection":
+								[
+									[
+										5820,
+										5820
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"vintage_lines.line": 117,
+									"vintage_lines.lines": 518,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 2158.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 3,
+							"file": "/home/mikob/workspace/shockcollar/data/shockcollar/util/DomainGroupStorage.js",
+							"settings":
+							{
+								"buffer_size": 7008,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1754,
+										1754
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"vintage_lines.line": 64,
+									"vintage_lines.lines": 236,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 459.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 4,
+							"file": "/home/mikob/workspace/shockcollar/data/media/css/SetupAndSettings.css",
+							"settings":
+							{
+								"buffer_size": 4007,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										114,
+										114
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/CSS/CSS.tmLanguage",
+									"vintage_lines.line": 14,
+									"vintage_lines.lines": 320,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 5,
+							"file": "/home/mikob/workspace/shockcollar/data/dojo/dijit/tree/dndSource.js",
+							"settings":
+							{
+								"buffer_size": 18027,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										13857,
+										13857
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"translate_tabs_to_spaces": false,
+									"vintage_lines.line": 421,
+									"vintage_lines.lines": 564,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 6255.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 6,
+							"file": "/home/mikob/workspace/shockcollar/data/dojo/dijit/Tree.js",
+							"settings":
+							{
+								"buffer_size": 59087,
+								"regions":
+								{
+									"bookmark_i":
+									{
+										"flags": 144,
+										"regions":
+										[
+											[
+												19044,
+												19044
+											]
+										]
+									}
+								},
+								"selection":
+								[
+									[
+										53214,
+										53214
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"translate_tabs_to_spaces": false,
+									"vintage_lines.line": 1716,
+									"vintage_lines.lines": 1907,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 29069.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 7,
+							"file": "/home/mikob/workspace/shockcollar/data/dojo/dijit/tree/ObjectStoreModel.js",
+							"settings":
+							{
+								"buffer_size": 8676,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										8429,
+										8429
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"translate_tabs_to_spaces": false,
+									"vintage_lines.line": 241,
+									"vintage_lines.lines": 250,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 3527.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 8,
+							"file": "/home/mikob/workspace/shockcollar/data/shockcollar/util/QueryEngine.js",
+							"settings":
+							{
+								"buffer_size": 4600,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										3941,
+										3941
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"vintage_lines.line": 88,
+									"vintage_lines.lines": 112,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 1173.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 9,
+							"file": "/home/mikob/workspace/shockcollar/data/dojo/dojo/store/Memory.js",
+							"settings":
+							{
+								"buffer_size": 5051,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										4552,
+										4552
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"translate_tabs_to_spaces": false,
+									"vintage_lines.line": 144,
+									"vintage_lines.lines": 164,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 2056.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						}
+					]
+				}
+			],
+			"incremental_find":
+			{
+				"height": 34.0
+			},
+			"input":
+			{
+				"height": 33.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": true,
+			"position": "1,0,0,0,0,1440,0,2880,900,2880,900",
+			"replace":
+			{
+				"height": 64.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+					[
+						"tree.",
+						"data/dojo/dijit/Tree.js"
+					],
+					[
+						"memory",
+						"data/dojo/dojo/store/Memory.js"
+					],
+					[
+						"queryengine",
+						"data/shockcollar/util/QueryEngine.js"
+					],
+					[
+						"objectsto",
+						"data/dojo/dijit/tree/ObjectStoreModel.js"
+					],
+					[
+						"tree",
+						"data/dojo/dijit/Tree.js"
+					],
+					[
+						"dndsource",
+						"data/dojo/dijit/tree/dndSource.js"
+					],
+					[
+						"dndsour",
+						"data/dojo/dijit/_tree/dndSource.js"
+					],
+					[
+						"memo",
+						"data/dojo/dojo/store/Memory.js"
+					],
+					[
+						"objectmodel",
+						"data/dojo/dijit/tree/ObjectStoreModel.js"
+					],
+					[
+						"setup",
+						"data/setup/setup.js"
+					],
+					[
+						"setupand",
+						"data/media/css/SetupAndSettings.css"
+					],
+					[
+						"pagebox",
+						"data/media/css/PageBox.css"
+					],
+					[
+						"obser",
+						"data/dojo/dojo/store/Observable.js"
+					],
+					[
+						"domain",
+						"data/shockcollar/util/DomainGroupStorage.js"
+					],
+					[
+						"dojo/store/ob",
+						"data/dojo/dojo/store/Observable.js"
+					],
+					[
+						"site",
+						"data/shockcollar/widgets/SiteTree.js"
+					],
+					[
+						"data/views/",
+						"data/views/base_interface.dtl"
+					],
+					[
+						"setup_",
+						"data/views/setup_latest.dtl"
+					],
+					[
+						"simplequer",
+						"data/dojo/dojo/store/util/SimpleQueryEngine.js.uncompressed.js"
+					],
+					[
+						"queryres",
+						"data/dojo/dojo/store/util/QueryResults.js.uncompressed.js"
+					],
+					[
+						"objectstore",
+						"data/dojo/dojo/data/ObjectStore.js.uncompressed.js"
+					],
+					[
+						"objectstoremo",
+						"data/dojo/dijit/tree/ObjectStoreModel.js.uncompressed.js"
+					],
+					[
+						"objects",
+						"data/dojo/dojo/data/ObjectStore.js.uncompressed.js"
+					],
+					[
+						"simplequery",
+						"data/dojo/dojo/store/util/SimpleQueryEngine.js.uncompressed.js"
+					],
+					[
+						"util",
+						"data/shockcollar/util/Util.js"
+					],
+					[
+						"blocklists",
+						"data/shockcollar/panels/BlockLists.js"
+					],
+					[
+						"blockli",
+						"data/shockcollar/panels/BlockLists.js"
+					],
+					[
+						"panels/",
+						"data/shockcollar/panels/BlockLists.js"
+					],
+					[
+						"to",
+						"TODO"
+					],
+					[
+						"block",
+						"lib/block-governor.js"
+					],
+					[
+						"main.",
+						"lib/main.js"
+					],
+					[
+						"main.j",
+						"data/dojo/dijit/main.js"
+					]
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"show_minimap": true,
+			"show_open_files": false,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 209.0,
+			"status_bar_visible": true,
+			"window_id": 1,
+			"workspace_name": ""
+		}
+	],
+	"workspaces":
+	{
+		"recent_workspaces":
+		[
+		]
+	}
+}

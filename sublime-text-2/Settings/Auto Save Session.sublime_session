@@ -17,6 +17,10 @@
 				"selected_items":
 				[
 					[
+						"id_re",
+						"id_recepient_name"
+					],
+					[
 						"dep",
 						"dependencies"
 					],
@@ -129,69 +133,34 @@
 			"buffers":
 			[
 				{
-					"file": "/home/miko/workspace/shockcollar/data/shockcollar/Controller.js",
+					"file": "/home/miko/workspace/shockcollar/data/setup/settings.js",
 					"settings":
 					{
-						"buffer_size": 8262,
+						"buffer_size": 4374,
 						"line_ending": "Unix"
 					}
 				},
 				{
-					"file": "/home/miko/workspace/shockcollar/data/shockcollar/panels/BlockLists.js",
+					"file": "/home/miko/workspace/shockcollar/data/shockcollar/panels/BlockSchedule.js",
 					"settings":
 					{
-						"buffer_size": 13981,
+						"buffer_size": 13437,
 						"line_ending": "Unix"
 					}
 				},
 				{
-					"file": "/home/miko/workspace/shockcollar/data/shockcollar/util/DomainGroupStorage.js",
+					"file": "/home/miko/workspace/shockcollar/data/shockcollar/panels/Panel.js",
 					"settings":
 					{
-						"buffer_size": 7190,
+						"buffer_size": 2640,
 						"line_ending": "Unix"
 					}
 				},
 				{
-					"file": "/home/miko/workspace/shockcollar/data/setup/setup.js",
+					"file": "/home/miko/workspace/shockcollar/data/views/settings_latest.dtl",
 					"settings":
 					{
-						"buffer_size": 8809,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/miko/workspace/shockcollar/lib/settings.js",
-					"settings":
-					{
-						"buffer_size": 8914,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/miko/workspace/shockcollar/data/shockcollar/panels/Deterrent.js",
-					"settings":
-					{
-						"buffer_size": 18280,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/miko/workspace/shockcollar/data/shockcollar/panels/Welcome.js",
-					"settings":
-					{
-						"buffer_size": 251,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"contents": "from django.http import HttpResponse, Http404, HttpResponseBadRequest, HttpResponseRedirect, HttpResponseForbidden\nfrom django.conf import settings\nfrom django.views.decorators.csrf import csrf_protect, csrf_exempt\nfrom django.shortcuts import render_to_response\nfrom django.core.mail import send_mail\nfrom django.template.loader import get_template\nfrom django.template import Context\nfrom django.core.mail import send_mail\nfrom django import forms\nfrom captcha.fields import CaptchaField\nfrom django.utils import simplejson\nfrom django.db import IntegrityError\nfrom shockcollar.util.version import use_version\nimport os\nimport base64\nimport logging\n\nfrom shockcollar import views\nfrom shockcollar.key.models import KeyUser\n\nlogger = logging.getLogger('logview.key')\n\n@csrf_exempt\n@use_version\ndef add_password(request, version):\n    # Generate a new password for the given instance and add to db\n    # we must email the given email address with the password and information\n    # on what to do with it.\n    # Check a captcha to make sure we don't get spammed with bot requests\n    if request.method == 'POST':\n        form = SendEmailForm(request.POST)\n\n        \n        if form.is_valid():\n            recepientEmail = form.cleaned_data['recepient_email']\n            recepientName = form.cleaned_data['recepient_name']\n            senderName = form.cleaned_data['sender_name']\n\n            # Generate random password to associate with the instance\n            # The password needs to be less then 16 chars\n            password = base64.b32encode(os.urandom(5))[0:5]\n\n            instanceKey = _register_new_key(recepientEmail, password)\n\n            # Send out the email!\n            _send_password_email(senderName, recepientName, recepientEmail, password)\n\n            data = simplejson.dumps({\n                'success': True,\n                'data': instanceKey,\n            })\n            return HttpResponse(data, \"application/javascript\")\n        else:\n            errors = []\n            for errorArr in _flatten_dict_values(form.errors):\n                errors.extend(errorArr)\n            \n            data = simplejson.dumps({\n                'success': False,\n                'data': errors,\n            })\n            return HttpResponse(data, \"application/javascript\")\n    else:\n        # get the form\n        form = SendEmailForm()\n\n        return render_to_response('SendEmailForm.tmplt', {\n            'form': form,\n        })\n\n    data = simplejson.dumps({\n        'success': False,\n    })\n    return HttpResponse(data, \"application/javascript\")\n\n@use_version\ndef check_password(request, version):\n    # Check the password of the instance against the db\n    if request.method == 'GET':\n        instanceKey = request.GET.get('instance_key', None)\n        password = request.GET.get('password', None)\n\n        if instanceKey is not None:\n            try:\n                key = KeyUser.objects.get(instance_key=instanceKey)\n\n                if key.password == password:\n                    # Log if the key has been used previously\n                    if key.used and instanceKey != 'test':\n                        logger.warning('%s Key has already been used!' % instanceKey)\n\n                    key.used = True\n                    key.save()\n\n                    return HttpResponse('Success')\n\n            except KeyUser.DoesNotExist:\n                return HttpResponse('Not Found')\n    else:\n        return HttpResponseBadRequest()\n\n    return HttpResponse('Fail')\n\n\nclass SendEmailForm(forms.Form):\n    recepient_name = forms.CharField(label=\"Recepient's Name\", max_length=100, error_messages=\n            {\n                'max_length': \"\\\"Recepient's name\\\" cannot be more than 100 characters.\",\n                'required': '\"Recepient\\'s Name\" is a required field.',\n            })\n    recepient_email = forms.EmailField(label='E-mail', max_length=75, required=True, error_messages=\n            {\n                'invalid': 'You must enter a valid e-mail address.',\n                'max_length': 'E-mail address cannot be more than 100 characters.',\n                'required': '\"E-mail\" is a required field.',\n            })\n    sender_name = forms.CharField(label=\"Your Name\", max_length=100, error_messages=\n            {\n                'max_length': '\"Your name\" cannot be more than 100 characters.',\n                'required': '\"Your Name\" is a required field.',\n            })\n    captcha = CaptchaField(label=\"Human Verification\", error_messages=\n            {\n                'invalid': 'Incorrect human-verification.',\n                'required': '\"Human-verification\" is a required field.',\n            })\n\n\n# ancillary functions\ndef _send_password_email(senderName, recepientName, recepientEmail, password):\n    # Notify the given email address of the password that\n    # their friend needs to unlock idderall\n    senderAddr = 'no-reply@idderall.com'\n    subject = 'Intervention for %s' % recepientName\n    template = get_template('PasswordEmail.tmplt')\n    msg = template.render(Context({\n        'recepient_name': recepientName,\n        'sender_name': senderName,\n        'password': password,\n    }))\n\n    send_mail(subject, msg, senderAddr, [recepientEmail], fail_silently=False)\n\n# This makes registering keys free from race conditions, safe\n# for multithreading\ndef _register_new_key(email, password):\n    saved = False\n    key = KeyUser()\n    key.email = email\n    key.password = password\n    key.instance_key = views.generate_instance_key()\n\n    while saved == False:\n        try:\n            key.save()\n            saved = True\n        except IntegrityError:\n            key.instance_key = views.generate_instance_key()\n\n    return key.instance_key\n\ndef _flatten_dict_values(d):\n    values = []\n    for value in d.itervalues():\n        if isinstance(value, dict):\n            values.extend(_flatten_dict_values(value))\n        else:\n            values.append(value)\n    return values\n",
-					"file": "/home/miko/workspace/shockcollar-site/shockcollar/key/views.py",
-					"file_size": 5926,
-					"file_write_time": 1357198697000000,
-					"settings":
-					{
-						"buffer_size": 5935,
+						"buffer_size": 1346,
 						"line_ending": "Unix"
 					}
 				}
@@ -199,13 +168,9 @@
 			"build_system": "",
 			"command_palette":
 			{
-				"height": 54.0,
+				"height": 306.0,
 				"selected_items":
 				[
-					[
-						":save all",
-						"File: Save All"
-					],
 					[
 						":w",
 						":w - Save"
@@ -213,6 +178,26 @@
 					[
 						":save",
 						":w - Save"
+					],
+					[
+						":save all",
+						"File: Save All"
+					],
+					[
+						":",
+						":w - Save"
+					],
+					[
+						":s",
+						":w - Save"
+					],
+					[
+						":sa",
+						":w - Save"
+					],
+					[
+						":x",
+						"Set Syntax: XSL"
 					],
 					[
 						":install",
@@ -243,16 +228,8 @@
 						"File: Close All"
 					],
 					[
-						":",
-						"File: Save All"
-					],
-					[
 						":packa",
 						"Package Control: Remove Package"
-					],
-					[
-						":x",
-						"Set Syntax: XSL"
 					],
 					[
 						":w ",
@@ -292,43 +269,56 @@
 			},
 			"file_history":
 			[
-				"/home/miko/workspace/shockcollar/data/shockcollar/panels/Panel.js",
+				"/home/miko/workspace/shockcollar/data/shockcollar/Controller.js",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/Deterrent.js",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/templates/BlockSchedule.html",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/templates/BlockLists.html",
 				"/home/miko/workspace/shockcollar/data/shockcollar/panels/templates/Deterrent.html",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/Panel.js",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/BlockLists.js",
+				"/home/miko/workspace/shockcollar/data/frames/PasswordSurrender.html",
+				"/home/miko/workspace/shockcollar/data/frames/PasswordSurrenderCS.js",
+				"/home/miko/workspace/shockcollar/lib/deterrents.js",
+				"/home/miko/workspace/shockcollar/data/setup/setup.js",
+				"/home/miko/workspace/shockcollar/data/media/css/SetupAndSettings.css",
+				"/home/miko/workspace/shockcollar/lib/dojo_build/custom/panels/Panels.js",
+				"/home/miko/workspace/shockcollar/data/views/setup_latest.dtl",
+				"/home/miko/workspace/shockcollar/data/setup/Setup.js",
+				"/home/miko/workspace/shockcollar/lib/settings.js",
+				"/home/miko/workspace/shockcollar/data/media/css/PageBox.css",
 				"/home/miko/workspace/shockcollar/data/views/base_interface.dtl",
+				"/home/miko/workspace/shockcollar-site/shockcollar/views.py",
+				"/home/miko/workspace/shockcollar-site/shockcollar/settings.py",
+				"/home/miko/workspace/shockcollar-site/shockcollar/test/version_test.py",
+				"/home/miko/workspace/shockcollar-site/shockcollar/util/version.py",
+				"/home/miko/workspace/shockcollar/test/test-main.js",
+				"/home/miko/workspace/shockcollar-site/shockcollar/templates/SendEmailForm.tmplt",
+				"/home/miko/workspace/shockcollar-site/shockcollar/key/views.py",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/Welcome.js",
+				"/home/miko/workspace/shockcollar/package.json",
+				"/home/miko/workspace/shockcollar/data/shockcollar/util/DomainGroupStorage.js",
 				"/home/miko/workspace/shockcollar/data/setup/SetupAndSettingsCS.js",
 				"/home/miko/workspace/shockcollar/lib/util.js",
-				"/home/miko/workspace/shockcollar/data/setup/setup.js",
-				"/home/miko/workspace/shockcollar/lib/settings.js",
 				"/home/miko/workspace/shockcollar/data/setup/settings.js",
 				"/home/miko/workspace/shockcollar/data/shockcollar/panels/BlockSchedule.js",
-				"/home/miko/workspace/shockcollar/data/shockcollar/panels/templates/BlockSchedule.html",
-				"/home/miko/workspace/shockcollar/data/shockcollar/panels/Welcome.js",
 				"/home/miko/workspace/shockcollar/data/shockcollar/panels/Initiation.js",
-				"/home/miko/workspace/shockcollar/data/shockcollar/panels/Deterrent.js",
 				"/home/miko/workspace/shockcollar/data/dojo/dojo/store/Observable.js",
 				"/home/miko/workspace/shockcollar/data/shockcollar/util/Log.js",
-				"/home/miko/workspace/shockcollar/data/media/css/SetupAndSettings.css",
-				"/home/miko/workspace/shockcollar/data/shockcollar/panels/BlockLists.js",
-				"/home/miko/workspace/shockcollar/data/views/setup_latest.dtl",
 				"/home/miko/workspace/shockcollar/data/dojo/dijit/Tooltip.js",
 				"/home/miko/workspace/shockcollar/data/dojo/dijit/_Widget.js",
 				"/home/miko/workspace/shockcollar/data/dojo/dijit/Tree.js",
-				"/home/miko/workspace/shockcollar/lib/deterrents.js",
 				"/home/miko/workspace/shockcollar/data/shockcollar/widgets/SiteTree.js",
 				"/home/miko/workspace/shockcollar/lib/scheduler.js",
 				"/home/miko/workspace/shockcollar/lib/block-governor.js",
-				"/home/miko/workspace/shockcollar/lib/dojo_build/custom/panels/Panels.js",
 				"/home/miko/workspace/shockcollar/data/dojo/dojo/when.js",
 				"/home/miko/workspace/shockcollar/data/views/settings_latest.dtl",
 				"/home/miko/workspace/shockcollar/data/views/.base_interface.dtl.swp",
 				"/home/miko/workspace/shockcollar/data/shockcollar/panels/TermsAndConditions.js",
 				"/home/miko/workspace/shockcollar/data/shockcollar/panels/Panels.js",
 				"/home/miko/workspace/shockcollar-site/shockcollar/urls.py",
-				"/home/miko/workspace/shockcollar-site/shockcollar/key/views.py",
 				"/home/miko/workspace/shockcollar-site/shockcollar/paypal/views.py",
 				"/home/miko/workspace/shockcollar-site/shockcollar/facebook/views.py",
 				"/home/miko/workspace/shockcollar/data/dojo/dijit/tree/ObjectStoreModel.js",
-				"/home/miko/workspace/shockcollar/data/shockcollar/util/DomainGroupStorage.js",
 				"/home/miko/workspace/shockcollar/data/shockcollar/widgets/EditSiteTree.js",
 				"/home/mikob/workspace/shockcollar/data/dojo/dojo/store/Memory.js",
 				"/home/mikob/workspace/shockcollar/data/shockcollar/util/QueryEngine.js",
@@ -386,6 +376,58 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"resetbtn",
+					"resetBtn",
+					"currentPanel",
+					"resetBtn",
+					"beforeSave",
+					"readonly",
+					"window",
+					"input",
+					"regis",
+					"domAttr",
+					"_save",
+					"selectStep",
+					"bNext",
+					"anim(",
+					"hint",
+					"showEmailHint",
+					"domClass",
+					"hint",
+					"beforeSave",
+					"saveAndValidate",
+					"saveAndValidatciwe",
+					"saveAndValidate",
+					"name",
+					"proper",
+					"anim",
+					"selectStep",
+					"anim",
+					"right",
+					"animNode",
+					"domStyle",
+					"anim",
+					"unload",
+					"_unload",
+					"_load",
+					"dojo.style",
+					"dojo.fx",
+					"baseFx",
+					"fx.",
+					"fx",
+					"style",
+					"win",
+					"after",
+					"pdb",
+					"STATIC",
+					"stepNum",
+					"animBack",
+					"selectStep",
+					"text-shadow",
+					"settings",
+					"content:",
+					"SendEmailForm",
+					"_emailDialog",
 					"xhrArgs",
 					"resolve",
 					"that",
@@ -461,59 +503,7 @@
 					"dojo.attr",
 					"dojo.empty",
 					"dojo.forEach",
-					"callback()",
-					"dojo.Deferred",
-					"dojo.connect",
-					"domStyle",
-					"dojo.hitch",
-					"dojo.query",
-					"dojo.byId",
-					"dojo.style",
-					"debug",
-					"callback",
-					"xhrArgs",
-					"submitPay",
-					"{{",
-					"DOMAIN",
-					"notifi",
-					"error",
-					"showError",
-					"showEmail",
-					"notification",
-					"dojo.",
-					"on(",
-					"this",
-					"on(",
-					"validate",
-					"xhrA",
-					"animate",
-					"var url",
-					"xhrAr",
-					"fadeTo",
-					"ContentPane",
-					"dojo.",
-					"dojo.byId",
-					"dojo.connect",
-					"Util",
-					"newParentItem",
-					"_identical",
-					"onDelete",
-					"oldParent",
-					"onItemDelete",
-					"getChildren",
-					"setData",
-					"array",
-					"onDndDrop",
-					"dndParams",
-					"onDndDrop",
-					"dndController",
-					"origin",
-					"childItem",
-					"child",
-					"store.get",
-					"try",
-					"query",
-					"queryUpd"
+					"callback()"
 				],
 				"highlight": true,
 				"in_selection": false,
@@ -521,6 +511,10 @@
 				"regex": false,
 				"replace_history":
 				[
+					"validateAndSave",
+					"domStyle",
+					"coreFx",
+					"domStyle",
 					"this",
 					"domClass.toggle",
 					"domConstruct.create",
@@ -556,58 +550,55 @@
 			"groups":
 			[
 				{
-					"selected": 7,
+					"selected": 0,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/home/miko/workspace/shockcollar/data/shockcollar/Controller.js",
+							"file": "/home/miko/workspace/shockcollar/data/setup/settings.js",
 							"settings":
 							{
-								"buffer_size": 8262,
+								"buffer_size": 4374,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										6657,
-										6657
+										922,
+										922
 									]
 								],
 								"settings":
 								{
 									"line_numbers": false,
-									"spell_check": false,
 									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 									"tab_size": 4,
 									"translate_tabs_to_spaces": true,
-									"vintage_lines.line": 217,
-									"vintage_lines.lines": 271,
-									"vintage_lines.mode": true,
-									"word_wrap": false,
-									"wrap_width": 80
+									"vintage_lines.line": 32,
+									"vintage_lines.lines": 152,
+									"vintage_lines.mode": true
 								},
 								"translation.x": 0.0,
-								"translation.y": 3349.0,
+								"translation.y": 136.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
 						},
 						{
 							"buffer": 1,
-							"file": "/home/miko/workspace/shockcollar/data/shockcollar/panels/BlockLists.js",
+							"file": "/home/miko/workspace/shockcollar/data/shockcollar/panels/BlockSchedule.js",
 							"settings":
 							{
-								"buffer_size": 13981,
+								"buffer_size": 13437,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										3094,
-										3094
+										627,
+										627
 									]
 								],
 								"settings":
@@ -616,30 +607,30 @@
 									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 									"tab_size": 4,
 									"translate_tabs_to_spaces": true,
-									"vintage_lines.line": 70,
-									"vintage_lines.lines": 395,
+									"vintage_lines.line": 20,
+									"vintage_lines.lines": 334,
 									"vintage_lines.mode": true
 								},
 								"translation.x": 0.0,
-								"translation.y": 787.0,
+								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
 						},
 						{
 							"buffer": 2,
-							"file": "/home/miko/workspace/shockcollar/data/shockcollar/util/DomainGroupStorage.js",
+							"file": "/home/miko/workspace/shockcollar/data/shockcollar/panels/Panel.js",
 							"settings":
 							{
-								"buffer_size": 7190,
+								"buffer_size": 2640,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										250,
-										250
+										230,
+										230
 									]
 								],
 								"settings":
@@ -649,7 +640,7 @@
 									"tab_size": 4,
 									"translate_tabs_to_spaces": true,
 									"vintage_lines.line": 9,
-									"vintage_lines.lines": 237,
+									"vintage_lines.lines": 96,
 									"vintage_lines.mode": true
 								},
 								"translation.x": 0.0,
@@ -660,158 +651,30 @@
 						},
 						{
 							"buffer": 3,
-							"file": "/home/miko/workspace/shockcollar/data/setup/setup.js",
+							"file": "/home/miko/workspace/shockcollar/data/views/settings_latest.dtl",
 							"settings":
 							{
-								"buffer_size": 8809,
+								"buffer_size": 1346,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										2339,
-										2339
+										1259,
+										1259
 									]
 								],
 								"settings":
 								{
 									"line_numbers": false,
-									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true,
-									"vintage_lines.line": 71,
-									"vintage_lines.lines": 302,
-									"vintage_lines.mode": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 867.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 4,
-							"file": "/home/miko/workspace/shockcollar/lib/settings.js",
-							"settings":
-							{
-								"buffer_size": 8914,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										4501,
-										4501
-									]
-								],
-								"settings":
-								{
-									"line_numbers": false,
-									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true,
-									"vintage_lines.line": 127,
-									"vintage_lines.lines": 271,
-									"vintage_lines.mode": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 1938.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 5,
-							"file": "/home/miko/workspace/shockcollar/data/shockcollar/panels/Deterrent.js",
-							"settings":
-							{
-								"buffer_size": 18280,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										16572,
-										16572
-									]
-								],
-								"settings":
-								{
-									"line_numbers": false,
-									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true,
-									"vintage_lines.line": 494,
-									"vintage_lines.lines": 549,
-									"vintage_lines.mode": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 8211.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 6,
-							"file": "/home/miko/workspace/shockcollar/data/shockcollar/panels/Welcome.js",
-							"settings":
-							{
-								"buffer_size": 251,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										209,
-										209
-									]
-								],
-								"settings":
-								{
-									"line_numbers": false,
-									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-									"vintage_lines.line": 7,
-									"vintage_lines.lines": 12,
+									"syntax": "Packages/Text/Plain text.tmLanguage",
+									"vintage_lines.line": 30,
+									"vintage_lines.lines": 34,
 									"vintage_lines.mode": true
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 7,
-							"file": "/home/miko/workspace/shockcollar-site/shockcollar/key/views.py",
-							"settings":
-							{
-								"buffer_size": 5935,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										1163,
-										1163
-									]
-								],
-								"settings":
-								{
-									"line_numbers": false,
-									"syntax": "Packages/Python/Python.tmLanguage",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true,
-									"vintage_lines.line": 32,
-									"vintage_lines.lines": 169,
-									"vintage_lines.mode": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 408.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
@@ -862,6 +725,150 @@
 				"selected_items":
 				[
 					[
+						"settings_la",
+						"shockcollar/data/views/settings_latest.dtl"
+					],
+					[
+						"deterr",
+						"shockcollar/data/shockcollar/panels/Deterrent.js"
+					],
+					[
+						"cont",
+						"shockcollar/data/shockcollar/Controller.js"
+					],
+					[
+						"panel",
+						"shockcollar/data/shockcollar/panels/Panel.js"
+					],
+					[
+						"dete",
+						"shockcollar/data/shockcollar/panels/templates/Deterrent.html"
+					],
+					[
+						"blocklis",
+						"shockcollar/data/shockcollar/panels/templates/BlockLists.html"
+					],
+					[
+						"blockschdule",
+						"shockcollar/data/shockcollar/panels/templates/BlockSchedule.html"
+					],
+					[
+						"block",
+						"shockcollar/data/shockcollar/panels/BlockSchedule.js"
+					],
+					[
+						"controll",
+						"shockcollar/data/shockcollar/Controller.js"
+					],
+					[
+						"control",
+						"shockcollar/data/shockcollar/Controller.js"
+					],
+					[
+						"passw",
+						"shockcollar/data/frames/PasswordSurrenderCS.js"
+					],
+					[
+						"det",
+						"shockcollar/lib/deterrents.js"
+					],
+					[
+						"password",
+						"shockcollar/data/frames/PasswordSurrender.html"
+					],
+					[
+						"panel.",
+						"shockcollar/data/shockcollar/panels/Panel.js"
+					],
+					[
+						"setupand",
+						"shockcollar/data/media/css/SetupAndSettings.css"
+					],
+					[
+						"detere",
+						"shockcollar/data/shockcollar/panels/templates/Deterrent.html"
+					],
+					[
+						"deterre",
+						"shockcollar/data/shockcollar/panels/Deterrent.js"
+					],
+					[
+						"sett",
+						"shockcollar/data/setup/settings.js"
+					],
+					[
+						"setup_la",
+						"shockcollar/data/views/setup_latest.dtl"
+					],
+					[
+						"panels.",
+						"shockcollar/lib/dojo_build/custom/panels/Panels.js"
+					],
+					[
+						"setup.",
+						"shockcollar/data/setup/Setup.js"
+					],
+					[
+						"testvers",
+						"shockcollar-site/shockcollar/test/version_test.py"
+					],
+					[
+						"test",
+						"shockcollar/test/test-main.js"
+					],
+					[
+						"version",
+						"shockcollar-site/shockcollar/util/version.py"
+					],
+					[
+						"settings",
+						"shockcollar-site/shockcollar/settings.py"
+					],
+					[
+						"views.py",
+						"shockcollar-site/shockcollar/views.py"
+					],
+					[
+						"setupl",
+						"shockcollar/data/views/setup_latest.dtl"
+					],
+					[
+						"base",
+						"shockcollar/data/views/base_interface.dtl"
+					],
+					[
+						"contr",
+						"shockcollar/data/shockcollar/Controller.js"
+					],
+					[
+						"media/",
+						"shockcollar/data/media/css/PageBox.css"
+					],
+					[
+						"emailfor",
+						"shockcollar-site/shockcollar/templates/SendEmailForm.tmplt"
+					],
+					[
+						"view",
+						"shockcollar-site/shockcollar/key/views.py"
+					],
+					[
+						"send",
+						"shockcollar-site/shockcollar/templates/SendEmailForm.tmplt"
+					],
+					[
+						"package",
+						"shockcollar/package.json"
+					],
+					[
+						"settin",
+						"shockcollar-site/shockcollar/settings.py"
+					],
+					[
+						"deter",
+						"shockcollar/data/shockcollar/panels/templates/Deterrent.html"
+					],
+					[
 						"pane",
 						"shockcollar/data/shockcollar/panels/Panel.js"
 					],
@@ -874,24 +881,8 @@
 						"shockcollar/data/shockcollar/panels/templates/Deterrent.html"
 					],
 					[
-						"detere",
-						"shockcollar/data/shockcollar/panels/Deterrent.js"
-					],
-					[
-						"base",
-						"shockcollar/data/views/base_interface.dtl"
-					],
-					[
 						"util",
 						"shockcollar/lib/util.js"
-					],
-					[
-						"setupand",
-						"shockcollar/data/setup/SetupAndSettingsCS.js"
-					],
-					[
-						"sett",
-						"shockcollar/lib/settings.js"
 					],
 					[
 						"setupandse",
@@ -926,10 +917,6 @@
 						"shockcollar/data/shockcollar/panels/BlockLists.js"
 					],
 					[
-						"panel",
-						"shockcollar/data/shockcollar/panels/Panel.js"
-					],
-					[
 						"blocksche",
 						"shockcollar/data/shockcollar/panels/BlockSchedule.js"
 					],
@@ -954,16 +941,8 @@
 						"shockcollar/data/shockcollar/panels/BlockLists.js"
 					],
 					[
-						"panel.",
-						"shockcollar/data/shockcollar/panels/Panel.js"
-					],
-					[
 						"setu",
 						"shockcollar/data/views/setup_latest.dtl"
-					],
-					[
-						"settin",
-						"shockcollar/data/setup/settings.js"
 					],
 					[
 						"_w",
@@ -980,10 +959,6 @@
 					[
 						"log.js",
 						"shockcollar/data/shockcollar/util/Log.js"
-					],
-					[
-						"deter",
-						"shockcollar/data/shockcollar/panels/Deterrent.js"
 					],
 					[
 						"de",
@@ -1014,16 +989,8 @@
 						"shockcollar/data/shockcollar/panels/BlockSchedule.js"
 					],
 					[
-						"settings",
-						"shockcollar/lib/settings.js"
-					],
-					[
 						"when",
 						"shockcollar/data/dojo/dojo/when.js"
-					],
-					[
-						"setup.",
-						"shockcollar/data/setup/setup.js"
 					],
 					[
 						"setup_l",
@@ -1038,20 +1005,8 @@
 						"shockcollar/data/shockcollar/panels/Panels.js"
 					],
 					[
-						"deterre",
-						"shockcollar/data/shockcollar/panels/templates/Deterrent.html"
-					],
-					[
 						"init",
 						"shockcollar/data/shockcollar/panels/Initiation.js"
-					],
-					[
-						"dete",
-						"shockcollar/data/shockcollar/panels/Deterrent.js"
-					],
-					[
-						"det",
-						"shockcollar/lib/deterrents.js"
 					],
 					[
 						"sitet",
@@ -1158,10 +1113,6 @@
 						"TODO"
 					],
 					[
-						"block",
-						"lib/block-governor.js"
-					],
-					[
 						"main.",
 						"lib/main.js"
 					],
@@ -1183,7 +1134,7 @@
 			"show_minimap": true,
 			"show_open_files": false,
 			"show_tabs": true,
-			"side_bar_visible": true,
+			"side_bar_visible": false,
 			"side_bar_width": 194.0,
 			"status_bar_visible": true,
 			"window_id": 1,

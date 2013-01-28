@@ -239,9 +239,10 @@ root.buttons(awful.util.table.join(
 -- {{{ Key bindings
 -- for volume
 globalkeys = awful.util.table.join(
-    --awful.key({ }, "XF86AudioRaiseVolume", function() volume("up", tb_volume) end),
-    --awful.key({ }, "XF86AudioLowerVolume", function() volume("down", tb_volume) end),
-    --awful.key({ }, "XF86AudioMute", function() volume("mute", tb_volume) end),
+
+    awful.key({ }, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer -q sset PCM 2dB+") end),
+    awful.key({ }, "XF86AudioLowerVolume", function() awful.util.spawn("amixer -q sset PCM 2dB-") end),
+    awful.key({ }, "XF86AudioMute", function() awful.util.spawn("amixer -q sset Master toggle") end),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
@@ -380,8 +381,8 @@ awful.rules.rules = {
     { rule = { class = "gimp" },
       properties = { floating = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
+    { rule = { class = "Firefox" },
+       properties = { tag = tags[1][3] } },
 }
 -- }}}
 
@@ -423,4 +424,5 @@ awful.util.spawn_with_shell("dropbox start")
 awful.util.spawn_with_shell("nm-applet")
 awful.util.spawn_with_shell("gnome-sound-applet")
 awful.util.spawn_with_shell(". ~/.bashrc")
+awful.util.spawn_with_shell("xfce4-power-manager")
 --- }}}

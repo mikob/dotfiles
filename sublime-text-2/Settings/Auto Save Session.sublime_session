@@ -1,6 +1,8 @@
 {
 	"folder_history":
 	[
+		"/home/miko/workspace/class-opening-notifier",
+		"/home/miko/workspace/karma-wars",
 		"/home/miko/workspace/shockcollar-site",
 		"/home/miko/workspace/shockcollar",
 		"/home/mikob/workspace/shockcollar"
@@ -133,34 +135,66 @@
 			"buffers":
 			[
 				{
-					"file": "/home/miko/workspace/shockcollar/data/setup/settings.js",
+					"file": "shockcollar/lib/menu.js",
 					"settings":
 					{
-						"buffer_size": 4374,
+						"buffer_size": 5517,
 						"line_ending": "Unix"
 					}
 				},
 				{
-					"file": "/home/miko/workspace/shockcollar/data/shockcollar/panels/BlockSchedule.js",
+					"file": "shockcollar/data/js/content-scripts/menu.js",
 					"settings":
 					{
-						"buffer_size": 13437,
+						"buffer_size": 4570,
 						"line_ending": "Unix"
 					}
 				},
 				{
-					"file": "/home/miko/workspace/shockcollar/data/shockcollar/panels/Panel.js",
+					"file": "shockcollar/data/views/menu.html",
 					"settings":
 					{
-						"buffer_size": 2640,
+						"buffer_size": 3819,
 						"line_ending": "Unix"
 					}
 				},
 				{
-					"file": "/home/miko/workspace/shockcollar/data/views/settings_latest.dtl",
+					"file": "shockcollar/data/js/dojo/shockcollar/panels/QuickBlock.js",
 					"settings":
 					{
-						"buffer_size": 1346,
+						"buffer_size": 587,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "shockcollar/data/js/dojo/shockcollar/menu.js",
+					"settings":
+					{
+						"buffer_size": 1615,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "shockcollar/data/js/dojo/shockcollar/Controller.js",
+					"settings":
+					{
+						"buffer_size": 9721,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "shockcollar/data/js/content-scripts/setup-and-settings.js",
+					"settings":
+					{
+						"buffer_size": 3154,
+						"line_ending": "Windows"
+					}
+				},
+				{
+					"file": "shockcollar/lib/settings.js",
+					"settings":
+					{
+						"buffer_size": 8930,
 						"line_ending": "Unix"
 					}
 				}
@@ -168,15 +202,19 @@
 			"build_system": "",
 			"command_palette":
 			{
-				"height": 306.0,
+				"height": 96.0,
 				"selected_items":
 				[
+					[
+						":save",
+						":w - Save"
+					],
 					[
 						":w",
 						":w - Save"
 					],
 					[
-						":save",
+						":s",
 						":w - Save"
 					],
 					[
@@ -185,10 +223,6 @@
 					],
 					[
 						":",
-						":w - Save"
-					],
-					[
-						":s",
 						":w - Save"
 					],
 					[
@@ -269,12 +303,66 @@
 			},
 			"file_history":
 			[
+				"/home/miko/workspace/shockcollar/lib/settings.js",
+				"/home/miko/workspace/shockcollar/lib/main.js",
+				"/home/miko/workspace/shockcollar/lib/util.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/templates/AddToBlockList.html",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/templates/QuickBlock.html",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/menu/menu.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/menu/AddToBlockList.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/menu/QuickBlock.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/AddToBlockList.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/QuickBlock.js",
+				"/home/miko/workspace/shockcollar/data/views/paypal-surrender.html",
+				"/home/miko/workspace/shockcollar/data/views/password-surrender.html",
+				"/home/miko/workspace/shockcollar/data/views/base-interface.dtl",
+				"/home/miko/workspace/shockcollar/data/js/content-scripts/setup-and-settings.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/Controller.js",
+				"/home/miko/workspace/shockcollar/data/css/menu.css",
+				"/home/miko/workspace/shockcollar/data/css/page-box.css",
+				"/home/miko/workspace/shockcollar/data/css/setup-and-settings.css",
+				"/home/miko/workspace/shockcollar-site/shockcollar/views.py",
+				"/home/miko/workspace/shockcollar/data/views/settings.dtl",
+				"/home/miko/workspace/shockcollar-site/shockcollar/settings.py",
+				"/home/miko/workspace/shockcollar/data/views/setup.dtl",
+				"/home/miko/workspace/shockcollar/data/views/menu.html",
+				"/home/miko/workspace/shockcollar/data/views/menu-test-browser.html",
+				"/home/miko/workspace/shockcollar/data/views/block-page.html",
+				"/home/miko/workspace/shockcollar/lib/notify.js",
+				"/home/miko/workspace/shockcollar/.gitignore",
+				"/home/miko/workspace/shockcollar/package.json",
+				"/home/miko/workspace/shockcollar/data/js/dojo/build.profile.js",
+				"/home/miko/workspace/shockcollar/data/menu/Menu.html",
+				"/home/miko/workspace/shockcollar/lib/menu.js",
+				"/home/miko/workspace/shockcollar/lib/menu.js.orig",
+				"/home/miko/workspace/shockcollar/data/menu/MenuCS.js",
+				"/home/miko/workspace/shockcollar/data/menu/MenuTest.html",
+				"/home/miko/workspace/shockcollar-site/shockcollar/paypal/admin.py",
+				"/home/miko/workspace/karma-wars/index.html",
+				"/home/miko/workspace/shockcollar/data/views/base_interface.dtl",
+				"/home/miko/workspace/shockcollar/data/views/settings_latest.dtl",
+				"/home/miko/workspace/shockcollar/data/src/shockcollar/Controller.js",
+				"/home/miko/workspace/shockcollar/data/setup/SetupAndSettingsCS.js",
+				"/home/miko/workspace/shockcollar/data/config.js",
+				"/home/miko/workspace/shockcollar/data/menu/MenuTestBrowser.html",
+				"/home/miko/workspace/shockcollar/data/menu/menu.js",
+				"/home/miko/workspace/shockcollar/data/src/build.profile.js",
+				"/home/miko/workspace/shockcollar/data/build/lib/shockcollar/setup.js.uncompressed.js",
+				"/home/miko/workspace/shockcollar/data/build/lib/dojo/dojo.js.uncompressed.js",
+				"/home/miko/workspace/shockcollar/data/src/dojo/i18n.js",
 				"/home/miko/workspace/shockcollar/data/shockcollar/Controller.js",
+				"/home/miko/workspace/shockcollar/data/test.js",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/templates/AddToBlockList.html",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/templates/QuickBlock.html",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/AddToBlockList.js",
+				"/home/miko/workspace/shockcollar/data/setup/settings.js",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/BlockSchedule.js",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/Panel.js",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/QuickBlock.js",
 				"/home/miko/workspace/shockcollar/data/shockcollar/panels/Deterrent.js",
 				"/home/miko/workspace/shockcollar/data/shockcollar/panels/templates/BlockSchedule.html",
 				"/home/miko/workspace/shockcollar/data/shockcollar/panels/templates/BlockLists.html",
 				"/home/miko/workspace/shockcollar/data/shockcollar/panels/templates/Deterrent.html",
-				"/home/miko/workspace/shockcollar/data/shockcollar/panels/Panel.js",
 				"/home/miko/workspace/shockcollar/data/shockcollar/panels/BlockLists.js",
 				"/home/miko/workspace/shockcollar/data/frames/PasswordSurrender.html",
 				"/home/miko/workspace/shockcollar/data/frames/PasswordSurrenderCS.js",
@@ -284,23 +372,14 @@
 				"/home/miko/workspace/shockcollar/lib/dojo_build/custom/panels/Panels.js",
 				"/home/miko/workspace/shockcollar/data/views/setup_latest.dtl",
 				"/home/miko/workspace/shockcollar/data/setup/Setup.js",
-				"/home/miko/workspace/shockcollar/lib/settings.js",
 				"/home/miko/workspace/shockcollar/data/media/css/PageBox.css",
-				"/home/miko/workspace/shockcollar/data/views/base_interface.dtl",
-				"/home/miko/workspace/shockcollar-site/shockcollar/views.py",
-				"/home/miko/workspace/shockcollar-site/shockcollar/settings.py",
 				"/home/miko/workspace/shockcollar-site/shockcollar/test/version_test.py",
 				"/home/miko/workspace/shockcollar-site/shockcollar/util/version.py",
 				"/home/miko/workspace/shockcollar/test/test-main.js",
 				"/home/miko/workspace/shockcollar-site/shockcollar/templates/SendEmailForm.tmplt",
 				"/home/miko/workspace/shockcollar-site/shockcollar/key/views.py",
 				"/home/miko/workspace/shockcollar/data/shockcollar/panels/Welcome.js",
-				"/home/miko/workspace/shockcollar/package.json",
 				"/home/miko/workspace/shockcollar/data/shockcollar/util/DomainGroupStorage.js",
-				"/home/miko/workspace/shockcollar/data/setup/SetupAndSettingsCS.js",
-				"/home/miko/workspace/shockcollar/lib/util.js",
-				"/home/miko/workspace/shockcollar/data/setup/settings.js",
-				"/home/miko/workspace/shockcollar/data/shockcollar/panels/BlockSchedule.js",
 				"/home/miko/workspace/shockcollar/data/shockcollar/panels/Initiation.js",
 				"/home/miko/workspace/shockcollar/data/dojo/dojo/store/Observable.js",
 				"/home/miko/workspace/shockcollar/data/shockcollar/util/Log.js",
@@ -311,7 +390,6 @@
 				"/home/miko/workspace/shockcollar/lib/scheduler.js",
 				"/home/miko/workspace/shockcollar/lib/block-governor.js",
 				"/home/miko/workspace/shockcollar/data/dojo/dojo/when.js",
-				"/home/miko/workspace/shockcollar/data/views/settings_latest.dtl",
 				"/home/miko/workspace/shockcollar/data/views/.base_interface.dtl.swp",
 				"/home/miko/workspace/shockcollar/data/shockcollar/panels/TermsAndConditions.js",
 				"/home/miko/workspace/shockcollar/data/shockcollar/panels/Panels.js",
@@ -352,13 +430,7 @@
 				"/home/mikob/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
 				"/home/mikob/.mozilla/firefox/75jwaxbq.Dev3/jetpack/jid1-u6nQDbYs4ZJDAw@jetpack/simple-storage/store.json",
 				"/home/mikob/workspace/shockcollar/TODO",
-				"/home/mikob/workspace/shockcollar/data/dojo/dijit/main.js",
-				"/home/mikob/workspace/shockcollar/lib/main.js",
-				"/home/mikob/workspace/shockcollar/lib/block-governor.js",
-				"/home/mikob/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
-				"/usr/share/applications/sublime.desktop",
-				"/usr/share/applications/defaults.list",
-				"/opt/Sublime Text 2/Pristine Packages/Vintage.sublime-package"
+				"/home/mikob/workspace/shockcollar/data/dojo/dijit/main.js"
 			],
 			"find":
 			{
@@ -376,6 +448,15 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"url",
+					"warning",
+					"font",
+					"write",
+					"ADDN",
+					"Data",
+					"that",
+					"_send",
+					"domClass",
 					"resetbtn",
 					"resetBtn",
 					"currentPanel",
@@ -494,16 +575,7 @@
 					"saved",
 					"dojo.toggleClass",
 					"dojo",
-					"panelName",
-					"currentPanel",
-					"loadP",
-					"domStyle",
-					"domAttr",
-					"dojo.create",
-					"dojo.attr",
-					"dojo.empty",
-					"dojo.forEach",
-					"callback()"
+					"panelName"
 				],
 				"highlight": true,
 				"in_selection": false,
@@ -538,35 +610,26 @@
 				"whole_word": false,
 				"wrap": true
 			},
-			"folders":
-			[
-				{
-					"path": "/home/miko/workspace/shockcollar"
-				},
-				{
-					"path": "/home/miko/workspace/shockcollar-site"
-				}
-			],
 			"groups":
 			[
 				{
-					"selected": 0,
+					"selected": 1,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/home/miko/workspace/shockcollar/data/setup/settings.js",
+							"file": "shockcollar/lib/menu.js",
 							"settings":
 							{
-								"buffer_size": 4374,
+								"buffer_size": 5517,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										922,
-										922
+										4762,
+										4762
 									]
 								],
 								"settings":
@@ -575,30 +638,30 @@
 									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 									"tab_size": 4,
 									"translate_tabs_to_spaces": true,
-									"vintage_lines.line": 32,
-									"vintage_lines.lines": 152,
+									"vintage_lines.line": 144,
+									"vintage_lines.lines": 167,
 									"vintage_lines.mode": true
 								},
 								"translation.x": 0.0,
-								"translation.y": 136.0,
+								"translation.y": 459.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
 						},
 						{
 							"buffer": 1,
-							"file": "/home/miko/workspace/shockcollar/data/shockcollar/panels/BlockSchedule.js",
+							"file": "shockcollar/data/js/content-scripts/menu.js",
 							"settings":
 							{
-								"buffer_size": 13437,
+								"buffer_size": 4570,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										627,
-										627
+										341,
+										341
 									]
 								],
 								"settings":
@@ -607,8 +670,8 @@
 									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 									"tab_size": 4,
 									"translate_tabs_to_spaces": true,
-									"vintage_lines.line": 20,
-									"vintage_lines.lines": 334,
+									"vintage_lines.line": 11,
+									"vintage_lines.lines": 138,
 									"vintage_lines.mode": true
 								},
 								"translation.x": 0.0,
@@ -619,28 +682,28 @@
 						},
 						{
 							"buffer": 2,
-							"file": "/home/miko/workspace/shockcollar/data/shockcollar/panels/Panel.js",
+							"file": "shockcollar/data/views/menu.html",
 							"settings":
 							{
-								"buffer_size": 2640,
+								"buffer_size": 3819,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										230,
-										230
+										557,
+										557
 									]
 								],
 								"settings":
 								{
 									"line_numbers": false,
-									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"syntax": "Packages/HTML/HTML.tmLanguage",
 									"tab_size": 4,
 									"translate_tabs_to_spaces": true,
-									"vintage_lines.line": 9,
-									"vintage_lines.lines": 96,
+									"vintage_lines.line": 10,
+									"vintage_lines.lines": 82,
 									"vintage_lines.mode": true
 								},
 								"translation.x": 0.0,
@@ -651,26 +714,154 @@
 						},
 						{
 							"buffer": 3,
-							"file": "/home/miko/workspace/shockcollar/data/views/settings_latest.dtl",
+							"file": "shockcollar/data/js/dojo/shockcollar/panels/QuickBlock.js",
 							"settings":
 							{
-								"buffer_size": 1346,
+								"buffer_size": 587,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										1259,
-										1259
+										330,
+										330
 									]
 								],
 								"settings":
 								{
 									"line_numbers": false,
-									"syntax": "Packages/Text/Plain text.tmLanguage",
-									"vintage_lines.line": 30,
-									"vintage_lines.lines": 34,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"vintage_lines.line": 13,
+									"vintage_lines.lines": 22,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 4,
+							"file": "shockcollar/data/js/dojo/shockcollar/menu.js",
+							"settings":
+							{
+								"buffer_size": 1615,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										938,
+										938
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"vintage_lines.line": 32,
+									"vintage_lines.lines": 66,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 102.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 5,
+							"file": "shockcollar/data/js/dojo/shockcollar/Controller.js",
+							"settings":
+							{
+								"buffer_size": 9721,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										9183,
+										9183
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"vintage_lines.line": 299,
+									"vintage_lines.lines": 316,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 4743.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 6,
+							"file": "shockcollar/data/js/content-scripts/setup-and-settings.js",
+							"settings":
+							{
+								"buffer_size": 3154,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										414,
+										414
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"vintage_lines.line": 14,
+									"vintage_lines.lines": 110,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 1224.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 7,
+							"file": "shockcollar/lib/settings.js",
+							"settings":
+							{
+								"buffer_size": 8930,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										319,
+										319
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"vintage_lines.line": 11,
+									"vintage_lines.lines": 271,
 									"vintage_lines.mode": true
 								},
 								"translation.x": 0.0,
@@ -713,7 +904,7 @@
 				]
 			},
 			"menu_visible": true,
-			"position": "0,1,0,0,0,0,0,0,0,1280,800",
+			"position": "0,1,0,0,0,0,21,1280,800,1280,800",
 			"replace":
 			{
 				"height": 64.0
@@ -725,16 +916,120 @@
 				"selected_items":
 				[
 					[
+						"controll",
+						"shockcollar/data/js/dojo/shockcollar/Controller.js"
+					],
+					[
+						"page",
+						"shockcollar/data/css/page-box.css"
+					],
+					[
+						"setup",
+						"shockcollar/data/css/setup-and-settings.css"
+					],
+					[
+						"contro",
+						"shockcollar/data/js/dojo/shockcollar/Controller.js"
+					],
+					[
+						"settings.dt",
+						"shockcollar/data/views/settings.dtl"
+					],
+					[
+						"sett",
+						"shockcollar-site/shockcollar/settings.py"
+					],
+					[
+						"view",
+						"shockcollar-site/shockcollar/views.py"
+					],
+					[
+						"setup-and",
+						"shockcollar/data/js/content-scripts/setup-and-settings.js"
+					],
+					[
+						"gitig",
+						"shockcollar/.gitignore"
+					],
+					[
+						"settings",
+						"shockcollar-site/shockcollar/settings.py"
+					],
+					[
+						"paypa",
+						"shockcollar-site/shockcollar/paypal/admin.py"
+					],
+					[
+						"base_in",
+						"shockcollar/data/views/base_interface.dtl"
+					],
+					[
+						"settings_",
+						"shockcollar/data/views/settings_latest.dtl"
+					],
+					[
+						"cont",
+						"shockcollar/data/src/shockcollar/Controller.js"
+					],
+					[
+						"setupand",
+						"shockcollar/data/setup/SetupAndSettingsCS.js"
+					],
+					[
+						"confi",
+						"shockcollar/data/config.js"
+					],
+					[
+						"menucs",
+						"shockcollar/data/menu/MenuCS.js"
+					],
+					[
+						"menu",
+						"shockcollar/lib/menu.js"
+					],
+					[
+						"dojo.unc",
+						"shockcollar/data/build/lib/dojo/dojo.js.uncompressed.js"
+					],
+					[
+						"i18",
+						"shockcollar/data/src/dojo/i18n.js"
+					],
+					[
+						"menutestb",
+						"shockcollar/data/menu/MenuTestBrowser.html"
+					],
+					[
+						"build",
+						"shockcollar/data/src/build.profile.js"
+					],
+					[
+						"menu.js",
+						"shockcollar/data/menu/menu.js"
+					],
+					[
+						"menu.html",
+						"shockcollar/data/menu/Menu.html"
+					],
+					[
+						"dojo.un",
+						"shockcollar/data/build/lib/dojo/dojo.js.uncompressed.js"
+					],
+					[
+						"menu.",
+						"shockcollar/data/menu/Menu.html"
+					],
+					[
+						".html",
+						"shockcollar/data/menu/Menu.html"
+					],
+					[
 						"settings_la",
 						"shockcollar/data/views/settings_latest.dtl"
 					],
 					[
 						"deterr",
 						"shockcollar/data/shockcollar/panels/Deterrent.js"
-					],
-					[
-						"cont",
-						"shockcollar/data/shockcollar/Controller.js"
 					],
 					[
 						"panel",
@@ -757,10 +1052,6 @@
 						"shockcollar/data/shockcollar/panels/BlockSchedule.js"
 					],
 					[
-						"controll",
-						"shockcollar/data/shockcollar/Controller.js"
-					],
-					[
 						"control",
 						"shockcollar/data/shockcollar/Controller.js"
 					],
@@ -781,20 +1072,12 @@
 						"shockcollar/data/shockcollar/panels/Panel.js"
 					],
 					[
-						"setupand",
-						"shockcollar/data/media/css/SetupAndSettings.css"
-					],
-					[
 						"detere",
 						"shockcollar/data/shockcollar/panels/templates/Deterrent.html"
 					],
 					[
 						"deterre",
 						"shockcollar/data/shockcollar/panels/Deterrent.js"
-					],
-					[
-						"sett",
-						"shockcollar/data/setup/settings.js"
 					],
 					[
 						"setup_la",
@@ -821,10 +1104,6 @@
 						"shockcollar-site/shockcollar/util/version.py"
 					],
 					[
-						"settings",
-						"shockcollar-site/shockcollar/settings.py"
-					],
-					[
 						"views.py",
 						"shockcollar-site/shockcollar/views.py"
 					],
@@ -847,10 +1126,6 @@
 					[
 						"emailfor",
 						"shockcollar-site/shockcollar/templates/SendEmailForm.tmplt"
-					],
-					[
-						"view",
-						"shockcollar-site/shockcollar/key/views.py"
 					],
 					[
 						"send",
@@ -887,10 +1162,6 @@
 					[
 						"setupandse",
 						"shockcollar/data/setup/SetupAndSettingsCS.js"
-					],
-					[
-						"setup",
-						"shockcollar/data/setup/setup.js"
 					],
 					[
 						"blockschedul",
@@ -1134,17 +1405,20 @@
 			"show_minimap": true,
 			"show_open_files": false,
 			"show_tabs": true,
-			"side_bar_visible": false,
-			"side_bar_width": 194.0,
+			"side_bar_visible": true,
+			"side_bar_width": 240.0,
 			"status_bar_visible": true,
 			"window_id": 1,
-			"workspace_name": ""
+			"workspace_name": "/home/miko/workspace/shockcollar.sublime-project"
 		}
 	],
 	"workspaces":
 	{
 		"recent_workspaces":
 		[
+			"/home/miko/workspace/shockcollar.sublime-project",
+			"/home/miko/workspace/class-opening-notifier.sublime-project",
+			"/home/miko/workspace/karma-wars.sublime-project"
 		]
 	}
 }

@@ -1,6 +1,6 @@
 # Miko's custom aliases
 alias rm="trash-rm"
-alias wf="ssh mikob@mikob.webfactional.com"
+alias wf="autossh mikob@mikob.webfactional.com"
 alias opn="nautilus '$pwd'"
 alias fnd="find ./ -iname $@"
 alias ack="ack-grep"

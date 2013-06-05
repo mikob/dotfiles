@@ -1,18 +1,32 @@
 {
 	"folder_history":
 	[
+		"/home/miko/Documents/UR/hd4ar-jni",
+		"/home/miko/Documents/UR/ec2-dev/hd4ar-core",
+		"/home/miko/Documents/ece4534/ARMCode",
+		"/home/miko/workspace/shockcollar",
+		"/home/miko/workspace/shockcollar-site",
+		"/home/miko/Documents/ece4534/ece4534group7/PICFrameworkWindows2/src",
+		"/home/miko/Documents/ece4534/PICFrameworkWindows+2/PICFrameworkWindows/src"
 	],
-	"last_window_id": 1,
+	"last_window_id": 5,
 	"settings":
 	{
-	},
-	"windows":
-	[
+		"new_window_height": 777.0,
+		"new_window_settings":
 		{
 			"auto_complete":
 			{
 				"selected_items":
 				[
+					[
+						"mapN",
+						"mapNames"
+					],
+					[
+						"rotate",
+						"rotateCmd"
+					],
 					[
 						"P_LEF",
 						"P_LEFT_CORNER"
@@ -251,74 +265,27 @@
 					]
 				]
 			},
-			"buffers":
-			[
-				{
-					"file": "MainFiles/main.c",
-					"settings":
-					{
-						"buffer_size": 6082,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "MainFiles/uart.h",
-					"settings":
-					{
-						"buffer_size": 1803,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "MainFiles/uart.c",
-					"settings":
-					{
-						"buffer_size": 7370,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "MainFiles/router.c",
-					"settings":
-					{
-						"buffer_size": 12730,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "MainFiles/simulator.c",
-					"settings":
-					{
-						"buffer_size": 5939,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "MainFiles/messages.h",
-					"settings":
-					{
-						"buffer_size": 1839,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "MainFiles/rogey_config.h",
-					"settings":
-					{
-						"buffer_size": 338,
-						"line_ending": "Unix"
-					}
-				}
-			],
 			"build_system": "",
 			"command_palette":
 			{
-				"height": 327.0,
+				"height": 222.0,
 				"selected_items":
 				[
 					[
 						":w",
 						":w - Save"
+					],
+					[
+						"package",
+						"Package Control: Remove Package"
+					],
+					[
+						"instal",
+						"Package Control: Install Package"
+					],
+					[
+						"set syntax c",
+						"Set Syntax: C"
 					],
 					[
 						":W",
@@ -426,14 +393,37 @@
 			},
 			"file_history":
 			[
+				"/home/miko/Documents/UR/hd4ar-jni/jni/Application.mk",
+				"/home/miko/Documents/UR/hd4ar-jni/jni/hello-jni.c",
+				"/home/miko/Documents/UR/ec2-dev/hd4ar-core/src/modules/common/CLParser.cpp",
+				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/simulator.h",
 				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/messages.h",
-				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/delegate.h",
-				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/router.h",
+				"/home/miko/Documents/ece4534/ARMCode/FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/httpd-cgi.c",
+				"/home/miko/Documents/ece4534/ARMCode/FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/httpd-fs/dashboard.shtml",
+				"/home/miko/Documents/ece4534/ARMCode/FreeRTOS/Demo/HCS12_CodeWarrior_banked/CODE/IO_Map.H",
+				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/map_fs_data.c",
+				"/home/miko/Documents/ece4534/ARMCode/make_map_data.py",
+				"/home/miko/Documents/ece4534/ARMCode/FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/uIP_Task.c",
+				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/debug.c",
 				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/rogey_config.h",
+				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/simulator.c",
+				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/map.h",
+				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/router.c",
+				"/home/miko/Documents/ece4534/ARMCode/FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/httpd-fsdata.c",
+				"/home/miko/Documents/ece4534/ARMCode/FreeRTOS/Source/include/queue.h",
+				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/uart.c",
+				"/home/miko/Documents/ece4534/ARMCode/NXPDrivers/include/lpc17xx_uart.h",
+				"/home/miko/Documents/ece4534/ARMCode/NXPDrivers/source/lpc17xx_uart.c",
+				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/delegate.h",
+				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/map.c",
+				"/home/miko/Documents/ece4534/ARMCode/FreeRTOS/Demo/HCS12_CodeWarrior_banked/CODE/IO_Map.C",
+				"/home/miko/workspace/shockcollar-site/shockcollar/bin/paypal_user_import.py",
+				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/main.c",
+				"/home/miko/Documents/ece4534/ARMCode/FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/uIP_Task.h",
+				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/uart.h",
+				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/router.h",
 				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/uart_task.h",
 				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/uart_task.c",
-				"/home/miko/Documents/ece4534/ARMCode/NXPDrivers/source/lpc17xx_uart.c",
-				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/main.c",
 				"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/MainFiles/LCDtask.c",
 				"/home/mikob/dotfiles/sublime-text-2/Packages/User/Preferences.sublime-settings",
 				"/home/mikob/Documents/ece4534/ARMCode/FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/httpd-fs/dashboard.shtml",
@@ -530,30 +520,7 @@
 				"/home/miko/workspace/shockcollar/data/views/settings.dtl",
 				"/home/miko/workspace/shockcollar-site/shockcollar/settings.py",
 				"/home/miko/workspace/shockcollar/data/views/setup.dtl",
-				"/home/miko/workspace/shockcollar/data/views/menu.html",
-				"/home/miko/workspace/shockcollar/data/views/menu-test-browser.html",
-				"/home/miko/workspace/shockcollar/data/views/block-page.html",
-				"/home/miko/workspace/shockcollar/lib/notify.js",
-				"/home/miko/workspace/shockcollar/.gitignore",
-				"/home/miko/workspace/shockcollar/package.json",
-				"/home/miko/workspace/shockcollar/data/js/dojo/build.profile.js",
-				"/home/miko/workspace/shockcollar/data/menu/Menu.html",
-				"/home/miko/workspace/shockcollar/lib/menu.js",
-				"/home/miko/workspace/shockcollar/lib/menu.js.orig",
-				"/home/miko/workspace/shockcollar/data/menu/MenuCS.js",
-				"/home/miko/workspace/shockcollar/data/menu/MenuTest.html",
-				"/home/miko/workspace/shockcollar-site/shockcollar/paypal/admin.py",
-				"/home/miko/workspace/karma-wars/index.html",
-				"/home/miko/workspace/shockcollar/data/views/base_interface.dtl",
-				"/home/miko/workspace/shockcollar/data/views/settings_latest.dtl",
-				"/home/miko/workspace/shockcollar/data/src/shockcollar/Controller.js",
-				"/home/miko/workspace/shockcollar/data/setup/SetupAndSettingsCS.js",
-				"/home/miko/workspace/shockcollar/data/config.js",
-				"/home/miko/workspace/shockcollar/data/menu/MenuTestBrowser.html",
-				"/home/miko/workspace/shockcollar/data/menu/menu.js",
-				"/home/miko/workspace/shockcollar/data/src/build.profile.js",
-				"/home/miko/workspace/shockcollar/data/build/lib/shockcollar/setup.js.uncompressed.js",
-				"/home/miko/workspace/shockcollar/data/build/lib/dojo/dojo.js.uncompressed.js"
+				"/home/miko/workspace/shockcollar/data/views/menu.html"
 			],
 			"find":
 			{
@@ -571,6 +538,86 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"run(",
+					"fileOutput",
+					"printPa",
+					"startBtn",
+					"stop_btn",
+					"reset",
+					"set",
+					"canvasUpdate",
+					"ctx",
+					"mapHeight",
+					"initMap",
+					"map.",
+					"map.or",
+					"canvas",
+					"origWidth",
+					"mapHeight",
+					"mapWidth",
+					"canvas",
+					"canvasHeight",
+					"canvasWidth",
+					"initialize_json",
+					"sendDelegateMsg",
+					"MAPS",
+					"Map",
+					"Maps",
+					"simMapresRatio",
+					"courseSelectDD",
+					"Maps.init",
+					"#canvas",
+					"240",
+					"CANVAS_HEIGHT",
+					"CANVAS_WIDTH",
+					"initialize.json",
+					"sendvalue",
+					"COURSE_SET",
+					"DD.va",
+					"courseSelectBtn",
+					"select",
+					"simMap",
+					"simMapres",
+					"SIM_MAP_RES_RATIO",
+					"rover",
+					"simMapResRatio",
+					"section",
+					"table",
+					"section",
+					"RAT",
+					"TIME_TO_TURN_RAT",
+					"ROTATING",
+					"ROTAT",
+					"sendPresMsg",
+					"stop",
+					"STRAIGHT_RE",
+					"log",
+					"printf",
+					"UART_Initia",
+					"sendUartMsg",
+					"printf",
+					"delegatemsg",
+					"printf",
+					"messageIndex",
+					"castAndDel",
+					"castAndDelegateMsg",
+					"castAndDel",
+					"castandDel",
+					"decide",
+					"sendUartMsg",
+					"canvasUpdate",
+					"ctx",
+					"img",
+					"onload",
+					"dashboard",
+					"dashbo",
+					"sendValue",
+					"canvasUpdate",
+					"Init",
+					"Logger",
+					"USE_S",
+					"initialize_json",
+					"initialize-json",
 					"UART3TxEmpty",
 					"UARTRXQUEUESIZE",
 					"castAndSendMsg",
@@ -618,87 +665,7 @@
 					"vApplicationTickHook",
 					"vtLCDdata",
 					"Time",
-					"callback",
-					"condu",
-					"rxLen",
-					"enable_in",
-					"interr",
-					"msgType",
-					"handle",
-					"i2cCmdInit",
-					"aa",
-					"xQue",
-					"printf",
-					"data",
-					"msgBuffer",
-					"vtlcdm",
-					"msgBu",
-					"vttempms",
-					"sendscopevalue",
-					"sendtempvalue",
-					"SendLCDScope",
-					"timer",
-					"curLine",
-					"scaleX",
-					"msg",
-					"msgbuffer",
-					"vtlcdmsg",
-					"lcdData",
-					"vi2ctempupdate",
-					"vttempq",
-					"i2ctemp",
-					"init",
-					"xQueueRe",
-					"lcdtimercallback",
-					"callback",
-					"sendtempvalueMsg",
-					"getMsgType",
-					"unpackTimerMsg",
-					"type",
-					"vtLCDMsg",
-					"getMsgType",
-					"SendLCDPrintMsg",
-					"32",
-					"vtLCDMsg",
-					"tempData",
-					"conductor",
-					"sizeof",
-					"WEB",
-					"dataBuffer",
-					"hsl2rgb",
-					"length",
-					"sizeof",
-					"length",
-					"putpixel",
-					"LCD_",
-					"rand",
-					"j",
-					"buffer",
-					"BUF_LEN",
-					"MAX_RAD",
-					"x",
-					"xmin",
-					"tempSensorData",
-					"lcdData",
-					"lcdBuffer",
-					"lcdData",
-					"linebuffer",
-					"tscr",
-					"screenColor",
-					"scr",
-					"curLine",
-					"5",
-					"hue",
-					"light",
-					"sat",
-					"hue",
-					"MALLOC_VERSION",
-					"WEB",
-					"vtIni",
-					"vStartLEDFlashTasks",
-					"USE_FREERTOS_DEMO",
-					"id",
-					"MENU_CS"
+					"callback"
 				],
 				"highlight": true,
 				"in_selection": false,
@@ -740,243 +707,6 @@
 				"whole_word": false,
 				"wrap": true
 			},
-			"groups":
-			[
-				{
-					"selected": 5,
-					"sheets":
-					[
-						{
-							"buffer": 0,
-							"file": "MainFiles/main.c",
-							"settings":
-							{
-								"buffer_size": 6082,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										3350,
-										3350
-									]
-								],
-								"settings":
-								{
-									"line_numbers": false,
-									"syntax": "Packages/C++/C.tmLanguage",
-									"translate_tabs_to_spaces": false,
-									"vintage_lines.line": 118,
-									"vintage_lines.lines": 204,
-									"vintage_lines.mode": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 1396.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "MainFiles/uart.h",
-							"settings":
-							{
-								"buffer_size": 1803,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										1612,
-										1612
-									]
-								],
-								"settings":
-								{
-									"line_numbers": false,
-									"syntax": "Packages/C++/C++.tmLanguage",
-									"vintage_lines.line": 46,
-									"vintage_lines.lines": 53,
-									"vintage_lines.mode": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 408.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 2,
-							"file": "MainFiles/uart.c",
-							"settings":
-							{
-								"buffer_size": 7370,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										7160,
-										7160
-									]
-								],
-								"settings":
-								{
-									"line_numbers": false,
-									"syntax": "Packages/C++/C.tmLanguage",
-									"vintage_lines.line": 255,
-									"vintage_lines.lines": 264,
-									"vintage_lines.mode": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 1173.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 3,
-							"file": "MainFiles/router.c",
-							"settings":
-							{
-								"buffer_size": 12730,
-								"regions":
-								{
-									"bookmark_a":
-									{
-										"flags": 144,
-										"regions":
-										[
-											[
-												11520,
-												11520
-											]
-										]
-									}
-								},
-								"selection":
-								[
-									[
-										261,
-										261
-									]
-								],
-								"settings":
-								{
-									"line_numbers": false,
-									"syntax": "Packages/C++/C.tmLanguage",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true,
-									"vintage_lines.line": 14,
-									"vintage_lines.lines": 437,
-									"vintage_lines.mode": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 408.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 4,
-							"file": "MainFiles/simulator.c",
-							"settings":
-							{
-								"buffer_size": 5939,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										2255,
-										2255
-									]
-								],
-								"settings":
-								{
-									"line_numbers": false,
-									"syntax": "Packages/C++/C.tmLanguage",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true,
-									"vintage_lines.line": 88,
-									"vintage_lines.lines": 222,
-									"vintage_lines.mode": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 969.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 5,
-							"file": "MainFiles/messages.h",
-							"settings":
-							{
-								"buffer_size": 1839,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										507,
-										507
-									]
-								],
-								"settings":
-								{
-									"line_numbers": false,
-									"syntax": "Packages/C++/C++.tmLanguage",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true,
-									"vintage_lines.line": 21,
-									"vintage_lines.lines": 78,
-									"vintage_lines.mode": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 6,
-							"file": "MainFiles/rogey_config.h",
-							"settings":
-							{
-								"buffer_size": 338,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										335,
-										335
-									]
-								],
-								"settings":
-								{
-									"line_numbers": false,
-									"syntax": "Packages/C++/C++.tmLanguage",
-									"vintage_lines.line": 16,
-									"vintage_lines.lines": 18,
-									"vintage_lines.mode": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						}
-					]
-				}
-			],
 			"incremental_find":
 			{
 				"height": 34.0
@@ -1008,7 +738,6 @@
 				]
 			},
 			"menu_visible": true,
-			"position": "0,0,0,0,0,0,21,1278,798,1280,800",
 			"replace":
 			{
 				"height": 64.0
@@ -1020,16 +749,164 @@
 				"selected_items":
 				[
 					[
+						"hello",
+						"hd4ar-jni/jni/hello-jni.c"
+					],
+					[
 						"rog",
 						"MainFiles/rogey_config.h"
+					],
+					[
+						"sim",
+						"MainFiles/simulator.h"
+					],
+					[
+						"simul",
+						"ARMCode/RTOSDemo/MainFiles/simulator.c"
+					],
+					[
+						"mess",
+						"MainFiles/messages.h"
+					],
+					[
+						"dash",
+						"ARMCode/FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/httpd-fs/dashboard.shtml"
+					],
+					[
+						"make",
+						"ARMCode/make_map_data.py"
+					],
+					[
+						"map",
+						"ARMCode/RTOSDemo/MainFiles/map_fs_data.c"
+					],
+					[
+						"uip",
+						"webserver/uIP_Task.c"
+					],
+					[
+						"http",
+						"webserver/httpd-cgi.c"
+					],
+					[
+						"map.h",
+						"MainFiles/map.h"
+					],
+					[
+						"maps",
+						"MainFiles/map_fs_data.c"
+					],
+					[
+						"httpd-",
+						"webserver/httpd-cgi.c"
+					],
+					[
+						"rout",
+						"ARMCode/RTOSDemo/MainFiles/router.c"
+					],
+					[
+						"dashbo",
+						"webserver/httpd-fs/dashboard.shtml"
+					],
+					[
+						"",
+						"ARMCode/RTOSDemo/MainFiles/map_fs_data.c"
+					],
+					[
+						"mapfs",
+						"MainFiles/map_fs_data.c"
+					],
+					[
+						"httpd-fs",
+						"webserver/httpd-fsdata.c"
+					],
+					[
+						"map.",
+						"MainFiles/map.h"
+					],
+					[
+						"httpd-c",
+						"ARMCode/FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/httpd-cgi.c"
+					],
+					[
+						"make_",
+						"ARMCode/make_map_data.py"
+					],
+					[
+						"fsdata",
+						"webserver/httpd-fsdata.c"
+					],
+					[
+						"iptas",
+						"webserver/uIP_Task.c"
+					],
+					[
+						"rou",
+						"MainFiles/router.c"
+					],
+					[
+						"rogi",
+						"MainFiles/rogey_config.h"
+					],
+					[
+						"httpd",
+						"webserver/httpd-cgi.c"
+					],
+					[
+						"deb",
+						"MainFiles/debug.c"
+					],
+					[
+						"queue",
+						"ARMCode/FreeRTOS/Source/include/queue.h"
 					],
 					[
 						"del",
 						"MainFiles/delegate.h"
 					],
 					[
-						"mess",
+						"httpdfs",
+						"webserver/httpd-fsdata.c"
+					],
+					[
+						"uart",
+						"MainFiles/uart.c"
+					],
+					[
+						"map.c",
+						"MainFiles/map.c"
+					],
+					[
+						"httpd-gi",
+						"webserver/httpd-cgi.c"
+					],
+					[
+						"make_ma",
+						"ARMCode/make_map_data.py"
+					],
+					[
+						"me",
 						"MainFiles/messages.h"
+					],
+					[
+						"ro",
+						"MainFiles/rogey_config.h"
+					],
+					[
+						"fs",
+						"webserver/httpd-fsdata.c"
+					],
+					[
+						"ip",
+						"webserver/uIP_Task.h"
+					],
+					[
+						"uar",
+						"MainFiles/uart.c"
+					],
+					[
+						"debug",
+						"MainFiles/debug.c"
 					],
 					[
 						"router",
@@ -1052,31 +929,11 @@
 						"MainFiles/uart.h"
 					],
 					[
-						"rout",
-						"MainFiles/router.h"
-					],
-					[
-						"uar",
-						"MainFiles/uart.c"
-					],
-					[
-						"uart",
-						"MainFiles/uart_task.c"
-					],
-					[
 						"messa",
 						"MainFiles/messages.h"
 					],
 					[
-						"map",
-						"MainFiles/map.c"
-					],
-					[
 						"httpd-fsda",
-						"webserver/httpd-fsdata.c"
-					],
-					[
-						"httpd-fs",
 						"webserver/httpd-fsdata.c"
 					],
 					[
@@ -1102,14 +959,6 @@
 					[
 						"http-strin",
 						"webserver/http-strings"
-					],
-					[
-						"httpd",
-						"webserver/httpd-fs.h"
-					],
-					[
-						"httpd-c",
-						"webserver/httpd-cgi.h"
 					],
 					[
 						"io.",
@@ -1140,16 +989,8 @@
 						"SystemFiles/FreeRTOSConfig.h"
 					],
 					[
-						"debug",
-						"MainFiles/debug.c"
-					],
-					[
 						"debu",
 						"MainFiles/debug.h"
-					],
-					[
-						"sim",
-						"MainFiles/simulator.c"
 					],
 					[
 						"freer",
@@ -1158,10 +999,6 @@
 					[
 						"router.h",
 						"MainFiles/router.h"
-					],
-					[
-						"simul",
-						"MainFiles/simulator.h"
 					],
 					[
 						"router.c",
@@ -1422,114 +1259,6 @@
 					[
 						"pane",
 						"shockcollar/data/shockcollar/panels/Panel.js"
-					],
-					[
-						"welcom",
-						"shockcollar/data/shockcollar/panels/Welcome.js"
-					],
-					[
-						"deterrent",
-						"shockcollar/data/shockcollar/panels/templates/Deterrent.html"
-					],
-					[
-						"util",
-						"shockcollar/lib/util.js"
-					],
-					[
-						"setupandse",
-						"shockcollar/data/setup/SetupAndSettingsCS.js"
-					],
-					[
-						"blockschedul",
-						"shockcollar/data/shockcollar/panels/templates/BlockSchedule.html"
-					],
-					[
-						"initi",
-						"shockcollar/data/shockcollar/panels/Initiation.js"
-					],
-					[
-						"obser",
-						"shockcollar/data/dojo/dojo/store/Observable.js"
-					],
-					[
-						"domain",
-						"shockcollar/data/shockcollar/util/DomainGroupStorage.js"
-					],
-					[
-						"blocksched",
-						"shockcollar/data/shockcollar/panels/BlockSchedule.js"
-					],
-					[
-						"blockli",
-						"shockcollar/data/shockcollar/panels/BlockLists.js"
-					],
-					[
-						"blocksche",
-						"shockcollar/data/shockcollar/panels/BlockSchedule.js"
-					],
-					[
-						"log.",
-						"shockcollar/data/shockcollar/util/Log.js"
-					],
-					[
-						"log",
-						"shockcollar/data/shockcollar/util/Log.js"
-					],
-					[
-						"settingcs",
-						"shockcollar/data/setup/SetupAndSettingsCS.js"
-					],
-					[
-						"lib/",
-						"shockcollar/lib/settings.js"
-					],
-					[
-						"bl",
-						"shockcollar/data/shockcollar/panels/BlockLists.js"
-					],
-					[
-						"setu",
-						"shockcollar/data/views/setup_latest.dtl"
-					],
-					[
-						"_w",
-						"shockcollar/data/dojo/dijit/_Widget.js"
-					],
-					[
-						"tooltip",
-						"shockcollar/data/dojo/dijit/Tooltip.js"
-					],
-					[
-						"tree",
-						"shockcollar/data/dojo/dijit/Tree.js"
-					],
-					[
-						"log.js",
-						"shockcollar/data/shockcollar/util/Log.js"
-					],
-					[
-						"de",
-						"shockcollar/lib/deterrents.js"
-					],
-					[
-						"c",
-						"shockcollar/data/shockcollar/Controller.js"
-					],
-					[
-						"con",
-						"shockcollar/data/shockcollar/Controller.js"
-					],
-					[
-						"lib/sche",
-						"shockcollar/lib/scheduler.js"
-					],
-					[
-						"sitetree",
-						"shockcollar/data/shockcollar/widgets/SiteTree.js"
-					],
-					[
-						"blocklists",
-						"shockcollar/data/shockcollar/panels/BlockLists.js"
 					]
 				],
 				"width": 0.0
@@ -1546,17 +1275,1536 @@
 			"show_open_files": false,
 			"show_tabs": true,
 			"side_bar_visible": true,
-			"side_bar_width": 176.0,
+			"side_bar_width": 114.0,
+			"status_bar_visible": true
+		},
+		"new_window_width": 766.0
+	},
+	"windows":
+	[
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+					[
+						"DEBUG",
+						"DEBUG_DOMAIN"
+					],
+					[
+						"cheatRe",
+						"cheatResetPeriod"
+					],
+					[
+						"getSel",
+						"getSelectedItems"
+					],
+					[
+						"dis",
+						"display"
+					],
+					[
+						"pass",
+						"password-surrender"
+					],
+					[
+						"getBlo",
+						"getBlockEndDate"
+					],
+					[
+						"getBlock",
+						"getBlockStartDate"
+					],
+					[
+						"in",
+						"invalidMsg"
+					],
+					[
+						"date",
+						"dateSel"
+					],
+					[
+						"blockUn",
+						"blockUntilSelect"
+					],
+					[
+						"blockFor",
+						"blockForSelect"
+					],
+					[
+						"CON",
+						"CONTINUE_WIDTH"
+					],
+					[
+						"MAIN",
+						"MAIN_MENU_WIDTH"
+					],
+					[
+						"va",
+						"validateAndSave"
+					],
+					[
+						"parce",
+						"parcelId"
+					],
+					[
+						"Shock",
+						"ShockCollarDataElement"
+					],
+					[
+						"id_re",
+						"id_recepient_name"
+					],
+					[
+						"dep",
+						"dependencies"
+					],
+					[
+						"depen",
+						"dependencyParcels"
+					],
+					[
+						"ind",
+						"individual"
+					],
+					[
+						"bl",
+						"blockReleased"
+					],
+					[
+						"Blo",
+						"BlockLists"
+					],
+					[
+						"defe",
+						"Deferred"
+					],
+					[
+						"sh",
+						"shockcollar"
+					],
+					[
+						"use",
+						"use_version"
+					],
+					[
+						"_cur",
+						"_curStepContent"
+					],
+					[
+						"blockSt",
+						"blockListTree"
+					],
+					[
+						"ex",
+						"existingChildItem"
+					],
+					[
+						"chil",
+						"childId"
+					],
+					[
+						"oldPa",
+						"oldParentItem"
+					],
+					[
+						"old",
+						"oldParentId"
+					],
+					[
+						"childI",
+						"childItem"
+					],
+					[
+						"commonLis",
+						"commonListDndCtrl"
+					],
+					[
+						"pare",
+						"parentId"
+					],
+					[
+						"comm",
+						"commonListDndCtrl"
+					],
+					[
+						"commonLi",
+						"commonListTree"
+					],
+					[
+						"blockListD",
+						"blockListDndCtrl"
+					],
+					[
+						"dn",
+						"dndSource"
+					],
+					[
+						"RE",
+						"RecursiveQueryEngine"
+					],
+					[
+						"Re",
+						"RecursiveQueryEngine"
+					],
+					[
+						"S",
+						"SimpleQueryEngine"
+					],
+					[
+						"id",
+						"idProperty"
+					],
+					[
+						"Ob",
+						"Observable"
+					],
+					[
+						"commonList",
+						"commonListStore"
+					]
+				]
+			},
+			"buffers":
+			[
+				{
+					"file": "shockcollar/lib/block-governor.js",
+					"settings":
+					{
+						"buffer_size": 45791,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "shockcollar/lib/util.js",
+					"settings":
+					{
+						"buffer_size": 3466,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "shockcollar/package.json",
+					"settings":
+					{
+						"buffer_size": 510,
+						"line_ending": "Windows"
+					}
+				},
+				{
+					"file": "shockcollar/lib/time-widget.js",
+					"settings":
+					{
+						"buffer_size": 3638,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "shockcollar-site/shockcollar/paypal/views.py",
+					"settings":
+					{
+						"buffer_size": 2243,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "shockcollar/data/js/content-scripts/paypal-surrender.js",
+					"settings":
+					{
+						"buffer_size": 1748,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "shockcollar/data/js/dojo/shockcollar/panels/Deterrent.js",
+					"settings":
+					{
+						"buffer_size": 18258,
+						"line_ending": "Unix"
+					}
+				}
+			],
+			"build_system": "",
+			"command_palette":
+			{
+				"height": 201.0,
+				"selected_items":
+				[
+					[
+						"java",
+						"Format: Javascript"
+					],
+					[
+						"tab",
+						"Indentation: Convert to Tabs"
+					],
+					[
+						"new fi",
+						"File: New View into File"
+					],
+					[
+						"format",
+						"Format: Javascript"
+					],
+					[
+						"save all",
+						"File: Save All"
+					],
+					[
+						"fold all",
+						"Code Folding: Unfold All"
+					],
+					[
+						"instal",
+						"Package Control: Install Package"
+					],
+					[
+						":w",
+						":w - Save"
+					],
+					[
+						":save all",
+						"File: Save All"
+					],
+					[
+						":q",
+						"Git: Quick Commit"
+					],
+					[
+						":save",
+						":w - Save"
+					],
+					[
+						"set syntax ja",
+						"Set Syntax: JavaScript"
+					],
+					[
+						":",
+						":w - Save"
+					],
+					[
+						":s",
+						":w - Save"
+					],
+					[
+						":sa",
+						":w - Save"
+					],
+					[
+						":x",
+						"Set Syntax: XSL"
+					],
+					[
+						":install",
+						"Package Control: Install Package"
+					],
+					[
+						"git status",
+						"Git: Status"
+					],
+					[
+						"git stat",
+						"Git: Status"
+					],
+					[
+						":install ",
+						"Package Control: Install Package"
+					],
+					[
+						":wa",
+						":w - Save"
+					],
+					[
+						":close",
+						"File: Close All"
+					],
+					[
+						":packa",
+						"Package Control: Remove Package"
+					],
+					[
+						":w ",
+						":w - Save"
+					],
+					[
+						":new",
+						"File: New View into File"
+					],
+					[
+						":insta",
+						"Package Control: Install Package"
+					],
+					[
+						"Package Control: ",
+						"Package Control: Install Package"
+					],
+					[
+						":clo",
+						"File: Close All"
+					]
+				],
+				"width": 467.0
+			},
+			"console":
+			{
+				"height": 139.0
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+				"/home/miko/workspace/shockcollar/data/js/dojo/build/release/shockcollar/panels/Deterrent.js",
+				"/home/miko/workspace/shockcollar-site/shockcollar/paypal/models.py",
+				"/home/miko/workspace/shockcollar/lib/scheduler.js",
+				"/home/miko/workspace/shockcollar/lib/main.js",
+				"/home/miko/workspace/shockcollar/lib/util.js",
+				"/home/miko/workspace/shockcollar/lib/block-governor.js",
+				"/home/miko/workspace/shockcollar/TODO",
+				"/home/miko/workspace/shockcollar/data/css/setup-and-settings.css",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/templates/Deterrent.html",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/Deterrent.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/settings.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/templates/Welcome.html",
+				"/home/miko/workspace/shockcollar/data/css/page-box.css",
+				"/home/miko/workspace/shockcollar/data/views/settings.html",
+				"/home/miko/workspace/shockcollar/lib/settings.js",
+				"/home/miko/workspace/shockcollar/data/js/content-scripts/setup-and-settings.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/templates/BlockLists.html",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/Panel.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/BlockLists.js",
+				"/home/miko/workspace/shockcollar/data/css/menu.css",
+				"/home/miko/workspace/shockcollar/test/test-sync.js",
+				"/home/miko/workspace/shockcollar/lib/menu.js",
+				"/home/miko/workspace/shockcollar-site/shockcollar/urls.py",
+				"/home/miko/workspace/shockcollar/test/test-deterrents.js",
+				"/home/miko/workspace/shockcollar/data/views/base-interface.dtl",
+				"/home/miko/workspace/shockcollar/data/views/settings.dtl",
+				"/home/miko/workspace/shockcollar/data/views/setup.dtl",
+				"/home/miko/workspace/shockcollar/test/test-block-schedule.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/setup.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/build.profile.js",
+				"/home/miko/workspace/shockcollar/bin/build_dojo.sh",
+				"/home/miko/workspace/shockcollar/bin/build_deploy.sh",
+				"/home/miko/workspace/shockcollar-site/shockcollar/README",
+				"/home/miko/workspace/shockcollar-site/shockcollar/test/version_test.py",
+				"/home/miko/workspace/shockcollar/README.md",
+				"/home/miko/workspace/shockcollar/test/pp_ipn_test_req",
+				"/home/miko/workspace/shockcollar/notes.txt",
+				"/home/miko/workspace/shockcollar/test/test-main.js",
+				"/home/miko/.mozilla/firefox/ag907dk3.FFNew/jetpack/jid1-u6nQDbYs4ZJDAy@jetpack/simple-storage/store.json",
+				"/home/miko/workspace/shockcollar-site/shockcollar/views.py",
+				"/home/miko/workspace/shockcollar/package.json",
+				"/home/miko/workspace/shockcollar-site/shockcollar/templates/archive/settings-0.90.1.dtl",
+				"/home/miko/workspace/shockcollar/data/js/dojo/build/release/shockcollar/shockcollar.js.uncompressed.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/build/release/shockcollar/Controller.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/build/release/shockcollar/settings.js.uncompressed.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/build/release/shockcollar/Controller.js.uncompressed.js",
+				"/home/miko/workspace/shockcollar-site/shockcollar/settings.py",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/templates/QuickBlock.html",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/templates/Misc.html",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/Misc.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/package.json",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/util/Log.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/Controller.js",
+				"/home/miko/workspace/shockcollar/data/views/upgrade.html",
+				"/home/miko/workspace/shockcollar/bin/README",
+				"/home/miko/workspace/shockcollar/bin/run_tests.sh",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/BlockSchedule.js",
+				"/home/miko/workspace/shockcollar-site/shockcollar/bin/build.sh",
+				"/home/miko/workspace/shockcollar/data/views/menu.html",
+				"/home/miko/workspace/shockcollar/data/css/common.css",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/QuickBlock.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/templates/BlockSchedule.html",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/Welcome.js",
+				"/home/miko/workspace/shockcollar-site/shockcollar/templates/archive/settings-2.dtl",
+				"/home/miko/dotfiles/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+				"/home/miko/dotfiles/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+				"/home/miko/dotfiles/sublime-text-2/Packages/User/Preferences.sublime-settings",
+				"/home/miko/workspace/shockcollar/lib/deterrents.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/AddToBlockList.js",
+				"/home/miko/workspace/shockcollar/data/js/content-scripts/paypal-surrender.js",
+				"/home/miko/workspace/shockcollar/data/js/content-scripts/menu.js",
+				"/home/miko/workspace/shockcollar-site/shockcollar/settings.py.orig",
+				"/home/miko/workspace/shockcollar/bin/strip_console.sh",
+				"/home/miko/workspace/shockcollar/data/js/dojo/build/release/shockcollar/setup.js.uncompressed.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/build/release/shockcollar/shockcollar.profile.js",
+				"/home/miko/workspace/shockcollar/lib/time-widget.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/menu.js",
+				"/home/miko/workspace/shockcollar/data/views/password-surrender.html",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/widgets/EditSiteTree.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/widgets/SiteTree.js",
+				"/home/miko/workspace/shockcollar/data/js/content-scripts/password-surrender.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/util/DomainGroupStorage.js",
+				"/home/miko/workspace/shockcollar/data/js/content-scripts/block-page.js",
+				"/home/miko/workspace/shockcollar/data/views/block-page.html",
+				"/home/miko/workspace/shockcollar/data/js/dojo/dijit/Tree.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/dojox/mobile/tests/robot/Settings.html",
+				"/home/miko/workspace/shockcollar/data/views/paypal-surrender.html",
+				"/home/miko/workspace/shockcollar/data/views/menu-test-browser.html",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/panels/templates/AddToBlockList.html",
+				"/home/miko/workspace/shockcollar/data/js/dojo/build/lib/shockcollar/widgets/SiteTree.js",
+				"/home/miko/workspace/shockcollar-site/shockcollar/util/version.py",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/menu/menu.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/menu/AddToBlockList.js",
+				"/home/miko/workspace/shockcollar/data/js/dojo/shockcollar/menu/QuickBlock.js",
+				"/home/miko/workspace/shockcollar/lib/notify.js",
+				"/home/miko/workspace/shockcollar/.gitignore",
+				"/home/miko/workspace/shockcollar/data/menu/Menu.html",
+				"/home/miko/workspace/shockcollar/lib/menu.js.orig",
+				"/home/miko/workspace/shockcollar/data/menu/MenuCS.js",
+				"/home/miko/workspace/shockcollar/data/menu/MenuTest.html",
+				"/home/miko/workspace/shockcollar-site/shockcollar/paypal/admin.py",
+				"/home/miko/workspace/karma-wars/index.html",
+				"/home/miko/workspace/shockcollar/data/views/base_interface.dtl",
+				"/home/miko/workspace/shockcollar/data/views/settings_latest.dtl",
+				"/home/miko/workspace/shockcollar/data/src/shockcollar/Controller.js",
+				"/home/miko/workspace/shockcollar/data/setup/SetupAndSettingsCS.js",
+				"/home/miko/workspace/shockcollar/data/config.js",
+				"/home/miko/workspace/shockcollar/data/menu/MenuTestBrowser.html",
+				"/home/miko/workspace/shockcollar/data/menu/menu.js",
+				"/home/miko/workspace/shockcollar/data/src/build.profile.js",
+				"/home/miko/workspace/shockcollar/data/build/lib/shockcollar/setup.js.uncompressed.js",
+				"/home/miko/workspace/shockcollar/data/build/lib/dojo/dojo.js.uncompressed.js",
+				"/home/miko/workspace/shockcollar/data/src/dojo/i18n.js",
+				"/home/miko/workspace/shockcollar/data/shockcollar/Controller.js",
+				"/home/miko/workspace/shockcollar/data/test.js",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/templates/AddToBlockList.html",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/templates/QuickBlock.html",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/AddToBlockList.js",
+				"/home/miko/workspace/shockcollar/data/setup/settings.js",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/BlockSchedule.js",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/Panel.js",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/QuickBlock.js",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/Deterrent.js",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/templates/BlockSchedule.html",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/templates/BlockLists.html",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/templates/Deterrent.html",
+				"/home/miko/workspace/shockcollar/data/shockcollar/panels/BlockLists.js",
+				"/home/miko/workspace/shockcollar/data/frames/PasswordSurrender.html"
+			],
+			"find":
+			{
+				"height": 35.0
+			},
+			"find_in_files":
+			{
+				"height": 0.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+					"_groupedColumns",
+					"innerSection",
+					"API_DOMAIN",
+					"API",
+					"this._debugDelegate",
+					" {",
+					"durationVsEndDateSelectionChange",
+					"getBlockGroupByURL",
+					"getBlockGroupsByURL",
+					"getBlockGroups",
+					"getBlockGroupByURL",
+					"_checkBlocked",
+					"setBlockRe",
+					"is",
+					"data-dojo-type",
+					"dojox",
+					"SETTINGS_URL",
+					"openSettings",
+					"DEBUG",
+					"FILE_SETUP_AND",
+					"Util",
+					"log",
+					"enddate",
+					"showMain",
+					"CheatData",
+					"getBlockEndDate",
+					"ini",
+					"beforeSave",
+					"deterrentissetup",
+					"_emailDialog",
+					"instanceKey",
+					"catch (err",
+					"err",
+					"debug",
+					"deubg",
+					"releaseBlock",
+					"SHOCKCOLLAR_DOMAIN",
+					"Facebook",
+					"GiveUp",
+					"DEBUG",
+					"debug",
+					"instanceKey",
+					"TREE_WIDTH",
+					"treewra",
+					"selectedGroup",
+					"updateGroupS",
+					"updateGroup",
+					"selection",
+					"id",
+					"model",
+					"store",
+					"add",
+					"images",
+					"static",
+					"compiled",
+					"_getBlockBlob",
+					"_schedule",
+					"savePanel",
+					"blockListTree",
+					"addSite",
+					"savedGroupSchedule",
+					"save",
+					"sendTrigger",
+					"validateAndSave",
+					"clear",
+					"validateAndSave",
+					"dijit",
+					"getSel",
+					"selectedGroup",
+					"INVALID_MSG_HEIGHT",
+					"clear",
+					"blockFor",
+					"onInv",
+					"onInvalid",
+					"aert",
+					"notification",
+					"simpleload",
+					"cetner",
+					"margin",
+					"byId",
+					"dom",
+					"tbDomain",
+					"$tbDomain",
+					" {",
+					"CONTINUE_HEIGHT",
+					"CONTINUE_WIDTH",
+					"CONTINUE_HEIGHT",
+					"hide",
+					"_pendingDepen",
+					"loadSettings",
+					"loadMain",
+					"loadSettings",
+					"validateAndSave",
+					"Setup",
+					"clear",
+					"id",
+					"MENU_CS",
+					"url",
+					"warning",
+					"font",
+					"write",
+					"ADDN",
+					"Data",
+					"that",
+					"_send",
+					"domClass",
+					"resetbtn",
+					"resetBtn",
+					"currentPanel",
+					"resetBtn",
+					"beforeSave",
+					"readonly",
+					"window",
+					"input",
+					"regis",
+					"domAttr",
+					"_save",
+					"selectStep",
+					"bNext",
+					"anim(",
+					"hint",
+					"showEmailHint",
+					"domClass",
+					"hint",
+					"beforeSave",
+					"saveAndValidate",
+					"saveAndValidatciwe",
+					"saveAndValidate"
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+					"validateAndSave",
+					"domStyle",
+					"coreFx",
+					"domStyle",
+					"this",
+					"domClass.toggle",
+					"domConstruct.create",
+					"domAttr",
+					"domConstruct.empty",
+					"arr.forEach",
+					"resolve()",
+					"Deferred",
+					"on",
+					"lang.hitch",
+					"query",
+					"dom.byId",
+					"domStyle",
+					"dom.byId",
+					"on",
+					"_index"
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"groups":
+			[
+				{
+					"selected": 1,
+					"sheets":
+					[
+						{
+							"buffer": 0,
+							"file": "shockcollar/lib/block-governor.js",
+							"settings":
+							{
+								"buffer_size": 45791,
+								"regions":
+								{
+									"bookmark_a":
+									{
+										"flags": 144,
+										"regions":
+										[
+											[
+												38368,
+												38368
+											]
+										]
+									}
+								},
+								"selection":
+								[
+									[
+										37604,
+										37604
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"vintage_lines.line": 1196,
+									"vintage_lines.lines": 1415,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 20103.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "shockcollar/lib/util.js",
+							"settings":
+							{
+								"buffer_size": 3466,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										51,
+										51
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"vintage_lines.line": 2,
+									"vintage_lines.lines": 174,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 2,
+							"file": "shockcollar/package.json",
+							"settings":
+							{
+								"buffer_size": 510,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										119,
+										119
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JSON.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"vintage_lines.line": 4,
+									"vintage_lines.lines": 13,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 3,
+							"file": "shockcollar/lib/time-widget.js",
+							"settings":
+							{
+								"buffer_size": 3638,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										535,
+										535
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"vintage_lines.line": 21,
+									"vintage_lines.lines": 127,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 1326.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 4,
+							"file": "shockcollar-site/shockcollar/paypal/views.py",
+							"settings":
+							{
+								"buffer_size": 2243,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										833,
+										833
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/Python/Python.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"vintage_lines.line": 25,
+									"vintage_lines.lines": 76,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 459.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 5,
+							"file": "shockcollar/data/js/content-scripts/paypal-surrender.js",
+							"settings":
+							{
+								"buffer_size": 1748,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										66,
+										66
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"vintage_lines.line": 3,
+									"vintage_lines.lines": 68,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 6,
+							"file": "shockcollar/data/js/dojo/shockcollar/panels/Deterrent.js",
+							"settings":
+							{
+								"buffer_size": 18258,
+								"regions":
+								{
+									"bookmark_a":
+									{
+										"flags": 144,
+										"regions":
+										[
+											[
+												17745,
+												17745
+											]
+										]
+									}
+								},
+								"selection":
+								[
+									[
+										10038,
+										10038
+									]
+								],
+								"settings":
+								{
+									"line_numbers": false,
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"vintage_lines.line": 292,
+									"vintage_lines.lines": 531,
+									"vintage_lines.mode": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 4548.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						}
+					]
+				}
+			],
+			"incremental_find":
+			{
+				"height": 34.0
+			},
+			"input":
+			{
+				"height": 33.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": true,
+			"position": "0,0,0,0,0,0,21,1278,798,1280,800",
+			"replace":
+			{
+				"height": 64.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+					[
+						"deterrent.js",
+						"shockcollar/data/js/dojo/shockcollar/panels/Deterrent.js"
+					],
+					[
+						"deterre",
+						"shockcollar/data/js/dojo/build/release/shockcollar/panels/Deterrent.js"
+					],
+					[
+						".json",
+						"shockcollar/package.json"
+					],
+					[
+						"util",
+						"shockcollar/lib/util.js"
+					],
+					[
+						"sched",
+						"shockcollar/lib/scheduler.js"
+					],
+					[
+						"bl",
+						"shockcollar/lib/block-governor.js"
+					],
+					[
+						"main",
+						"shockcollar/lib/main.js"
+					],
+					[
+						"block-",
+						"shockcollar/lib/block-governor.js"
+					],
+					[
+						"todo",
+						"shockcollar/TODO"
+					],
+					[
+						"block",
+						"shockcollar/lib/block-governor.js"
+					],
+					[
+						"bloc",
+						"shockcollar/lib/block-governor.js"
+					],
+					[
+						"setup",
+						"shockcollar/data/css/setup-and-settings.css"
+					],
+					[
+						"deterr",
+						"shockcollar/data/js/dojo/shockcollar/panels/templates/Deterrent.html"
+					],
+					[
+						"settings.js",
+						"shockcollar/data/js/dojo/shockcollar/settings.js"
+					],
+					[
+						"welcome.",
+						"shockcollar/data/js/dojo/shockcollar/panels/templates/Welcome.html"
+					],
+					[
+						"welcome.html",
+						"shockcollar/data/js/dojo/shockcollar/panels/templates/Welcome.html"
+					],
+					[
+						"setup-and",
+						"shockcollar/data/css/setup-and-settings.css"
+					],
+					[
+						"settings.html",
+						"shockcollar/data/views/settings.html"
+					],
+					[
+						"deter",
+						"shockcollar/data/js/dojo/shockcollar/panels/templates/Deterrent.html"
+					],
+					[
+						"test-syn",
+						"shockcollar/test/test-sync.js"
+					],
+					[
+						"menu",
+						"shockcollar/lib/menu.js"
+					],
+					[
+						"urls",
+						"shockcollar-site/shockcollar/urls.py"
+					],
+					[
+						"test-d",
+						"shockcollar/test/test-deterrents.js"
+					],
+					[
+						"test-s",
+						"shockcollar/test/test-sync.js"
+					],
+					[
+						"settings",
+						"shockcollar/lib/settings.js"
+					],
+					[
+						"settings.dtl",
+						"shockcollar/data/views/settings.dtl"
+					],
+					[
+						"setup.dt",
+						"shockcollar/data/views/setup.dtl"
+					],
+					[
+						"base-in",
+						"shockcollar/data/views/base-interface.dtl"
+					],
+					[
+						"setupand",
+						"shockcollar/data/js/content-scripts/setup-and-settings.js"
+					],
+					[
+						"lib/settings",
+						"shockcollar/lib/settings.js"
+					],
+					[
+						"build",
+						"shockcollar/data/js/dojo/build.profile.js"
+					],
+					[
+						"build_",
+						"shockcollar/bin/build_deploy.sh"
+					],
+					[
+						"blocklists.h",
+						"shockcollar/data/js/dojo/shockcollar/panels/templates/BlockLists.html"
+					],
+					[
+						"panel",
+						"shockcollar/data/js/dojo/shockcollar/panels/Panel.js"
+					],
+					[
+						"blockli",
+						"shockcollar/data/js/dojo/shockcollar/panels/BlockLists.js"
+					],
+					[
+						"css/p",
+						"shockcollar/data/css/page-box.css"
+					],
+					[
+						"settin",
+						"shockcollar/data/views/settings.html"
+					],
+					[
+						"read",
+						"shockcollar/README.md"
+					],
+					[
+						"test",
+						"shockcollar/test/test-deterrents.js"
+					],
+					[
+						"base",
+						"shockcollar/data/views/base-interface.dtl"
+					],
+					[
+						"sett",
+						"shockcollar/lib/settings.js"
+					],
+					[
+						"pack",
+						"shockcollar/package.json"
+					],
+					[
+						"archives",
+						"shockcollar-site/shockcollar/templates/archive/settings-0.90.1.dtl"
+					],
+					[
+						"base-",
+						"shockcollar/data/views/base-interface.dtl"
+					],
+					[
+						"views.",
+						"shockcollar-site/shockcollar/views.py"
+					],
+					[
+						"upgra",
+						"shockcollar/data/views/upgrade.html"
+					],
+					[
+						"build_dojo",
+						"shockcollar/bin/build_dojo.sh"
+					],
+					[
+						"deterren",
+						"shockcollar/data/js/dojo/shockcollar/panels/Deterrent.js"
+					],
+					[
+						"setup.js",
+						"shockcollar/data/js/dojo/shockcollar/setup.js"
+					],
+					[
+						"controll",
+						"shockcollar/data/js/dojo/shockcollar/Controller.js"
+					],
+					[
+						"util/lo",
+						"shockcollar/data/js/dojo/shockcollar/util/Log.js"
+					],
+					[
+						"shockcollar/pa",
+						"shockcollar/package.json"
+					],
+					[
+						"blocksch",
+						"shockcollar/data/js/dojo/shockcollar/panels/BlockSchedule.js"
+					],
+					[
+						"sche",
+						"shockcollar/lib/scheduler.js"
+					],
+					[
+						"common",
+						"shockcollar/data/css/common.css"
+					],
+					[
+						"menu.css",
+						"shockcollar/data/css/menu.css"
+					],
+					[
+						"menu.html",
+						"shockcollar/data/views/menu.html"
+					],
+					[
+						"quickblock",
+						"shockcollar/data/js/dojo/shockcollar/panels/templates/QuickBlock.html"
+					],
+					[
+						"dete",
+						"shockcollar/data/js/dojo/shockcollar/panels/Deterrent.js"
+					],
+					[
+						"quickblo",
+						"shockcollar/data/js/dojo/shockcollar/panels/QuickBlock.js"
+					],
+					[
+						"quickbl",
+						"shockcollar/data/js/dojo/shockcollar/panels/templates/QuickBlock.html"
+					],
+					[
+						".css",
+						"shockcollar/data/css/common.css"
+					],
+					[
+						"packa",
+						"shockcollar/package.json"
+					],
+					[
+						"paypal",
+						"shockcollar/data/js/content-scripts/paypal-surrender.js"
+					],
+					[
+						"content-sc",
+						"shockcollar/data/js/content-scripts/paypal-surrender.js"
+					],
+					[
+						"shockcollar-site/readme",
+						"shockcollar-site/shockcollar/README"
+					],
+					[
+						"readme",
+						"shockcollar/README.md"
+					],
+					[
+						"bin/",
+						"shockcollar/bin/build_deploy.sh"
+					],
+					[
+						"addtobl",
+						"shockcollar/data/js/dojo/shockcollar/panels/AddToBlockList.js"
+					],
+					[
+						"str",
+						"shockcollar/bin/strip_console.sh"
+					],
+					[
+						"base-inte",
+						"shockcollar/data/views/base-interface.dtl"
+					],
+					[
+						"views.py",
+						"shockcollar-site/shockcollar/views.py"
+					],
+					[
+						"settings.py",
+						"shockcollar-site/shockcollar/settings.py"
+					],
+					[
+						"profile",
+						"shockcollar/data/js/dojo/build.profile.js"
+					],
+					[
+						"basein",
+						"shockcollar/data/views/base-interface.dtl"
+					],
+					[
+						"lib/",
+						"shockcollar/lib/settings.js"
+					],
+					[
+						"blockgo",
+						"shockcollar/lib/block-governor.js"
+					],
+					[
+						"time-w",
+						"shockcollar/lib/time-widget.js"
+					],
+					[
+						"lib/menu.j",
+						"shockcollar/lib/menu.js"
+					],
+					[
+						"menu.js",
+						"shockcollar/data/js/dojo/shockcollar/menu.js"
+					],
+					[
+						"main.js",
+						"shockcollar/lib/main.js"
+					],
+					[
+						"content-scripts",
+						"shockcollar/data/js/content-scripts/setup-and-settings.js"
+					],
+					[
+						"detere",
+						"shockcollar/data/js/dojo/shockcollar/panels/Deterrent.js"
+					],
+					[
+						"password",
+						"shockcollar/data/js/content-scripts/password-surrender.js"
+					],
+					[
+						"d",
+						"shockcollar/lib/deterrents.js"
+					],
+					[
+						"paypal-s",
+						"shockcollar/data/js/content-scripts/paypal-surrender.js"
+					],
+					[
+						"passwor",
+						"shockcollar/data/js/content-scripts/password-surrender.js"
+					],
+					[
+						"deterrents",
+						"shockcollar/lib/deterrents.js"
+					],
+					[
+						"sitet",
+						"shockcollar/data/js/dojo/shockcollar/widgets/SiteTree.js"
+					],
+					[
+						"domain",
+						"shockcollar/data/js/dojo/shockcollar/util/DomainGroupStorage.js"
+					],
+					[
+						"sitetre",
+						"shockcollar/data/js/dojo/shockcollar/widgets/SiteTree.js"
+					],
+					[
+						"editsite",
+						"shockcollar/data/js/dojo/shockcollar/widgets/EditSiteTree.js"
+					],
+					[
+						"blocklis",
+						"shockcollar/data/js/dojo/shockcollar/panels/BlockLists.js"
+					],
+					[
+						"blocklists.html",
+						"shockcollar/data/js/dojo/shockcollar/panels/templates/BlockLists.html"
+					],
+					[
+						"settings.dt",
+						"shockcollar/data/views/settings.dtl"
+					],
+					[
+						"dijittree",
+						"shockcollar/data/js/dojo/dijit/Tree.js"
+					],
+					[
+						"deterrent",
+						"shockcollar/data/js/dojo/shockcollar/panels/templates/Deterrent.html"
+					],
+					[
+						"deterrent.html",
+						"shockcollar/data/js/dojo/shockcollar/panels/templates/Deterrent.html"
+					],
+					[
+						"block-p",
+						"shockcollar/data/views/block-page.html"
+					],
+					[
+						"settings.",
+						"shockcollar/lib/settings.js"
+					],
+					[
+						"contentscripts",
+						"shockcollar/data/js/content-scripts/setup-and-settings.js"
+					],
+					[
+						"quickblock.html",
+						"shockcollar/data/js/dojo/shockcollar/panels/templates/QuickBlock.html"
+					],
+					[
+						"addtoblock",
+						"shockcollar/data/js/dojo/shockcollar/panels/templates/AddToBlockList.html"
+					],
+					[
+						"blocklists",
+						"shockcollar/data/js/dojo/shockcollar/panels/BlockLists.js"
+					],
+					[
+						"addto",
+						"shockcollar/data/js/dojo/shockcollar/panels/templates/AddToBlockList.html"
+					],
+					[
+						"cont",
+						"shockcollar/data/js/dojo/shockcollar/Controller.js"
+					],
+					[
+						".dtl",
+						"shockcollar/data/views/base-interface.dtl"
+					],
+					[
+						"comm",
+						"shockcollar/data/css/common.css"
+					],
+					[
+						"page",
+						"shockcollar/data/css/page-box.css"
+					],
+					[
+						"sitetree",
+						"shockcollar/data/js/dojo/shockcollar/widgets/SiteTree.js"
+					],
+					[
+						"blocklisttree",
+						"shockcollar/data/js/dojo/build/lib/shockcollar/widgets/SiteTree.js"
+					],
+					[
+						"blocksche",
+						"shockcollar/data/js/dojo/shockcollar/panels/BlockSchedule.js"
+					],
+					[
+						"data/menu",
+						"shockcollar/data/js/dojo/shockcollar/menu.js"
+					],
+					[
+						"shockcollar/datasettings.js",
+						"shockcollar/data/js/dojo/shockcollar/settings.js"
+					],
+					[
+						"control",
+						"shockcollar/data/js/dojo/shockcollar/Controller.js"
+					],
+					[
+						"shockcollar/menu",
+						"shockcollar/data/js/dojo/shockcollar/menu.js"
+					],
+					[
+						"contro",
+						"shockcollar/data/js/dojo/shockcollar/Controller.js"
+					],
+					[
+						"panel.",
+						"shockcollar/data/js/dojo/shockcollar/panels/Panel.js"
+					],
+					[
+						"version",
+						"shockcollar-site/shockcollar/util/version.py"
+					],
+					[
+						"blocklist",
+						"shockcollar/data/js/dojo/shockcollar/panels/BlockLists.js"
+					],
+					[
+						"controller",
+						"shockcollar/data/js/dojo/shockcollar/Controller.js"
+					],
+					[
+						"data/menu.js",
+						"shockcollar/data/js/dojo/shockcollar/menu.js"
+					],
+					[
+						"lib/menu.",
+						"shockcollar/lib/menu.js"
+					],
+					[
+						"lib/menu",
+						"shockcollar/lib/menu.js"
+					],
+					[
+						"blocklist.html",
+						"shockcollar/data/js/dojo/shockcollar/panels/templates/BlockLists.html"
+					],
+					[
+						"menu.",
+						"shockcollar/data/js/dojo/shockcollar/menu.js"
+					],
+					[
+						"view",
+						"shockcollar-site/shockcollar/views.py"
+					],
+					[
+						"gitig",
+						"shockcollar/.gitignore"
+					]
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"show_minimap": true,
+			"show_open_files": false,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 258.0,
 			"status_bar_visible": true,
-			"window_id": 1,
-			"workspace_name": "/home/miko/Documents/ece4534/ARMCode/RTOSDemo/RTOSDemo.sublime-project"
+			"window_id": 5,
+			"workspace_name": "/home/miko/workspace/shockcollar.sublime-project"
 		}
 	],
 	"workspaces":
 	{
 		"recent_workspaces":
 		[
-			"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/RTOSDemo.sublime-project"
+			"/home/miko/workspace/shockcollar.sublime-project",
+			"/home/miko/Documents/ece4534/ARMCode/RTOSDemo/RTOSDemo.sublime-project",
+			"/home/miko/Documents/ece4534/PIC.sublime-project",
+			"/home/miko/workspace/class-opening-notifier.sublime-project"
 		]
 	}
 }

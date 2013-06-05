@@ -1,11 +1,13 @@
 """
-DocBlockr v2.10.0
+DocBlockr v2.11.1
 by Nick Fisher
 https://github.com/spadgos/sublime-jsdocs
 """
 import sublime
 import sublime_plugin
 import re
+import datetime
+import time
 from functools import reduce
 
 
@@ -71,14 +73,12 @@ class JsdocsCommand(sublime_plugin.TextCommand):
 
         self.initialize(self.view, inline)
 
-        # erase characters in the view (will be added to the output later)
-        self.view.erase(edit, self.trailingRgn)
-
-        out = None
-
         if self.parser.isExistingComment(self.line):
             write(self.view, "\n *" + self.indentSpaces)
             return
+
+        # erase characters in the view (will be added to the output later)
+        self.view.erase(edit, self.trailingRgn)
 
         # match against a function declaration.
         out = self.parser.parse(self.line)
@@ -113,9 +113,14 @@ class JsdocsCommand(sublime_plugin.TextCommand):
             parser.setNameOverride(self.trailingString)
 
         # read the next line
-        self.line = parser.getDefinition(v, point + 1)
+        self.line = parser.getDefinition(v, v.line(point).end() + 1)
 
     def generateSnippet(self, out, inline=False):
+        # substitute any variables in the tags
+
+        if out:
+            out = self.substituteVariables(out)
+
         # align the tags
         if out and (self.shallowAlignTags or self.deepAlignTags) and not inline:
             out = self.alignTags(out)
@@ -144,15 +149,18 @@ class JsdocsCommand(sublime_plugin.TextCommand):
         widths = []
 
         # Skip the return tag if we're faking "per-section" indenting.
+        out = list(out)
         lastItem = len(out)
         if (self.settings.get('jsdocs_per_section_indent')):
-            if (self.settings.get('jsdocs_return_tag') in out[-1]):
+            returnTag = self.settings.get('jsdocs_return_tag') or '@return'
+            if (returnTag in out[-1]):
                 lastItem -= 1
 
         #  skip the first one, since that's always the "description" line
-        for line in out[1:lastItem]:
-            widths.append(list(map(outputWidth, line.split(" "))))
-            maxCols = max(maxCols, len(widths[-1]))
+        for line in out:
+            if line.startswith('@'):
+                widths.append(list(map(outputWidth, line.split(" "))))
+                maxCols = max(maxCols, len(widths[-1]))
 
         #  initialise a list to 0
         maxWidths = [0] * maxCols
@@ -172,13 +180,36 @@ class JsdocsCommand(sublime_plugin.TextCommand):
         minColSpaces = self.settings.get('jsdocs_min_spaces_between_columns', 1)
 
         for index, line in enumerate(out):
-            if (index > 0):
+            if line.startswith('@'):
                 newOut = []
                 for partIndex, part in enumerate(line.split(" ")):
                     newOut.append(part)
                     newOut.append(" " * minColSpaces + (" " * (maxWidths.get(partIndex, 0) - outputWidth(part))))
                 out[index] = "".join(newOut).strip()
+
         return out
+
+    def substituteVariables(self, out):
+        def getVar(match):
+            varName = match.group(1)
+            if varName == 'datetime':
+                date = datetime.datetime.now().replace(microsecond=0)
+                offset = time.timezone / -3600.0
+                return "%s%s%02d%02d" % (
+                    date.isoformat(),
+                    '+' if offset >= 0 else "-",
+                    abs(offset),
+                    (offset % 1) * 60
+                )
+            elif varName == 'date':
+                return datetime.date.today().isoformat()
+            else:
+                return match.group(0)
+
+        def subLine(line):
+            return re.sub(r'\{\{([^}]+)\}\}', getVar, line)
+
+        return map(subLine, out)
 
     def fixTabStops(self, out):
         tabIndex = counter()
@@ -229,6 +260,9 @@ class JsdocsParser(object):
         return self.nameOverride
 
     def parse(self, line):
+        if self.viewSettings.get('jsdocs_simple_mode'):
+            return None
+
         out = self.parseFunction(line)  # (name, args, retval, options)
         if (out):
             return self.formatFunction(*out)
@@ -281,16 +315,19 @@ class JsdocsParser(object):
             out.append('@private')
             return out
 
+        extraTagAfter = self.viewSettings.get("jsdocs_extra_tags_go_after") or False
+
         description = self.getNameOverride() or ('[%s description]' % escape(name))
         out.append("${1:%s}" % description)
 
-        if (self.viewSettings.get("jsdocs_autoadd_method_tag") == True):
+        if (self.viewSettings.get("jsdocs_autoadd_method_tag") is True):
             out.append("@%s %s" % (
                 "method",
                 escape(name)
             ))
 
-        self.addExtraTags(out)
+        if not extraTagAfter:
+            self.addExtraTags(out)
 
         # if there are arguments, add a @param for each
         if (args):
@@ -342,6 +379,9 @@ class JsdocsParser(object):
         for notation in self.getMatchingNotations(name):
             if 'tags' in notation:
                 out.extend(notation['tags'])
+
+        if extraTagAfter:
+            self.addExtraTags(out)
 
         return out
 
@@ -431,12 +471,17 @@ class JsdocsParser(object):
 
             pos += len(line) + 1
             # strip comments
-            line = re.sub("//.*", "", line)
+            line = re.sub(r"//.*",     "", line)
             line = re.sub(r"/\*.*\*/", "", line)
             if definition == '':
-                if not self.settings['fnOpener'] or not re.search(self.settings['fnOpener'], line):
+                opener = re.search(self.settings['fnOpener'], line) if self.settings['fnOpener'] else False
+                if not opener:
                     definition = line
-                    break
+                else:
+                    # ignore everything before the function opener
+                    line = line[opener.start():]
+
+
             definition += line
             openBrackets = reduce(countBrackets, re.findall('[()]', line), openBrackets)
             if openBrackets == 0:
@@ -499,16 +544,17 @@ class JsdocsJavascript(JsdocsParser):
         return (res.group('name'), res.group('val').strip())
 
     def guessTypeFromValue(self, val):
+        lowerPrimitives = self.viewSettings.get('jsdocs_lower_case_primitives') or False
         if is_numeric(val):
-            return "Number"
+            return "number" if lowerPrimitives else "Number"
         if val[0] == '"' or val[0] == "'":
-            return "String"
+            return "string" if lowerPrimitives else "String"
         if val[0] == '[':
             return "Array"
         if val[0] == '{':
             return "Object"
         if val == 'true' or val == 'false':
-            return 'Boolean'
+            return "boolean" if lowerPrimitives else "Boolean"
         if re.match('RegExp\\b|\\/[^\\/]', val):
             return 'RegExp'
         if val[:4] == 'new ':
@@ -626,7 +672,7 @@ class JsdocsCPP(JsdocsParser):
             'typeTag': 'param',
             'commentCloser': ' */',
             'fnIdentifier': identifier,
-            'varIdentifier': identifier,
+            'varIdentifier': identifier + '(?:\\[' + identifier + '\\])?',
             'fnOpener': identifier + '\\s+' + identifier + '\\s*\\(',
             'bool': 'bool',
             'function': 'function'
@@ -718,16 +764,17 @@ class JsdocsCoffee(JsdocsParser):
         return (res.group('name'), res.group('val').strip())
 
     def guessTypeFromValue(self, val):
+        lowerPrimitives = self.viewSettings.get('jsdocs_lower_case_primitives') or False
         if is_numeric(val):
-            return "Number"
+            return "number" if lowerPrimitives else "Number"
         if val[0] == '"' or val[0] == "'":
-            return "String"
+            return "string" if lowerPrimitives else "String"
         if val[0] == '[':
             return "Array"
         if val[0] == '{':
             return "Object"
         if val == 'true' or val == 'false':
-            return 'Boolean'
+            return "boolean" if lowerPrimitives else "Boolean"
         if re.match('RegExp\\b|\\/[^\\/]', val):
             return 'RegExp'
         if val[:4] == 'new ':
@@ -1052,11 +1099,14 @@ class JsdocsDecorateCommand(sublime_plugin.TextCommand):
             maxLength = 0
             lines = v.lines(sel)
             for lineRegion in lines:
-                leadingWS = len(re_whitespace.match(v.substr(lineRegion)).group(1))
+                lineText = v.substr(lineRegion)
+                tabCount = lineText.count("\t")
+                leadingWS = len(re_whitespace.match(lineText).group(1))
+                leadingWS = leadingWS - tabCount
                 maxLength = max(maxLength, lineRegion.size())
 
             lineLength = maxLength - leadingWS
-            leadingWS = " " * leadingWS
+            leadingWS = tabCount * "\t" + " " * leadingWS
             v.insert(edit, sel.end(), leadingWS + "/" * (lineLength + 3) + "\n")
 
             for lineRegion in reversed(lines):
@@ -1080,7 +1130,7 @@ class JsdocsDeindent(sublime_plugin.TextCommand):
         v = self.view
         lineRegion = v.line(v.sel()[0])
         line = v.substr(lineRegion)
-        v.insert(edit, lineRegion.end(), re.sub("^(\\s*)\\s\\*/.*", "\n\\1", line))
+        v.insert(edit, v.sel()[0].begin(), re.sub("^(\\s*)\\s\\*/.*", "\n\\1", line))
 
 
 class JsdocsReparse(sublime_plugin.TextCommand):
@@ -1226,4 +1276,5 @@ class JsdocsWrapLines(sublime_plugin.TextCommand):
             else:
                 text += para['text'] + '\n *'
 
+        text = escape(text)
         write(v, text)

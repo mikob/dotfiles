@@ -4,9 +4,11 @@
 	[
 		"DocBlockr",
 		"Git",
+		"JsFormat",
 		"Package Control",
 		"Surround",
 		"Vintage Surround",
+		"VintageEx",
 		"VintageLines"
 	]
 }

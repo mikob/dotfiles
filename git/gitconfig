@@ -1,6 +1,6 @@
 [user]
-	name = mborys
-	email = mikob@vt.edu
+	name = mikob
+	email = fxrock2002@yahoo.com
 [alias]
     co = checkout
     cm = commit -m
@@ -15,4 +15,4 @@
 [color]
 	ui = true
 [core]
-	excludesfile = /home/miko/.gitignore_global
+	excludesfile = /home/mikob/.gitignore_global

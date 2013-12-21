@@ -1,7 +1,7 @@
 # Miko's custom aliases
 alias rm="trash-rm"
 alias wf="autossh mikob@mikob.webfactional.com"
-alias opn="nautilus '$pwd'"
+alias opn="nemo '$pwd'"
 alias fnd="find ./ -iname $@"
 alias ack="ack-grep"
 
@@ -13,4 +13,3 @@ function ackvim() {
     ack "$@" && read;
     vim "-c bufdo /$@" $(ack -l $@);
 }
-

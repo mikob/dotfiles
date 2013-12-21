@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cur_dir="$(pwd)"
+
 FFX_PROFILE=~/.mozilla/firefox/e0cvqqm9.Dev/
 cd ~/workspace/shockcollar
 sublime &

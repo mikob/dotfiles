@@ -4,6 +4,7 @@ alias wf="autossh mikob@mikob.webfactional.com"
 alias opn="nemo '$pwd'"
 alias fnd="find ./ -iname $@"
 alias ack="ack-grep"
+alias ls="ls --block-size=M --color=auto"
 
 # Miko's custom shell function
 function cds() { cd "$@" && ls; }

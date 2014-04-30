@@ -1,0 +1,13 @@
+{
+    "anaconda_gutter_marks": false,
+    /*
+        Other available themes are 'alpha', 'bright', 'dark', 'hard' and
+        'simple'. To see icons that will be used for each theme check
+        gutter_icon_themes folder in Anaconda package.
+    */
+    "anaconda_gutter_theme": "basic",
+    "anaconda_linter_mark_style": "none",
+    "anaconda_linting": false,
+    "anaconda_linter_underlines": false,
+    "pep8": false
+}

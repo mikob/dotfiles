@@ -1,0 +1,28 @@
+{
+	"installed_packages":
+	[
+		"Anaconda",
+		"ColorPicker",
+		"Default File Type",
+		"Djaneiro",
+		"Emmet",
+		"Filter Lines",
+		"Function Name Display",
+		"Git",
+		"HTML-CSS-JS Prettify",
+		"JsFormat",
+		"SublimeCodeIntel",
+		"SublimeLinter-pyflakes",
+		"Tag",
+		"Theme - Soda",
+		"Tomorrow Color Schemes",
+		"Vintage Surround",
+		"VintageLines",
+		"VintageLines.sublime-package",
+		"Vintageous"
+	],
+	"repositories":
+	[
+		"https://github.com/squ1b3r/Djaneiro"
+	]
+}

@@ -1,0 +1,18 @@
+[
+	{ "keys": ["f12"], "command": "reindent", "args": {"single_line": false},
+		    "context":
+		    [
+		        { "key": "setting.command_mode", "operand": true },
+		        { "key": "setting.is_widget", "operand": false }
+		    ]
+	},
+	{ "keys": ["ctrl+w"], "command": "close" },
+	{ "keys": ["alt+v"], "command": "set_action", "args": {
+			"action": "vi_enter_visual_block_mode"
+		}, "context": [
+			{"key": "vi_mode_normal"}
+		]
+	},
+	{ "keys": ["ctrl+d"], "command": "scroll_lines", "args": {"amount": -30.0}, "context": [{"key": "setting.command_mode"}]},
+	{ "keys": ["ctrl+u"], "command": "scroll_lines", "args": {"amount": 30.0}, "context": [{"key": "setting.command_mode"}]}
+]

@@ -116,6 +116,7 @@ export EDITOR=vim
 export INPUTRC=/home/mikob/.inputrc
 export PATH="/opt/microchip/xc8/v1.12/bin":$PATH
 export DEV_ENV=1
+export FFX_PROFILE="~/.mozilla/firefox/e0cvqqm9.Dev/"
 
 PS1="\[\e[0;36m\]\u:\[\e[1;34m\]\w\[\e[0;33m\]\$(__git_ps1)\$\[\e[0;37m\] "
 

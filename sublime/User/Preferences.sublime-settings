@@ -2,13 +2,11 @@
 	"anaconda_gutter_marks": true,
 	"anaconda_gutter_theme": "simple",
 	"anaconda_linter_mark_style": "none",
-	"auto_complete": false,
+	"auto_complete": true,
 	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme",
 	"font_size": 10,
 	"ignored_packages":
 	[
-		"VintageLines",
-		"Anaconda",
 		"Vintage"
 	],
 	"rulers":
@@ -16,7 +14,6 @@
 		80
 	],
 	"theme": "Soda Dark.sublime-theme",
-	"vintage_lines.force_mode": true,
-	"vintage_start_in_command_mode": true,
-	"word_wrap": false
+	"word_wrap": false,
+    "trim_trailing_white_space_on_save": true
 }

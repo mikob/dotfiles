@@ -43,6 +43,7 @@ ZSH_THEME="miko"
 plugins=(git autojump tmux virtualenv virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
+source /home/mikob/.bash_aliases
 
 # Customize to your needs...
 export PATH=$PATH:/home/mikob/.rvm/gems/ruby-1.9.3-p448/bin:/home/mikob/.rvm/gems/ruby-1.9.3-p448@global/bin:/home/mikob/.rvm/rubies/ruby-1.9.3-p448/bin:/home/mikob/.rvm/bin:/opt/microchip/xc8/v1.12/bin:/usr/bin:/opt/vagrant/bin:/opt/microchip/mplabc32/v2.01/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin:/bin:/usr/games:/usr/local/games:/home/mikob/tools/android-sdk-linux/tools:/home/mikob/tools/android-sdk-linux/platform-tools:/home/mikob/.rvm/bin

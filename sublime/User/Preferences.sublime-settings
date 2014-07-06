@@ -7,6 +7,7 @@
 	"font_size": 10,
 	"ignored_packages":
 	[
+		"VintageLines",
 		"Vintage"
 	],
 	"rulers":
@@ -14,6 +15,6 @@
 		80
 	],
 	"theme": "Soda Dark.sublime-theme",
-	"word_wrap": false,
-    "trim_trailing_white_space_on_save": true
+	"trim_trailing_white_space_on_save": true,
+	"word_wrap": false
 }

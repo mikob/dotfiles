@@ -8,4 +8,8 @@ Make sure you have a .bash_aliases and .vimviews
 /git/git.config     --> ~/.git.config
 /tmux.conf          --> ~/.tmux.conf
 
+zsh
+/zsh/custom         --> ~/.oh-my-zsh/custom
+/zsh/zshrc          --> ~/.zshrc
+
 

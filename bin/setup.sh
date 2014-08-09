@@ -8,7 +8,7 @@ touch ~/.bash_aliases
 touch ~/.bashrc
 touch ~/.vimrc
 touch ~/.gvimrc
-touch -r ~/.vim
+touch ~/.vim
 touch ~/.tmux.conf
 touch ~/.zshrc
 

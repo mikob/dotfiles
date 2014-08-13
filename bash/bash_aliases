@@ -6,6 +6,7 @@ alias fnd="find ./ -iname $@"
 alias ack="ack-grep"
 alias ls="ls --block-size=M --color=auto"
 alias info="info --vi-keys"
+alias dkrm="docker ps -aq | xargs -L 1 docker stop; docker ps -aq | xargs -L 1 docker rm"
 
 # Miko's custom shell function
 function cds() { cd "$@" && ls; }

@@ -6,6 +6,7 @@
     cm = commit -m
     br = branch
     st = status
+    gr = log --graph --pretty --oneline --all --decorate
 [giggle]
 	main-window-maximized = false
 	main-window-geometry = 1048x797+160+112

@@ -28,7 +28,7 @@ ln -s $cur_dir/bash/bashrc ~/.bashrc
 ln -s $cur_dir/vim/vimrc ~/.vimrc
 ln -s $cur_dir/vim/gvimrc ~/.gvimrc
 ln -s $cur_dir/vim ~/.vim
-ln -s $cur_dir/zsh/custom ~/.oh-my-zsh/custom
+ln -s $cur_dir/zsh/custom/themes ~/.oh-my-zsh/custom/themes
 ln -s $cur_dir/zsh/zshrc ~/.zshrc
 ln -s $cur_dir/tmux.conf ~/.tmux.conf
 

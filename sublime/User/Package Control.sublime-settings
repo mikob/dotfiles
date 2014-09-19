@@ -1,16 +1,20 @@
 {
 	"installed_packages":
 	[
+		"Alternative Autocompletion",
 		"Anaconda",
+		"Colorcoder",
 		"ColorPicker",
 		"Default File Type",
 		"Djaneiro",
+		"EJS",
 		"Emmet",
 		"Filter Lines",
 		"Function Name Display",
 		"Git",
 		"HTML-CSS-JS Prettify",
 		"JsFormat",
+		"Markdown Preview",
 		"SublimeCodeIntel",
 		"SublimeLinter-pyflakes",
 		"Tag",

@@ -40,13 +40,10 @@ ZSH_THEME="miko"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git tmux virtualenv virtualenvwrapper docker)
+plugins=(git autojump tmux virtualenv virtualenvwrapper docker)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_aliases
 
-unsetopt hist_verify
-# Customize to your needs...
-export PATH=$PATH:/home/mikob/.rvm/gems/ruby-1.9.3-p448/bin:/home/mikob/.rvm/gems/ruby-1.9.3-p448@global/bin:/home/mikob/.rvm/rubies/ruby-1.9.3-p448/bin:/home/mikob/.rvm/bin:/opt/microchip/xc8/v1.12/bin:/usr/bin:/opt/vagrant/bin:/opt/microchip/mplabc32/v2.01/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin:/bin:/usr/games:/usr/local/games:/home/mikob/tools/android-sdk-linux/tools:/home/mikob/tools/android-sdk-linux/platform-tools:/home/mikob/.rvm/bin
-export FFX_PROFILE="~/.mozilla/firefox/mwad0hks.default"
-export EDITOR=/usr/bin/vim
+# For things particular to a specific machine...
+source $HOME/.zshrc-custom

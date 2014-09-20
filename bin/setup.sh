@@ -11,6 +11,7 @@ touch ~/.gvimrc
 touch ~/.vim
 touch ~/.tmux.conf
 touch ~/.zshrc
+touch ~/.ackrc
 
 rm ~/.gitconfig
 rm ~/.bash_aliases
@@ -21,6 +22,7 @@ rm -r ~/.vim
 rm ~/.tmux.conf
 rm ~/.zshrc
 rm -r ~/.oh-my-zsh/custom
+rm ~/.ackrc
 
 ln -s $cur_dir/git/gitconfig ~/.gitconfig
 ln -s $cur_dir/bash/bash_aliases ~/.bash_aliases
@@ -31,6 +33,7 @@ ln -s $cur_dir/vim ~/.vim
 ln -s $cur_dir/zsh/custom/themes ~/.oh-my-zsh/custom/themes
 ln -s $cur_dir/zsh/zshrc ~/.zshrc
 ln -s $cur_dir/tmux.conf ~/.tmux.conf
+ln -s $cur_dir/ackrc ~/.ackrc
 
 # git stuff
 git config --global color.ui true

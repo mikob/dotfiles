@@ -49,3 +49,4 @@ source $HOME/.bash_aliases
 
 # For things particular to a specific machine...
 source $HOME/.zshrc-custom
+source $HOME/.rvm/scripts/rvm

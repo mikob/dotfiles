@@ -9,6 +9,8 @@ alias info="info --vi-keys"
 alias dkrm="docker ps -aq | xargs -L 1 docker stop; docker ps -aq | xargs -L 1 docker rm"
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias cp='cp -i'
+alias mv='mv -i'
+alias make='make -j4'
 
 
 # Miko's custom shell function

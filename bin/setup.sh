@@ -4,8 +4,6 @@
 cur_dir="$(pwd)"
 
 touch ~/.gitconfig
-touch ~/.bash_aliases
-touch ~/.bashrc
 touch ~/.vimrc
 touch ~/.gvimrc
 touch ~/.vim
@@ -14,8 +12,6 @@ touch ~/.zshrc
 touch ~/.ackrc
 
 rm ~/.gitconfig
-rm ~/.bash_aliases
-rm ~/.bashrc
 rm ~/.vimrc
 rm ~/.gvimrc
 rm -r ~/.vim
@@ -25,8 +21,6 @@ rm -r ~/.oh-my-zsh/custom
 rm ~/.ackrc
 
 ln -s $cur_dir/git/gitconfig ~/.gitconfig
-ln -s $cur_dir/bash/bash_aliases ~/.bash_aliases
-ln -s $cur_dir/bash/bashrc ~/.bashrc
 ln -s $cur_dir/vim/vimrc ~/.vimrc
 ln -s $cur_dir/vim/gvimrc ~/.gvimrc
 ln -s $cur_dir/vim ~/.vim

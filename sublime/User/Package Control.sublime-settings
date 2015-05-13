@@ -1,9 +1,13 @@
 {
+	"in_process_packages":
+	[
+	],
 	"installed_packages":
 	[
 		"Alternative Autocompletion",
 		"Anaconda",
-		"Colorcoder",
+		"BracketHighlighter",
+		"Color Highlighter",
 		"ColorPicker",
 		"Default File Type",
 		"Djaneiro",
@@ -13,8 +17,13 @@
 		"Function Name Display",
 		"Git",
 		"HTML-CSS-JS Prettify",
+		"Javascript Beautify",
 		"JsFormat",
 		"Markdown Preview",
+		"OmniMarkupPreviewer",
+		"Package Control",
+		"Sass",
+		"SCSS",
 		"SublimeCodeIntel",
 		"SublimeLinter-pyflakes",
 		"Tag",

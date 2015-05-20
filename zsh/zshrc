@@ -82,7 +82,7 @@ alias rm="trash-rm"
 alias wf="autossh mikob@mikob.webfactional.com"
 alias opn="nemo '$pwd'"
 alias fnd="find ./ -iname $@"
-alias ack="ack-grep"
+alias ack="ack-grep -i"
 alias ls="ls --block-size=M --color=auto"
 alias info="info --vi-keys"
 alias dkrm="docker ps -aq | xargs -L 1 docker stop; docker ps -aq | xargs -L 1 docker rm"
@@ -91,6 +91,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias cp='cp -i'
 alias mv='mv -i'
 alias make='make -j4'
+alias grep='grep -i'
 
 
 # Miko's custom shell function

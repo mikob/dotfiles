@@ -3,14 +3,14 @@
 	"anaconda_gutter_theme": "simple",
 	"anaconda_linter_mark_style": "none",
 	"auto_complete": true,
-	"color_scheme": "Packages/Colorcoder/Tomorrow-Night (Colorcode).tmTheme",
-	"font_size": 10,
+	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme",
+	"font_size": 11,
 	"ignored_packages":
 	[
 		"VintageLines",
+		"SublimeCodeIntel",
 		"Vintage"
 	],
-	"original_color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme",
 	"rulers":
 	[
 		80

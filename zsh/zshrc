@@ -80,16 +80,18 @@ export NODE_ENV=development
 
 alias rm="trash-rm"
 alias wf="autossh mikob@mikob.webfactional.com"
-alias opn="nemo '$pwd'"
+alias opn="xdg-open `pwd`"
 alias fnd="find ./ -iname $@"
-alias ack="ack-grep"
+alias ack="ack-grep -i"
 alias ls="ls --block-size=M --color=auto"
 alias info="info --vi-keys"
 alias dkrm="docker ps -aq | xargs -L 1 docker stop; docker ps -aq | xargs -L 1 docker rm"
+alias dkrmi="docker images -f 'dangling=true' -q | xargs docker rmi"
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias cp='cp -i'
 alias mv='mv -i'
 alias make='make -j4'
+alias grep='grep -i'
 
 
 # Miko's custom shell function

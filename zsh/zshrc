@@ -96,7 +96,7 @@ alias fnd="find ./ -iname $@"
 alias ack="ack-grep -i"
 alias ls="ls --block-size=M --color=auto"
 alias info="info --vi-keys"
-alias dkrm="docker ps -aq | xargs -L 1 docker stop; docker ps -aq | xargs -L 1 docker rm"
+alias dkrm="docker ps -aqf 'status=exited' | xargs -L 1 docker rm -f"
 alias dkrmi="docker images -f 'dangling=true' -q | xargs docker rmi"
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias cp='cp -i'

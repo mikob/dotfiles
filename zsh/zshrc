@@ -103,6 +103,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias make='make -j4'
 alias grep='grep -i'
+alias rsync='rsync -zav'
 
 
 # Miko's custom shell function

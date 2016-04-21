@@ -1,33 +1,33 @@
 TERM=xterm-256color
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${HOME}/.zgen/zgen.zsh"
+source "${HOME}/.zgen/zgen.zsh"
 
-  if ! zgen saved; then
-    zgen prezto prompt theme 'miko'
-    zstyle ':prezto:*:*' color 'yes'
+if ! zgen saved; then
+zgen prezto prompt theme 'miko'
+zstyle ':prezto:*:*' color 'yes'
 
-    zgen prezto
-    zgen prezto git
-    zgen prezto completion
-    zgen prezto python
-    zgen prezto command-not-found
-    # zgen prezto syntax-highlighting
-    zgen prezto ssh 
-    zgen prezto tmux
-    zgen prezto history-substring-search
-    # zgen prezto autosuggestions
+zgen prezto
+zgen prezto git
+zgen prezto completion
+zgen prezto python
+zgen prezto command-not-found
+# zgen prezto syntax-highlighting
+zgen prezto ssh 
+zgen prezto tmux
+zgen prezto history-substring-search
+# zgen prezto autosuggestions
 
-    zgen load zsh-users/zsh-syntax-highlighting
-    zgen load tarruda/zsh-autosuggestions
+zgen load zsh-users/zsh-syntax-highlighting
+zgen load tarruda/zsh-autosuggestions
 
-    zgen save
-  fi
-
+zgen save
 fi
 
 bindkey \^U backward-kill-line
+# zsh disable certain redirection warnings
+setopt clobber
+unsetopt histverify
 
 
 # map caps lock to escape
@@ -91,6 +91,12 @@ export NVM_DIR="/home/mikob/.nvm"
 nvm() {
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
     nvm "$@"
+}
+
+node() {
+    echo 'hi'
+    nvm current && node "$@"
+    echo 'there'
 }
 
 # Lazy load rvm

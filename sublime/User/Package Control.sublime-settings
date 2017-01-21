@@ -1,38 +1,31 @@
 {
+	"bootstrapped": true,
 	"in_process_packages":
 	[
 	],
 	"installed_packages":
 	[
-		"Alternative Autocompletion",
+		"Advanced CSV",
 		"Anaconda",
+		"AutoWrap",
 		"BracketHighlighter",
 		"Color Highlighter",
+		"ColorPick",
 		"ColorPicker",
-		"Default File Type",
+		"CSS Colors",
 		"Djaneiro",
-		"EJS",
+		"Dockerfile Syntax Highlighting",
 		"Emmet",
-		"Filter Lines",
 		"Function Name Display",
-		"Git",
 		"HTML-CSS-JS Prettify",
-		"Javascript Beautify",
+		"Indent XML",
 		"JsFormat",
-		"Markdown Preview",
-		"OmniMarkupPreviewer",
 		"Package Control",
-		"Sass",
+		"Python PEP8 Autoformat",
 		"SCSS",
 		"SublimeCodeIntel",
-		"SublimeLinter-pyflakes",
-		"Tag",
-		"Theme - Soda",
+		"Theme - SoDaReloaded",
 		"Tomorrow Color Schemes",
 		"Vintageous"
-	],
-	"repositories":
-	[
-		"https://github.com/squ1b3r/Djaneiro"
 	]
 }

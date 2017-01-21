@@ -1,8 +1,12 @@
+# timing, ~0.35s
 TERM=xterm-256color
 
 # Source Prezto.
 source "${HOME}/.zgen/zgen.zsh"
 
+# IMPORTANT:
+# Need to edit zgen save file manually anytime it's changed to make sure autoenv loads after python in order for
+# .autoenv.zsh to work properly with workon command
 if ! zgen saved; then
 zgen prezto prompt theme 'miko'
 zstyle ':prezto:*:*' color 'yes'
@@ -10,12 +14,15 @@ zstyle ':prezto:*:*' color 'yes'
 zgen prezto
 zgen prezto git
 zgen prezto completion
+echo "load python"
 zgen prezto python
 zgen prezto command-not-found
 # zgen prezto syntax-highlighting
-zgen prezto ssh 
+zgen prezto ssh
 zgen prezto tmux
 zgen prezto history-substring-search
+echo "load zsh autoenv"
+zgen load Tarrasch/zsh-autoenv
 # zgen prezto autosuggestions
 
 zgen load zsh-users/zsh-syntax-highlighting
@@ -45,16 +52,16 @@ export INPUTRC=/home/mikob/.inputrc
 export DEV_ENV=1
 export FFX_PROFILE="~/.mozilla/firefox/e0cvqqm9.Dev/"
 export NODE_ENV=development
+export LC_ALL=en_US.UTF-8
 
 # Example aliases
-# alias rm="trash-rm"
+alias rm="trash-put"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias wf="autossh mikob@mikob.webfactional.com"
 alias opn="xdg-open `pwd`"
 alias fnd="find ./ -iname $@"
 alias ack="ack-grep -i"
@@ -93,15 +100,17 @@ nvm() {
     nvm "$@"
 }
 
-node() {
-    echo 'hi'
-    nvm current && node "$@"
-    echo 'there'
-}
+# node() {
+    #echo 'hi'
+    #nvm current && node "$@"
+    #echo 'there'
+# }
 
-# Lazy load rvm
+# RVM seems to be loaded quickly, so we don't need to lazy load
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-rvm() {
-    if [[ -s $HOME/.rvm/scripts/rvm ]]; then source $HOME/.rvm/scripts/rvm; fi
-    rvm "$@"
-}
+export PATH=$PATH:$HOME/.tmuxifier/bin
+[ -s $HOME/.rvm/scripts/rvm ] && . "$HOME/.rvm/scripts/rvm"
+
+# tmuxifier
+eval "$(tmuxifier init -)"
+

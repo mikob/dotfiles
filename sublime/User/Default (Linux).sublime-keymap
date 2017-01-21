@@ -36,44 +36,6 @@
 	"keys": ["ctrl+shift+r"],
 	"command": "goto_symbol_in_project"
 }, {
-	"keys": ["tab"],
-	"command": "alternative_autocomplete",
-	"args": {
-		"default": "\t"
-	},
-	"context": [{
-		"key": "num_selections",
-		"operator": "equal",
-		"operand": 1
-	}]
-}, {
-	"keys": ["shift+tab"],
-	"command": "alternative_autocomplete",
-	"args": {
-		"cycle": "previous"
-	},
-	"context": [{
-		"key": "num_selections",
-		"operator": "equal",
-		"operand": 1
-	}]
-}, {
-	"keys": ["tab"],
-	"command": "indent",
-	"context": [{
-		"key": "text",
-		"operator": "regex_contains",
-		"operand": "\n"
-	}]
-}, {
-	"keys": ["shift+tab"],
-	"command": "unindent",
-	"context": [{
-		"key": "text",
-		"operator": "regex_contains",
-		"operand": "\n"
-	}]
-}, {
 	"keys": ["ctrl+u"],
 	"command": "scroll_lines",
 	"args": {
@@ -82,4 +44,12 @@
 	"context": [{
 		"key": "setting.command_mode"
 	}]
-}]
+},
+// navigation with tab in autocomplete popup
+{ "keys": ["tab"], "command": "move", "args": {"by": "lines", "forward": true}, "context": [{ "key": "auto_complete_visible" }] },
+{ "keys": ["shift+tab"], "command": "move", "args": {"by": "lines", "forward": false}, "context": [{ "key": "auto_complete_visible" }] },
+
+// navigation with tab in overlay
+{ "keys": ["tab"], "command": "move", "args": {"by": "lines", "forward": true}, "context": [{ "key": "overlay_visible", "operator": "equal", "operand": true } ] },
+{ "keys": ["shift+tab"], "command": "move", "args": {"by": "lines", "forward": false}, "context": [{ "key": "overlay_visible", "operator": "equal", "operand": true } ] },
+]

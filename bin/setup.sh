@@ -10,7 +10,7 @@ sudo apt-get update
 sudo apt-get install neovim
 
 # general tools
-sudo apt install -y git vim zsh trash-cli xclip htop ack-grep
+sudo apt install -y git vim zsh trash-cli xclip htop 
 chsh -s zsh
 
 # shell tools
@@ -35,7 +35,7 @@ sudo apt install docker-ce
 cur_dir="$(pwd)"
 mkdir ~/.config/nvim
  
-for x in gitconfig vimrc gvimrc vim tmux.conf zshrc ackrc config/nvim/init.vim; do
+for x in gitconfig vimrc gvimrc vim tmux.conf zshrc config/nvim/init.vim; do
     echo $x;
     touch ~/.$x;
     rm ~/.$x;
@@ -48,6 +48,5 @@ ln -s $cur_dir/vim/gvimrc ~/.gvimrc
 ln -s $cur_dir/vim ~/.vim
 ln -s $cur_dir/zsh/zshrc ~/.zshrc
 ln -s $cur_dir/tmux.conf ~/.tmux.conf
-ln -s $cur_dir/ackrc ~/.ackrc
 ln -s $cur_dir/vim/init.vim ~/.config/nvim/
 

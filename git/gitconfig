@@ -7,6 +7,9 @@
     br = branch
     st = status
     gr = log --graph --pretty --oneline --all --decorate
+    pu = pull
+    p = push origin master
+
 [giggle]
 	main-window-maximized = false
 	main-window-geometry = 1409x946+160+834

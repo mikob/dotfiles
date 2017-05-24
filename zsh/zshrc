@@ -27,6 +27,7 @@ zgen load Tarrasch/zsh-autoenv
 
 zgen load zsh-users/zsh-syntax-highlighting
 zgen load tarruda/zsh-autosuggestions
+zgen load lukechilds/zsh-nvm
 
 zgen save
 fi
@@ -93,18 +94,6 @@ function agvim() {
 [ -f "$HOME/.zshrc-custom" ] && source "$HOME/.zshrc-custom"
 eval "$POST_RC"
 
-# Lazy load nvm
-export NVM_DIR="/home/mikob/.nvm"
-nvm() {
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-    nvm "$@"
-}
-
-# node() {
-    #echo 'hi'
-    #nvm current && node "$@"
-    #echo 'there'
-# }
 
 # RVM seems to be loaded quickly, so we don't need to lazy load
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

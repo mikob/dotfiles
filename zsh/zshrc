@@ -33,6 +33,7 @@ zgen save
 fi
 
 bindkey \^U backward-kill-line
+bindkey '^R' history-incremental-search-backward
 # zsh disable certain redirection warnings
 setopt clobber
 unsetopt histverify
@@ -76,6 +77,7 @@ alias mv='mv -i'
 alias make='make -j4'
 alias grep='grep -i'
 alias rsync='rsync -zav'
+alias dl='docker logs -f --tail 1000'
 
 
 # Miko's custom shell function

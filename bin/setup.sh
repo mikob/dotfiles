@@ -8,6 +8,8 @@ UBUNTU_EQUIV="xenial"
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update
 sudo apt-get install neovim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # general tools
 sudo apt install -y git vim zsh trash-cli xclip htop tree

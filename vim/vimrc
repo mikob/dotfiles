@@ -31,7 +31,7 @@ call pathogen#helptags()
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 "" Theme
-colorscheme wombat256
+colorscheme colibri
 set guifont=Inconsolata\ Medium\ 11  " font
 
 "" Whitespace

@@ -10,7 +10,7 @@ sudo apt-get update
 sudo apt-get install neovim
 
 # general tools
-sudo apt install -y git vim zsh trash-cli xclip htop 
+sudo apt install -y git vim zsh trash-cli xclip htop tree
 chsh -s zsh
 
 # shell tools

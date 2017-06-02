@@ -41,7 +41,7 @@ else
 	sudo dnf -y install python2-neovim python3-neovim	
 
 	# general tools
-	sudo dnf -y install vim zsh xclip htop tree tmux trash-cli parcellite
+	sudo dnf -y install vim zsh xclip htop tree tmux trash-cli parcellite ag
 
 	# docker
 	sudo dnf -y install dnf-plugins-core
@@ -82,3 +82,6 @@ ln -s $cur_dir/zsh/zshrc ~/.zshrc
 ln -s $cur_dir/tmux.conf ~/.tmux.conf
 ln -s $cur_dir/vim/init.vim ~/.config/nvim/
 
+# post docker
+sudo usermod -aG docker $USER
+sudo groupadd docker

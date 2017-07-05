@@ -7,7 +7,7 @@
     br = branch
     st = status
     gr = log --graph --pretty --oneline --all --decorate
-    pu = pull
+    pl = pull
     p = push origin master
 
 [giggle]
@@ -20,3 +20,5 @@
 	ui = true
 [core]
 	excludesfile = /home/mikob/.gitignore_global
+[push]
+	default = simple

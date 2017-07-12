@@ -1,6 +1,14 @@
+[core]
+	excludesfile = /home/mikob/.gitignore_global
+	ignorecase = false
+
+[push]
+	default = simple
+
 [user]
 	name = mikob
 	email = fxrock2002@yahoo.com
+
 [alias]
     co = checkout
     cm = commit -m
@@ -16,9 +24,15 @@
 	history-view-vpane-position = 511
 	file-view-vpane-position = 866
 	main-window-view = HistoryView
+
 [color]
 	ui = true
-[core]
-	excludesfile = /home/mikob/.gitignore_global
-[push]
-	default = simple
+
+[merge]
+	tool = meld
+
+[mergetool "meld"]                                           
+	path = C:/Program Files (x86)/Meld/Meld.exe
+	cmd = "'/mnt/c/Program Files (x86)/Meld/Meld.exe' $PWD/$LOCAL $PWD/$BASE $PWD/$REMOTE --output=$PWD/$MERGED"
+	keepBackup = false                                   
+	trustExitCode = false

@@ -16,7 +16,7 @@
     st = status
     gr = log --graph --pretty --oneline --all --decorate
     pl = pull
-    p = push origin master
+    p = push 
 
 [giggle]
 	main-window-maximized = false

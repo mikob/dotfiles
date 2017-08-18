@@ -44,12 +44,12 @@
 	"context": [{
 		"key": "setting.command_mode"
 	}]
-},
-// navigation with tab in autocomplete popup
-{ "keys": ["tab"], "command": "move", "args": {"by": "lines", "forward": true}, "context": [{ "key": "auto_complete_visible" }] },
-{ "keys": ["shift+tab"], "command": "move", "args": {"by": "lines", "forward": false}, "context": [{ "key": "auto_complete_visible" }] },
+}
+// // navigation with tab in autocomplete popup
+// { "keys": ["tab"], "command": "move", "args": {"by": "lines", "forward": true}, "context": [{ "key": "auto_complete_visible" }] },
+// { "keys": ["shift+tab"], "command": "move", "args": {"by": "lines", "forward": false}, "context": [{ "key": "auto_complete_visible" }] },
 
-// navigation with tab in overlay
-{ "keys": ["tab"], "command": "move", "args": {"by": "lines", "forward": true}, "context": [{ "key": "overlay_visible", "operator": "equal", "operand": true } ] },
-{ "keys": ["shift+tab"], "command": "move", "args": {"by": "lines", "forward": false}, "context": [{ "key": "overlay_visible", "operator": "equal", "operand": true } ] },
+// // navigation with tab in overlay
+// { "keys": ["tab"], "command": "move", "args": {"by": "lines", "forward": true}, "context": [{ "key": "overlay_visible", "operator": "equal", "operand": true } ] },
+// { "keys": ["shift+tab"], "command": "move", "args": {"by": "lines", "forward": false}, "context": [{ "key": "overlay_visible", "operator": "equal", "operand": true } ] },
 ]

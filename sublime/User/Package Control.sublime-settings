@@ -8,6 +8,7 @@
 		"Advanced CSV",
 		"Anaconda",
 		"AutoWrap",
+		"Babel",
 		"BracketHighlighter",
 		"Color Highlighter",
 		"ColorPick",
@@ -24,6 +25,8 @@
 		"Python PEP8 Autoformat",
 		"SCSS",
 		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-jshint",
 		"Theme - SoDaReloaded",
 		"Tomorrow Color Schemes",
 		"Vintageous"

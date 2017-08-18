@@ -4,6 +4,9 @@ TERM=xterm-256color
 # Source Prezto.
 source "${HOME}/.zgen/zgen.zsh"
 
+# edit command in vi mode
+set -o vi
+
 # IMPORTANT:
 # Need to edit zgen save file manually anytime it's changed to make sure autoenv loads after python in order for
 # .autoenv.zsh to work properly with workon command

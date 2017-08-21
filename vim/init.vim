@@ -12,6 +12,7 @@ Plug '~/.vim/plugged/colibri'
 Plug 'mhartington/oceanic-next'
 Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'osyo-manga/vim-over'
 
 call plug#end()
 colorscheme solarized

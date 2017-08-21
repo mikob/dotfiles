@@ -29,8 +29,11 @@
 	ui = true
 
 [merge]
-	tool = meld
-
+	tool = vimdiff
+[mergetool]
+	prompt = true
+[mergetool "vimdiff"]
+	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [mergetool "meld"]                                           
 	path = C:/Program Files (x86)/Meld/Meld.exe
 	cmd = "'/mnt/c/Program Files (x86)/Meld/Meld.exe' $PWD/$LOCAL $PWD/$BASE $PWD/$REMOTE --output=$PWD/$MERGED"

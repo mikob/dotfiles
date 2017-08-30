@@ -1,4 +1,3 @@
-set termguicolors
 set relativenumber
 set tabstop=4
 set shiftwidth=4
@@ -16,10 +15,16 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'osyo-manga/vim-over'
 
 call plug#end()
-colorscheme colibri
+colorscheme solarized
+
+silent! nmap <C-p> :NERDTreeToggle<CR>
+silent! map <F3> :NERDTreeFind<CR>
+
+let g:NERDTreeMapActivateNode="<F3>"
+let g:NERDTreeMapPreview="<F4>"
 
 if has('nvim')
   set termguicolors
-  colors colibri
+  colors desert
 endif
 

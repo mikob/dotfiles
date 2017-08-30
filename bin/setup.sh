@@ -62,7 +62,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 # shell tools
 git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
-git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+~/.zgen/junegunn/fzf-master/install
 
 cur_dir="$(pwd)"
 mkdir ~/.config/nvim

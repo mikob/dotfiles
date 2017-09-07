@@ -59,6 +59,8 @@ fi
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# vifm (cmd line file manager)
+wget https://github.com/vifm/vifm/releases/download/v0.9/vifm-0.9.tar.bz2 
 
 # shell tools
 git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"

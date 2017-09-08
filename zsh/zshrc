@@ -20,12 +20,12 @@ zgen prezto git
 zgen prezto completion
 zgen prezto python
 zgen prezto command-not-found
-# zgen prezto syntax-highlighting
+zgen prezto syntax-highlighting
 zgen prezto ssh
 zgen prezto tmux
-zgen prezto history-substring-search
+# zgen prezto history-substring-search # causes issues with ctrl-y
 zgen load Tarrasch/zsh-autoenv
-# zgen prezto autosuggestions
+zgen prezto autosuggestions
 
 zgen load zsh-users/zsh-syntax-highlighting
 zgen load tarruda/zsh-autosuggestions
@@ -98,6 +98,16 @@ function agvim() {
     vim "-c bufdo /$@" $(ag -l $@);
 }
 
+vicd()
+{
+	local dst="$(command vifm --choose-dir -)"
+	if [ -z "$dst" ]; then
+		echo 'Directory picking cancelled/failed'
+		return 1
+	fi
+	cd "$dst"
+}
+
 [ -f "$HOME/.zshrc-custom" ] && source "$HOME/.zshrc-custom"
 eval "$POST_RC"
 
@@ -112,5 +122,8 @@ eval "$(tmuxifier init -)"
 
 # fancy file mover with substitutions
 autoload -U zmv
+
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

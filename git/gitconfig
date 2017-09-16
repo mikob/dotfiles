@@ -10,6 +10,7 @@
 	email = fxrock2002@yahoo.com
 
 [alias]
+    tk = commit -a --no-edit --amend # tack
     co = checkout
     cm = commit -m
     br = branch

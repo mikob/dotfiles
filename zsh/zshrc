@@ -117,9 +117,6 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/.zgen/jimeh/tmuxifier-master/bin
 [ -s $HOME/.rvm/scripts/rvm ] && . "$HOME/.rvm/scripts/rvm"
 
-# tmuxifier
-eval "$(tmuxifier init -)"
-
 # fancy file mover with substitutions
 autoload -U zmv
 

@@ -1,0 +1,23 @@
+from datetime import datetime
+
+$XONSH_COLOR_STYLE='native'
+$PROMPT_FIELDS['timestamp'] = lambda: datetime.now().strftime('%-H:%M:%S')
+
+$PROMPT='{#9e5fff}{user}{#828a8a}@{#cdcd01}{hostname}{#828a8a}:{#268bd2} {cwd} {#828a8a}{curr_branch:(}{GREEN}{curr_branch}{#828a8a}{curr_branch:) }{RED}⚡{#828a8a} {env_name}\n{#828a8a}{prompt_end} {NO_COLOR}'
+$RIGHT_PROMPT='{GREEN}[{timestamp}] ' 
+
+
+def cds(args):
+	cd @(args[0]) && ls
+
+
+aliases['cds'] = cds
+
+
+def load_env_var_file(path):
+    f = open(path, 'r')
+    for line in f:
+        processed = line.strip()
+        parts = processed.split('=')
+        if len(parts) > 1 and processed[0] != '#':
+            ${parts[0]} = parts[1]

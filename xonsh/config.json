@@ -1,0 +1,27 @@
+{
+ "env": {
+  "CASE_SENSITIVE_COMPLETIONS": false,
+  "VI_MODE": true,
+  "UPDATE_PROMPT_ON_KEYPRESS": false,
+  "UPDATE_COMPLETIONS_ON_KEYPRESS": true,
+  "XONSH_HISTORY_SIZE": [
+   536870912,
+   "b"
+  ]
+ },
+ "foreign_shells": [
+  {
+   "shell": "zsh"
+  }
+ ],
+ "xontribs": [
+  "apt_tabcomplete",
+  "autoxsh",
+  "coreutils",
+  "docker_tabcomplete",
+  "vox",
+  "vox_tabcomplete",
+  "prompt_vi_mode",
+  "fzf-widgets"
+ ]
+}

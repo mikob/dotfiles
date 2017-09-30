@@ -84,6 +84,11 @@ ln -s $cur_dir/zsh/zshrc ~/.zshrc
 ln -s $cur_dir/tmux.conf ~/.tmux.conf
 ln -s $cur_dir/vim/init.vim ~/.config/nvim/
 
+# xonsh
+mkdir ~/.config/xonsh
+ln -s $cur_dir/xonsh/config.json ~/.config/xonsh/
+ln -s $cur_dir/xonsh/xonshrc ~/.xonshrc
+
 # post docker
 sudo usermod -aG docker $USER
 sudo groupadd docker

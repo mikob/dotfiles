@@ -41,7 +41,7 @@ else
 	sudo dnf -y install python2-neovim python3-neovim	
 
 	# general tools
-	sudo dnf -y install vim zsh xclip htop tree tmux trash-cli parcellite ag
+	sudo dnf -y install zsh xclip htop tree tmux trash-cli parcellite the_silver_searcher
 
 	# docker
 	sudo dnf -y install dnf-plugins-core

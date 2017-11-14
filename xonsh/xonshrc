@@ -21,3 +21,6 @@ def load_env_var_file(path):
         parts = processed.split('=')
         if len(parts) > 1 and processed[0] != '#':
             ${parts[0]} = parts[1]
+
+for al in ['ln', 'man']:
+	del aliases[al]

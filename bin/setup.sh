@@ -36,12 +36,13 @@ if [ -x "$(lsb_release)" ]; then
 	chsh -s zsh
 else
     # fedora
-	# neovim
-	sudo dnf -y install neovim
-	sudo dnf -y install python2-neovim python3-neovim	
+	curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo && yum -y install neovim
 
 	# general tools
 	sudo dnf -y install zsh xclip htop tree tmux trash-cli parcellite the_silver_searcher
+
+	# for vifm
+	sudo dnf -y install ncurses-static.x86_64
 
 	# docker
 	sudo dnf -y install dnf-plugins-core
@@ -55,12 +56,18 @@ else
 	sudo lchsh -i $USER /bin/zsh
 fi
 
-# stuff for both distros
+# finish tmux plugins
+tmux source ~/.tmux.conf
 
+# stuff for both distros
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# nvim plugin manager
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # vifm (cmd line file manager)
-wget https://github.com/vifm/vifm/releases/download/v0.9/vifm-0.9.tar.bz2 
+wget https://github.com/vifm/vifm/releases/download/v0.9/vifm-0.9.tar.bz2 && cd vifm-0.9 && ./configure && make && sudo make install
 
 # shell tools
 git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"

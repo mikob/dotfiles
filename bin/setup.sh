@@ -15,7 +15,7 @@ if [ -x "$(lsb_release)" ]; then
 	sudo apt-get install neovim
 
 	# general tools
-	sudo apt install -y git vim zsh trash-cli xclip htop tree
+	sudo apt install -y git vim zsh trash-cli xclip htop tree jq
 
 	# tmux dependencies
 	sudo apt install libevent-dev build-essential g++ libncurses5-dev -y
@@ -39,7 +39,7 @@ else
 	curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo && yum -y install neovim
 
 	# general tools
-	sudo dnf -y install zsh xclip htop tree tmux trash-cli parcellite the_silver_searcher
+	sudo dnf -y install zsh xclip htop tree tmux trash-cli parcellite the_silver_searcher jq
 
 	# for vifm
 	sudo dnf -y install ncurses-static.x86_64
@@ -72,6 +72,9 @@ wget https://github.com/vifm/vifm/releases/download/v0.9/vifm-0.9.tar.bz2 && cd 
 # shell tools
 git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 ~/.zgen/junegunn/fzf-master/install
+
+# python tools
+pip install --user httpie
 
 cur_dir="$(pwd)"
 mkdir ~/.config/nvim

@@ -1,3 +1,4 @@
+filetype plugin on
 call plug#begin('~/.vim/plugged')
 
 Plug 'flazz/vim-colorschemes'
@@ -11,6 +12,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Heuristically set shift width options
 Plug 'tpope/vim-sleuth'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 
@@ -20,7 +22,7 @@ set shiftwidth=4
 set ruler
 syntax enable
 
-
+let mapleader="\<Space>"
 " Silent prevents the 'Hit Enter to continue' prompt...
 silent! map <F2> :NERDTreeToggle<CR>
 silent! map! <F2> <ESC>:NERDTreeToggle<CR>

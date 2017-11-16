@@ -18,7 +18,7 @@
     gr = log --graph --pretty --oneline --all --decorate
     pl = pull
     p = push 
-	create-pull-request = !sh -c 'stash pull-request $0 $@'
+    create-pull-request = !sh -c 'stash pull-request $0 $@'
 
 [giggle]
 	main-window-maximized = false

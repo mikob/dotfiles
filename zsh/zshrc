@@ -43,9 +43,6 @@ setopt clobber
 unsetopt histverify
 
 
-# map caps lock to escape
-# xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-
 export PATH=$PATH:$HOME/.zgen/jimeh/tmuxifier-master/bin
 export PATH=/usr/bin:$PATH     # hack to give /usr/bin priority
 export PATH="$HOME/tools/google_appengine/":$PATH
@@ -113,8 +110,6 @@ unset_docker()
 }
 
 [ -f "$HOME/.zshrc-custom" ] && source "$HOME/.zshrc-custom"
-eval "$POST_RC"
-
 
 # RVM seems to be loaded quickly, so we don't need to lazy load
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

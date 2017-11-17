@@ -20,15 +20,18 @@ zgen prezto git
 zgen prezto completion
 zgen prezto python
 zgen prezto command-not-found
-zgen prezto syntax-highlighting
+#zgen prezto syntax-highlighting
 zgen prezto ssh
 zgen prezto tmux
+# zgen prezto autosuggestions
 # zgen prezto history-substring-search # causes issues with ctrl-y
-zgen load Tarrasch/zsh-autoenv
-zgen prezto autosuggestions
 
+# these two have prezto modules but the autosuggestions are white (instead of grey)
+# when using the prezto versions
 zgen load zsh-users/zsh-syntax-highlighting
-zgen load tarruda/zsh-autosuggestions
+zgen load zsh-users/zsh-autosuggestions
+
+ zgen load Tarrasch/zsh-autoenv
 zgen load lukechilds/zsh-nvm
 zgen load jimeh/tmuxifier
 zgen load junegunn/fzf shell
@@ -123,5 +126,5 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # kubernetes
-source <(kubectl completion zsh)
+#source <(kubectl completion zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

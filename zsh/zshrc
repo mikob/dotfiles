@@ -48,6 +48,7 @@ fi
 
 bindkey \^U backward-kill-line
 bindkey '^R' history-incremental-search-backward
+bindkey '^P' fzf-file-widget
 
 export PATH=$PATH:$HOME/.zgen/jimeh/tmuxifier-master/bin
 export PATH=/usr/bin:$PATH     # hack to give /usr/bin priority
@@ -78,7 +79,6 @@ alias ls="ls -h --color=auto"
 alias info="info --vi-keys"
 alias dkrm="docker ps -aqf 'status=exited' | xargs -L 1 docker rm -f"
 alias dkrmi="docker images -f 'dangling=true' -q | xargs docker rmi"
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias cp='cp -i'
 alias mv='mv -i'
 alias make='make -j4'

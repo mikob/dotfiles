@@ -6,9 +6,6 @@ Plug 'archseer/colibri.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Highlights text that will be replaced in a substitution
-Plug 'osyo-manga/vim-over'
-Plug 'ctrlpvim/ctrlp.vim'
 " Heuristically set shift width options
 Plug 'tpope/vim-sleuth'
 Plug 'ntpeters/vim-better-whitespace'
@@ -41,5 +38,6 @@ autocmd BufEnter * EnableStripWhitespaceOnSave
 colorscheme colibri
 if has('nvim')
   set termguicolors
+  set inccommand=split
   colors colibri
 endif

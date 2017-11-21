@@ -5,6 +5,13 @@ source "${HOME}/.zgen/zgen.zsh"
 
 # edit command in vi mode
 set -o vi
+# no need to type cd, just type the command name
+set -o auto_cd
+# zsh disable certain redirection warnings
+setopt clobber
+setopt auto_pushd
+setopt correct
+unsetopt histverify
 
 export TMUXIFIER=$HOME/.zgen/jimeh/tmuxifier-master
 
@@ -41,10 +48,6 @@ fi
 
 bindkey \^U backward-kill-line
 bindkey '^R' history-incremental-search-backward
-# zsh disable certain redirection warnings
-setopt clobber
-unsetopt histverify
-
 
 export PATH=$PATH:$HOME/.zgen/jimeh/tmuxifier-master/bin
 export PATH=/usr/bin:$PATH     # hack to give /usr/bin priority
@@ -57,7 +60,10 @@ export DEV_ENV=1
 export NODE_ENV=development
 export LC_ALL=en_US.UTF-8
 
-# Example aliases
+# only the first of each command has an alias searched for. So
+# make the last character a space, so the next word following the alias
+# is also checked for expansion
+alias sudo='sudo '
 alias rm="trash-put"
 alias ll='ls -alF'
 alias la='ls -A'

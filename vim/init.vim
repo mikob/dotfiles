@@ -11,6 +11,8 @@ Plug 'tpope/vim-sleuth'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
+Plug '~/.fzf'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -31,9 +33,19 @@ silent! map! <F2> <ESC>:NERDTreeToggle<CR>
 " smartcase would
 nnoremap / /\c
 nnoremap ? ?\c
+" This is actually ctrl-/ ... vim registers it as _ for some reason
+noremap <C-_> :call NERDComment(0,"toggle")<CR>
+noremap <C-p> :FZF<CR>
 
-" vim-better-whistespace plugin
+" vim-better-whitespace plugin
 autocmd BufEnter * EnableStripWhitespaceOnSave
+
+" vim-gitgutter
+let g:gitgutter_sign_added = '▌'
+let g:gitgutter_sign_removed = '▖'
+let g:gitgutter_sign_removed_first_line = '▘'
+let g:gitgutter_sign_modified = '▐'
+let g:gitgutter_sign_modified_removed = '▞'
 
 colorscheme colibri
 if has('nvim')

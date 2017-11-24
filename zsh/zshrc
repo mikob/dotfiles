@@ -102,20 +102,20 @@ function agvim() {
 
 vicd()
 {
-	local dst="$(command vifm --choose-dir -)"
-	if [ -z "$dst" ]; then
-		echo 'Directory picking cancelled/failed'
-		return 1
-	fi
-	cd "$dst"
+    local dst="$(command vifm --choose-dir -)"
+    if [ -z "$dst" ]; then
+	    echo 'Directory picking cancelled/failed'
+	    return 1
+    fi
+    cd "$dst"
 }
 
 unset_docker()
 {
-	unset DOCKER_TLS_VERIFY
-	unset DOCKER_HOST
-	unset DOCKER_CERT_PATH
-	unset DOCKER_API_VERSION
+    unset DOCKER_TLS_VERIFY
+    unset DOCKER_HOST
+    unset DOCKER_CERT_PATH
+    unset DOCKER_API_VERSION
 }
 
 [ -f "$HOME/.zshrc-custom" ] && source "$HOME/.zshrc-custom"

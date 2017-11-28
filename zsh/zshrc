@@ -49,6 +49,7 @@ fi
 bindkey \^U backward-kill-line
 bindkey '^R' history-incremental-search-backward
 bindkey '^P' fzf-file-widget
+bindkey '^L' autosuggest-execute
 
 export PATH=$PATH:$HOME/.zgen/jimeh/tmuxifier-master/bin
 export PATH=/usr/bin:$PATH     # hack to give /usr/bin priority

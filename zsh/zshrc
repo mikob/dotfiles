@@ -2,22 +2,10 @@
 
 # Source Prezto.
 source "${HOME}/.zgen/zgen.zsh"
-
-# edit command in vi mode
-set -o vi
-# no need to type cd, just type the command name
-set -o auto_cd
-# zsh disable certain redirection warnings
-setopt clobber
-setopt auto_pushd
-setopt correct
-unsetopt histverify
-
-export TMUXIFIER=$HOME/.zgen/jimeh/tmuxifier-master
-
 # IMPORTANT:
 # Need to edit zgen save file manually anytime it's changed to make sure autoenv loads after python in order for
 # .autoenv.zsh to work properly with workon command
+
 if ! zgen saved; then
 zgen prezto prompt theme 'miko'
 zstyle ':prezto:*:*' color 'yes'
@@ -46,10 +34,20 @@ zgen load junegunn/fzf shell
 zgen save
 fi
 
-bindkey \^U backward-kill-line
-bindkey '^R' history-incremental-search-backward
-bindkey '^P' fzf-file-widget
+setopt vi 	 	  # edit command in vi mode
+setopt auto_cd  	  # no need to type cd, just type the command name
+setopt clobber  	  # zsh disable certain redirection warnings
+setopt auto_pushd
+setopt correct
+unsetopt histverify
 
+autoload -U zmv    	  # fancy file mover with substitutions
+
+export KEYTIMEOUT=1       # elimate delay with switching to vi mode
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# RVM seems to be loaded quickly, so we don't need to lazy load
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/.zgen/jimeh/tmuxifier-master/bin
 export PATH=/usr/bin:$PATH     # hack to give /usr/bin priority
 export PATH="$HOME/tools/google_appengine/":$PATH
@@ -60,6 +58,12 @@ export INPUTRC=$HOME/.inputrc
 export DEV_ENV=1
 export NODE_ENV=development
 export LC_ALL=en_US.UTF-8
+export TMUXIFIER=$HOME/.zgen/jimeh/tmuxifier-master
+
+
+bindkey \^U backward-kill-line
+bindkey '^R' history-incremental-search-backward
+bindkey '^P' fzf-file-widget
 
 # only the first of each command has an alias searched for. So
 # make the last character a space, so the next word following the alias
@@ -87,14 +91,18 @@ alias rsync='rsync -zav'
 alias dl='docker logs -f --tail 1000'
 
 
-# Miko's custom shell function
+# Miko's custom shell functions
 function cds() { cd "$@" && ls; }
+
+function swp() { mv "$1" "$1.swap" && mv "$2" "$1" && mv "$1.swap" "$2" }
+
+function rmhist() { echo "$@" && grep -v "$@" ~/.zhistory > ~/.zhistory_backup && swp ~/.zhistory ~/.zhistory_backup }
 
 function dksr() { docker stop "$1" && docker rm "$1"; }
 
 function unz() { unzip "$@" && rm "$@"; }
 
-# Miko's custom open search results in vim
+# custom open search results in vim
 function agvim() {
     ag "$@" && read;
     vim "-c bufdo /$@" $(ag -l $@);
@@ -119,18 +127,6 @@ unset_docker()
 }
 
 [ -f "$HOME/.zshrc-custom" ] && source "$HOME/.zshrc-custom"
-
-# RVM seems to be loaded quickly, so we don't need to lazy load
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-export PATH=$PATH:$HOME/.zgen/jimeh/tmuxifier-master/bin
 [ -s $HOME/.rvm/scripts/rvm ] && . "$HOME/.rvm/scripts/rvm"
-
-# fancy file mover with substitutions
-autoload -U zmv
-
-export FZF_DEFAULT_COMMAND='ag -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# kubernetes
-#source <(kubectl completion zsh)
+#source <(kubectl completion zsh)     # kubernetes auto-completion is slow (0.3s)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

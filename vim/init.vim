@@ -20,6 +20,7 @@ set relativenumber
 set tabstop=4
 set shiftwidth=4
 set ruler
+set mouse=a
 syntax enable
 
 let mapleader="\<Space>"

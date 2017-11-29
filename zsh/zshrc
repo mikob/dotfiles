@@ -2,10 +2,10 @@
 
 # Source Prezto.
 source "${HOME}/.zgen/zgen.zsh"
+
 # IMPORTANT:
 # Need to edit zgen save file manually anytime it's changed to make sure autoenv loads after python in order for
 # .autoenv.zsh to work properly with workon command
-
 if ! zgen saved; then
 zgen prezto prompt theme 'miko'
 zstyle ':prezto:*:*' color 'yes'
@@ -60,10 +60,10 @@ export NODE_ENV=development
 export LC_ALL=en_US.UTF-8
 export TMUXIFIER=$HOME/.zgen/jimeh/tmuxifier-master
 
-
 bindkey \^U backward-kill-line
 bindkey '^R' history-incremental-search-backward
 bindkey '^P' fzf-file-widget
+bindkey '^L' autosuggest-execute
 
 # only the first of each command has an alias searched for. So
 # make the last character a space, so the next word following the alias
@@ -89,7 +89,6 @@ alias make='make -j4'
 alias grep='grep -i'
 alias rsync='rsync -zav'
 alias dl='docker logs -f --tail 1000'
-
 
 # Miko's custom shell functions
 function cds() { cd "$@" && ls; }

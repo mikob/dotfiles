@@ -37,6 +37,9 @@ nnoremap ? ?\c
 " This is actually ctrl-/ ... vim registers it as _ for some reason
 noremap <C-_> :call NERDComment(0,"toggle")<CR>
 noremap <C-p> :FZF<CR>
+noremap <C-a> <C-w>
+" Leave vim terminal with ctrl-a and a hjkl key
+tnoremap <C-a> <C-\><C-n><C-w>
 
 " vim-better-whitespace plugin
 autocmd BufEnter * EnableStripWhitespaceOnSave

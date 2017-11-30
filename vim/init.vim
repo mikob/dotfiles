@@ -21,6 +21,8 @@ set tabstop=4
 set shiftwidth=4
 set ruler
 set mouse=a
+set hidden                 " allow buffer switching without saving
+
 syntax enable
 
 let mapleader="\<Space>"

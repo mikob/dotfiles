@@ -13,6 +13,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
 Plug '~/.fzf'
 Plug 'airblade/vim-gitgutter'
+Plug 'maksimr/vim-jsbeautify'
 
 call plug#end()
 
@@ -38,8 +39,13 @@ nnoremap / /\c
 nnoremap ? ?\c
 " This is actually ctrl-/ ... vim registers it as _ for some reason
 noremap <C-_> :call NERDComment(0,"toggle")<CR>
+inoremap <C-_> <ESC>:call NERDComment(0,"toggle")<CR>i
 noremap <C-p> :FZF<CR>
+inoremap <C-p> <ESC>:FZF<CR>
 noremap <C-a> <C-w>
+inoremap <C-a> <ESC><C-w>
+noremap <C-s> :w<CR>
+inoremap <C-s> <ESC>:w<CR>i
 " Leave vim terminal with ctrl-a and a hjkl key
 tnoremap <C-a> <C-\><C-n><C-w>
 

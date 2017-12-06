@@ -59,6 +59,9 @@ let g:gitgutter_sign_removed_first_line = '▘'
 let g:gitgutter_sign_modified = '▐'
 let g:gitgutter_sign_modified_removed = '▞'
 
+" fzf options
+let g:fzf_layout = { 'window': 'enew' }
+
 colorscheme colibri
 if has('nvim')
   set termguicolors

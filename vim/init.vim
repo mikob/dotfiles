@@ -45,7 +45,7 @@ inoremap <C-p> <ESC>:FZF<CR>
 noremap <C-a> <C-w>
 inoremap <C-a> <ESC><C-w>
 noremap <C-s> :w<CR>
-inoremap <C-s> <ESC>:w<CR>i
+inoremap <C-s> <ESC>:w<CR>a
 " Leave vim terminal with ctrl-a and a hjkl key
 tnoremap <C-a> <C-\><C-n><C-w>
 

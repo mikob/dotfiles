@@ -14,6 +14,7 @@ Plug 'ervandew/supertab'
 Plug '~/.fzf'
 Plug 'airblade/vim-gitgutter'
 Plug 'maksimr/vim-jsbeautify'
+Plug 'qpkorr/vim-bufkill'
 
 call plug#end()
 
@@ -23,6 +24,8 @@ set shiftwidth=4
 set ruler
 set mouse=a
 set hidden                 " allow buffer switching without saving
+set scrolloff=5            " minimum lines to keep above and below cursor
+set sidescrolloff=7
 
 syntax enable
 
@@ -45,9 +48,13 @@ inoremap <C-p> <ESC>:FZF<CR>
 noremap <C-a> <C-w>
 inoremap <C-a> <ESC><C-w>
 noremap <C-s> :w<CR>
-inoremap <C-s> <ESC>:w<CR>i
+inoremap <C-s> <ESC>:w<CR>a
 " Leave vim terminal with ctrl-a and a hjkl key
 tnoremap <C-a> <C-\><C-n><C-w>
+" close current buffer with <leader>x
+noremap <silent> <leader>x :BD<CR>
+nnoremap <F5> :buffers<CR>:buffer<Space>
+nnoremap <silent> _ :nohl<CR>
 
 " vim-better-whitespace plugin
 autocmd BufEnter * EnableStripWhitespaceOnSave

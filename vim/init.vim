@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'flazz/vim-colorschemes'
 Plug 'archseer/colibri.vim'
 Plug 'mhartington/oceanic-next'
+Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Heuristically set shift width options
@@ -15,6 +16,7 @@ Plug '~/.fzf'
 Plug 'airblade/vim-gitgutter'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'qpkorr/vim-bufkill'
+Plug 'junegunn/vim-slash'
 
 call plug#end()
 
@@ -53,8 +55,9 @@ inoremap <C-s> <ESC>:w<CR>a
 tnoremap <C-a> <C-\><C-n><C-w>
 " close current buffer with <leader>x
 noremap <silent> <leader>x :BD<CR>
-nnoremap <F5> :buffers<CR>:buffer<Space>
-nnoremap <silent> _ :nohl<CR>
+nnoremap <F3> :buffers<CR>:buffer<Space>
+" :buffer<Space>
+tnoremap <F3> <C-\><C-n>:buffers<CR>:buffer<Space>
 
 " vim-better-whitespace plugin
 autocmd BufEnter * EnableStripWhitespaceOnSave

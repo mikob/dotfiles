@@ -92,6 +92,7 @@ alias make='make -j4'
 alias grep='grep -i'
 alias rsync='rsync -zav'
 alias dl='docker logs -f --tail 1000'
+alias rbd="echo \"keys $@\" | xargs redis-cli | cut --delimiter ' ' -f 1 | xargs redis-cli DEL"
 
 # Miko's custom shell functions
 function cds() { cd "$@" && ls; }

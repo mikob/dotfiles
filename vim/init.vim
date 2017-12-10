@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'flazz/vim-colorschemes'
 Plug 'archseer/colibri.vim'
 Plug 'mhartington/oceanic-next'
-Plug 'tpope/vim-surround'
+Plug 'machakann/vim-sandwich'
 Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Heuristically set shift width options
@@ -15,7 +15,7 @@ Plug 'ervandew/supertab'
 Plug '~/.fzf'
 Plug 'airblade/vim-gitgutter'
 Plug 'maksimr/vim-jsbeautify'
-Plug 'qpkorr/vim-bufkill'
+Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'junegunn/vim-slash'
 
 call plug#end()
@@ -54,7 +54,7 @@ inoremap <C-s> <ESC>:w<CR>a
 " Leave vim terminal with ctrl-a and a hjkl key
 tnoremap <C-a> <C-\><C-n><C-w>
 " close current buffer with <leader>x
-noremap <silent> <leader>x :BD<CR>
+noremap <silent> <leader>x :Sayonara!<CR>
 nnoremap <F3> :buffers<CR>:buffer<Space>
 " :buffer<Space>
 tnoremap <F3> <C-\><C-n>:buffers<CR>:buffer<Space>

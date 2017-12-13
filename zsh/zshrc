@@ -4,8 +4,6 @@
 source "${HOME}/.zgen/zgen.zsh"
 
 export KEYTIMEOUT=1       # elimate delay with switching to vi mode
-export FZF_DEFAULT_COMMAND='ag -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # RVM seems to be loaded quickly, so we don't need to lazy load
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/.zgen/jimeh/tmuxifier-master/bin

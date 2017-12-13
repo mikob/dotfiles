@@ -12,7 +12,8 @@ Plug 'tpope/vim-sleuth'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
-Plug '~/.fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
@@ -36,28 +37,35 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabNoCompleteAfter = ['^', ';','\s', '{', '}', '"', "'", ':', ')', '#']
 
 " Silent prevents the 'Hit Enter to continue' prompt...
-silent! map <F2> :NERDTreeToggle<CR>
-silent! map! <F2> <ESC>:NERDTreeToggle<CR>
+silent! map <f2> :NERDTreeToggle<cr>
+silent! map! <f2> <esc>:NERDTreeToggle<cr>
 " Case insensitive search, without f'ing up substitutions as ignorecase and
 " smartcase would
 nnoremap / /\c
 nnoremap ? ?\c
 " This is actually ctrl-/ ... vim registers it as _ for some reason
-noremap <C-_> :call NERDComment(0,"toggle")<CR>
-inoremap <C-_> <ESC>:call NERDComment(0,"toggle")<CR>i
-noremap <C-p> :FZF<CR>
-inoremap <C-p> <ESC>:FZF<CR>
-noremap <C-a> <C-w>
-inoremap <C-a> <ESC><C-w>
-noremap <C-s> :w<CR>
-inoremap <C-s> <ESC>:w<CR>a
+noremap <c-_> :call NERDComment(0,"toggle")<cr>
+inoremap <c-_> <esc>:call NERDComment(0,"toggle")<cr>i
+noremap <c-a> <c-w>
+inoremap <c-a> <esc><c-w>
+noremap <c-s> :w<cr>
+inoremap <c-s> <esc>:w<cr>a
 " Leave vim terminal with ctrl-a and a hjkl key
-tnoremap <C-a> <C-\><C-n><C-w>
+tnoremap <c-a> <c-\><c-n><c-w>
 " close current buffer with <leader>x
-noremap <silent> <leader>x :Sayonara!<CR>
-nnoremap <F3> :buffers<CR>:buffer<Space>
-" :buffer<Space>
-tnoremap <F3> <C-\><C-n>:buffers<CR>:buffer<Space>
+noremap <silent> <leader>x :Sayonara!<cr>
+nnoremap <f4> :e ~/dotfiles/vim/init.vim<cr>
+inoremap <f4> <esc>:e ~/dotfiles/vim/init.vim<cr>
+
+" FZF
+noremap <c-p> :FZF<cr>
+inoremap <c-p> <esc>:FZF<cr>
+nnoremap <f3> :Buffers<cr>
+tnoremap <f3> <c-\><c-n>:Buffers<cr>
+nnoremap <leader>` :Marks<cr>
+nnoremap b] :bnext<cr>
+nnoremap b[ :bprevious<cr>
+
 
 " vim-better-whitespace plugin
 autocmd BufEnter * EnableStripWhitespaceOnSave

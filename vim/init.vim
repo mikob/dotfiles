@@ -54,8 +54,6 @@ inoremap <c-s> <esc>:w<cr>a
 tnoremap <c-a> <c-\><c-n><c-w>
 " close current buffer with <leader>x
 noremap <silent> <leader>x :Sayonara!<cr>
-nnoremap <f4> :e ~/dotfiles/vim/init.vim<cr>
-inoremap <f4> <esc>:e ~/dotfiles/vim/init.vim<cr>
 
 " FZF
 noremap <c-p> :FZF<cr>

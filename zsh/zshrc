@@ -47,7 +47,7 @@ zgen load lukechilds/zsh-nvm
 zgen load jimeh/tmuxifier
 zgen load junegunn/fzf shell
 # adds 0.3s to startup
-# zgen load felixr/docker-zsh-completion
+zgen load felixr/docker-zsh-completion
 
 zgen save
 fi

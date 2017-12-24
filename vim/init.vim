@@ -39,6 +39,7 @@ let g:SuperTabNoCompleteAfter = ['^', ';','\s', '{', '}', '"', "'", ':', ')', '#
 " Silent prevents the 'Hit Enter to continue' prompt...
 silent! map <f2> :NERDTreeToggle<cr>
 silent! map! <f2> <esc>:NERDTreeToggle<cr>
+silent! tmap <f2> <c-\><c-n>:NERDTreeToggle<cr>
 " Case insensitive search, without f'ing up substitutions as ignorecase and
 " smartcase would
 nnoremap / /\c

@@ -97,7 +97,15 @@ function cds() { cd "$@" && ls; }
 
 function swp() { mv "$1" "$1.swap" && mv "$2" "$1" && mv "$1.swap" "$2" }
 
-function rmhist() { echo "$@" && grep -v "$@" ~/.zhistory > ~/.zhistory_backup && swp ~/.zhistory ~/.zhistory_backup }
+function rmhist() {
+    args="$@"
+    if [ "${#args}" -gt 2 ]
+    then
+	grep -v "$@" ~/.zhistory > ~/.zhistory_backup && swp ~/.zhistory ~/.zhistory_backup
+    else
+	echo "argument should be at least 3 characters"
+    fi
+}
 
 function dksr() { docker stop "$1" && docker rm "$1"; }
 

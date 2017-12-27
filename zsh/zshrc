@@ -61,10 +61,11 @@ unsetopt histverify
 
 autoload -U zmv    	  # fancy file mover with substitutions
 
-bindkey \^U backward-kill-line
-bindkey '^R' history-incremental-search-backward
-bindkey '^P' fzf-file-widget
-bindkey '^L' autosuggest-execute
+bindkey '^u' backward-kill-line
+bindkey '^r' history-incremental-search-backward
+bindkey '^p' fzf-file-widget
+bindkey '^l' autosuggest-execute
+bindkey '^e' end-of-line
 
 # only the first of each command has an alias searched for. So
 # make the last character a space, so the next word following the alias

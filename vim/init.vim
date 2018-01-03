@@ -1,3 +1,4 @@
+let g:LanguageClient_loggingLevel = 'DEBUG'
 filetype plugin on
 call plug#begin('~/.vim/plugged')
 
@@ -12,16 +13,19 @@ Plug 'tpope/vim-sleuth'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
+Plug 'autozimu/LanguageClient-neovim', {'tag': 'binary-*-x86_64*linux*'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'junegunn/vim-slash'
+Plug 'roxma/nvim-completion-manager'
 
 call plug#end()
 
 set relativenumber
+set number   		" show the line number of the currently active line
 set tabstop=4
 set shiftwidth=4
 set ruler
@@ -65,6 +69,11 @@ nnoremap <leader>` :Marks<cr>
 nnoremap b] :bnext<cr>
 nnoremap b[ :bprevious<cr>
 
+" language server
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <f4> :call LanguageClient_textDocument_rename()<CR>
+
 
 " vim-better-whitespace plugin
 autocmd BufEnter * EnableStripWhitespaceOnSave
@@ -75,6 +84,11 @@ let g:gitgutter_sign_removed = '▖'
 let g:gitgutter_sign_removed_first_line = '▘'
 let g:gitgutter_sign_modified = '▐'
 let g:gitgutter_sign_modified_removed = '▞'
+
+" language server options
+let g:LanguageClient_serverCommands = {
+	\ 'python': ['pyls'],
+	\ }
 
 " fzf options
 let g:fzf_layout = { 'window': 'enew' }

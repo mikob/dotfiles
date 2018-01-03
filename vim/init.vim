@@ -20,7 +20,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'junegunn/vim-slash'
-Plug 'roxma/nvim-completion-manager'
+if has("python3")
+	Plug 'roxma/nvim-completion-manager'
+endif
 
 call plug#end()
 

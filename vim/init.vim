@@ -57,8 +57,8 @@ tnoremap <c-a> <c-\><c-n><c-w>
 noremap <silent> <leader>x :Sayonara!<cr>
 
 " FZF
-noremap <c-p> :FZF<cr>
-inoremap <c-p> <esc>:FZF<cr>
+noremap <c-p> :GitFiles<cr>
+inoremap <c-p> <esc>:GitFiles<cr>
 nnoremap <f3> :Buffers<cr>
 tnoremap <f3> <c-\><c-n>:Buffers<cr>
 nnoremap <leader>` :Marks<cr>

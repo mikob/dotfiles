@@ -92,7 +92,7 @@ function prompt_miko_setup {
 
   # Define prompts.
   PROMPT="
-${_prompt_miko_colors[3]}%n%f${_prompt_miko_colors[7]}@%f${_prompt_miko_colors[8]}%m%f: %B${_prompt_miko_colors[6]}%~ %f%b"'${vcs_info_msg_0_}'"${_prompt_miko_colors[4]}⚡%f ${_prompt_miko_colors[7]}"'$python_info[virtualenv]'%f"
+${_prompt_miko_colors[3]}%n%f${_prompt_miko_colors[7]}@%f${_prompt_miko_colors[8]}%M%f: %B${_prompt_miko_colors[6]}%~ %f%b"'${vcs_info_msg_0_}'"${_prompt_miko_colors[4]}⚡%f ${_prompt_miko_colors[7]}"'$python_info[virtualenv]'%f"
 $ "
   RPROMPT='${_prompt_miko_colors[5]}[%D{%L:%M:%S %p}]%f'
 }

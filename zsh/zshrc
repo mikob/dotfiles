@@ -140,3 +140,7 @@ unset_docker()
 [ -s $HOME/.rvm/scripts/rvm ] && . "$HOME/.rvm/scripts/rvm"
 #source <(kubectl completion zsh)     # kubernetes auto-completion is slow (0.3s)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# hack to get things running after zshrc is loaded in gnome-terminal
+# eg. gnome-terminal -x sh -c 'export POST_RC="echo hi"; exec zsh'
+eval "$POST_RC"

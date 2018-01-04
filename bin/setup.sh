@@ -31,9 +31,8 @@ if python -mplatform | grep -iq ubuntu; then
     sudo apt install docker-ce
 
     # shell
-    chsh -s zsh
-    chsh -s zsh $(whoami)
-    sudo chsh -s zsh
+    sudo chsh -s /bin/zsh $(whoami)
+    sudo chsh -s /bin/zsh
 elif python -mplatform | grep -iq fedora; then
     exit 1
     # fedora

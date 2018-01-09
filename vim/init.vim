@@ -99,7 +99,10 @@ let g:fzf_layout = { 'window': 'enew' }
 
 colorscheme colibri
 if has('nvim')
-  set termguicolors
-  set inccommand=split
-  colors colibri
+	set termguicolors
+	set inccommand=split
+	colors colibri
+
+	" use existing vim instance when running `git commit`
+	let $VISUAL = 'nvr --remote-wait'
 endif

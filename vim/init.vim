@@ -13,7 +13,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
-Plug 'autozimu/LanguageClient-neovim', {'tag': 'binary-*-x86_64*linux*'}
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'install.sh'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
@@ -22,6 +22,7 @@ Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'junegunn/vim-slash'
 if has("python3")
 	Plug 'roxma/nvim-completion-manager'
+Plug 'iamcco/markdown-preview.vim'
 endif
 
 call plug#end()
@@ -90,6 +91,7 @@ let g:gitgutter_sign_modified_removed = '▞'
 " language server options
 let g:LanguageClient_serverCommands = {
 	\ 'python': ['pyls'],
+	\ 'javascript': ['javascript-typescript-langserver']
 	\ }
 
 " fzf options

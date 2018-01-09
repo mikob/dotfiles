@@ -78,6 +78,7 @@ git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 
 # python tools
 pip install --user httpie
+pip3 install --user neovim-remote
 
 cur_dir="$(pwd)"
 mkdir ~/.config/nvim

@@ -13,13 +13,15 @@ Plug 'tpope/vim-sleuth'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
-Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'install.sh'}
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'junegunn/vim-slash'
+Plug 'leafgarland/typescript-vim'
+Plug 'vim-airline/vim-airline'
 if has("python3")
 	Plug 'roxma/nvim-completion-manager'
 Plug 'iamcco/markdown-preview.vim'
@@ -62,6 +64,8 @@ inoremap <c-s> <esc>:w<cr>a
 tnoremap <c-a> <c-\><c-n><c-w>
 " close current buffer with <leader>x
 noremap <silent> <leader>x :Sayonara!<cr>
+" Select last pasted
+nnoremap gp `[v`]
 
 " FZF
 noremap <c-p> :GitFiles<cr>
@@ -91,11 +95,15 @@ let g:gitgutter_sign_modified_removed = '▞'
 " language server options
 let g:LanguageClient_serverCommands = {
 	\ 'python': ['pyls'],
-	\ 'javascript': ['javascript-typescript-langserver']
+	\ 'javascript': ['javascript-typescript-stdio'],
+	\ 'typescript': ['javascript-typescript-stdio'],
 	\ }
 
 " fzf options
 let g:fzf_layout = { 'window': 'enew' }
+
+" statusline
+let g:airline_section_z = '%o %#__accent_bold#%{g:airline_symbols.linenr}%4l%#__restore__#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__# :%3v'
 
 colorscheme colibri
 if has('nvim')

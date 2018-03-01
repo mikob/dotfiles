@@ -3,6 +3,7 @@ nothing you wanted to keep is overwritten, check the script before running.
 
 Run `^A I` in tmux to install the tmux plugins.
 Run `:PlugInstall` in vim to install the vim plugins.
+WORKAROUND: Manually re-symbolic link prompt theme function after prezto installs it's plugins.
 
 To have gnome-terminal work programmatically with tabs (fucking ridiculous how
 hard this was to figure out and do properly):

@@ -25,6 +25,8 @@ Plug 'vim-airline/vim-airline'
 if has("python3")
 	Plug 'roxma/nvim-completion-manager'
 Plug 'iamcco/markdown-preview.vim'
+Plug 'elixir-editors/vim-elixir'
+Plug 'tpope/vim-unimpaired'
 endif
 
 call plug#end()
@@ -41,6 +43,7 @@ set sidescrolloff=7
 
 syntax enable
 
+nnoremap <SPACE> <Nop>
 let mapleader="\<Space>"
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabNoCompleteAfter = ['^', ';','\s', '{', '}', '"', "'", ':', ')', '#']
@@ -78,7 +81,7 @@ nnoremap b[ :bprevious<cr>
 
 " language server
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <leader>d :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <f4> :call LanguageClient_textDocument_rename()<CR>
 
 
@@ -97,6 +100,7 @@ let g:LanguageClient_serverCommands = {
 	\ 'python': ['pyls'],
 	\ 'javascript': ['javascript-typescript-stdio'],
 	\ 'typescript': ['javascript-typescript-stdio'],
+	\ 'elixir': ['/opt/elixir-ls/language_server.sh'],
 	\ }
 
 " fzf options

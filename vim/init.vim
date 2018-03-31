@@ -71,11 +71,13 @@ noremap <silent> <leader>x :Sayonara!<cr>
 nnoremap gp `[v`]
 
 " FZF
-noremap <c-p> :GitFiles<cr>
-inoremap <c-p> <esc>:GitFiles<cr>
+noremap <c-p> :FZF<cr>
+inoremap <c-p> <esc>:FZF<cr>
 nnoremap <f3> :Buffers<cr>
 tnoremap <f3> <c-\><c-n>:Buffers<cr>
 nnoremap <leader>` :Marks<cr>
+
+" buffers
 nnoremap b] :bnext<cr>
 nnoremap b[ :bprevious<cr>
 
@@ -96,6 +98,7 @@ let g:gitgutter_sign_modified = '▐'
 let g:gitgutter_sign_modified_removed = '▞'
 
 " language server options
+" \ 'javascript': ['node_modules/.bin/flow-language-server', '---stdio', '--try-flow-bin'],
 let g:LanguageClient_serverCommands = {
 	\ 'python': ['pyls'],
 	\ 'javascript': ['javascript-typescript-stdio'],

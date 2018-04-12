@@ -65,6 +65,7 @@ noremap <c-s> :w<cr>
 inoremap <c-s> <esc>:w<cr>a
 " Leave vim terminal with ctrl-a and a hjkl key
 tnoremap <c-a> <c-\><c-n><c-w>
+tnoremap <c-^> <c-\><c-n><c-^>
 " close current buffer with <leader>x
 noremap <silent> <leader>x :Sayonara!<cr>
 " Select last pasted

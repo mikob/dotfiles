@@ -17,7 +17,7 @@ export DEV_ENV=1
 export NODE_ENV=development
 export LC_ALL=en_US.UTF-8
 export TMUXIFIER=$HOME/.zgen/jimeh/tmuxifier-master
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='ag -g "" -U'
 
 
 # IMPORTANT:

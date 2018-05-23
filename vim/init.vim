@@ -13,21 +13,24 @@ Plug 'tpope/vim-sleuth'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
-Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'maksimr/vim-jsbeautify'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'junegunn/vim-slash'
 Plug 'leafgarland/typescript-vim'
 Plug 'vim-airline/vim-airline'
-if has("python3")
-	Plug 'roxma/nvim-completion-manager'
+" TODO: remove this now that we have langugage server support?
+"if has("python3")
+	"Plug 'roxma/nvim-completion-manager'
+"endif
 Plug 'iamcco/markdown-preview.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-unimpaired'
-endif
 
 call plug#end()
 
@@ -82,12 +85,6 @@ nnoremap <leader>` :Marks<cr>
 nnoremap b] :bnext<cr>
 nnoremap b[ :bprevious<cr>
 
-" language server
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <leader>d :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <f4> :call LanguageClient_textDocument_rename()<CR>
-
-
 " vim-better-whitespace plugin
 autocmd BufEnter * EnableStripWhitespaceOnSave
 
@@ -98,20 +95,71 @@ let g:gitgutter_sign_removed_first_line = '▘'
 let g:gitgutter_sign_modified = '▐'
 let g:gitgutter_sign_modified_removed = '▞'
 
-" language server options
+" autozimu language server/deoplete options
 " \ 'javascript': ['node_modules/.bin/flow-language-server', '---stdio', '--try-flow-bin'],
-let g:LanguageClient_serverCommands = {
-	\ 'python': ['pyls'],
-	\ 'javascript': ['javascript-typescript-stdio'],
-	\ 'typescript': ['javascript-typescript-stdio'],
-	\ 'elixir': ['/opt/elixir-ls/language_server.sh'],
-	\ }
+"let g:LanguageClient_serverCommands = {
+	"\ 'python': ['pyls'],
+	"\ 'javascript': ['javascript-typescript-stdio'],
+	"\ 'typescript': ['javascript-typescript-stdio'],
+	"\ 'elixir': ['/opt/elixir-ls/language_server.sh'],
+	"\ }
+    " pip install python-language-server
+
+nnoremap <silent> K :call LspHover()<CR>
+nnoremap <leader>d :LspDefinition<CR>
+nnoremap <silent> <f4> :call LspRename()<CR>
+
+let g:deoplete#enable_at_startup = 1
+let g:lsp_async_completion = 1
+
+let g:lsp_signs_enabled = 1         " enable signs
+let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+let g:lsp_signs_error = {'text': '✗'}
+let g:lsp_signs_warning = {'text': '⚠'}
+let g:lsp_signs_hint = {'text': '♢'}
+
+au User lsp_setup call lsp#register_server({
+	\ 'name': 'pyls',
+	\ 'cmd': {server_info->['/home/mikob/.virtualenvs/ericson-WluOgqP2/bin/pyls']},
+	\ 'whitelist': ['python'],
+	\ })
+
+if executable('javascript-typescript-stdio')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'javascript-typescript-stdio',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'javascript-typescript-stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+        \ 'whitelist': ['typescript'],
+        \ })
+endif
+
+if executable('flow-language-server')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'flow-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'flow-language-server --stdio']},
+		\ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
+        \ 'whitelist': ['javascript'],
+        \ })
+endif
+
+" TODO:
+if executable('elixir-language-server')
+	au User lsp_setup call lsp#register_server({
+			\ 'name': 'elixir-ls',
+			\ 'cmd': {server_info->[&shell, &shellcmdflag, '~/src/elixir-ls/language_server.sh']},
+			\ 'whitelist': ['elixir', 'eelixir'],
+			\ })
+endif
+
 
 " fzf options
 let g:fzf_layout = { 'window': 'enew' }
 
 " statusline
 let g:airline_section_z = '%o %#__accent_bold#%{g:airline_symbols.linenr}%4l%#__restore__#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__# :%3v'
+
+" custom filetypes
+autocmd BufNewFile,BufRead *.tag set syntax=html
 
 colorscheme colibri
 if has('nvim')

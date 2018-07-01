@@ -105,9 +105,9 @@ let g:gitgutter_sign_modified_removed = '▞'
 	"\ }
     " pip install python-language-server
 
-nnoremap <silent> K :call LspHover()<CR>
+nnoremap <silent> K :LspHover<CR>
 nnoremap <leader>d :LspDefinition<CR>
-nnoremap <silent> <f4> :call LspRename()<CR>
+nnoremap <silent> <f4> :LspRename<CR>
 
 let g:deoplete#enable_at_startup = 1
 let g:lsp_async_completion = 1
@@ -160,6 +160,10 @@ let g:airline_section_z = '%o %#__accent_bold#%{g:airline_symbols.linenr}%4l%#__
 
 " custom filetypes
 autocmd BufNewFile,BufRead *.tag set syntax=html
+autocmd BufNewFile,BufRead *.vue set syntax=typescript
+
+" misspellings
+iabbrev teh the
 
 colorscheme colibri
 if has('nvim')

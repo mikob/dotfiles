@@ -1,22 +1,17 @@
 #!/bin/bash
 # run from dotfiles/, not bin/
 # Things that must be done afterwards that are not automated are documented in the README.md
-if python -mplatform | grep -iq ubuntu; then
+if python -mplatform | grep -iq LinuxMint; then
     # ubuntu, mint
-    UBUNTU_EQUIV="zesty"
+    UBUNTU_EQUIV="beaver"
 
     # installs
 
-    # neovim
-    sudo add-apt-repository ppa:neovim-ppa/unstable
-    sudo apt-get update
-    sudo apt-get install neovim
-
     # general tools
-    sudo apt install -y git vim zsh trash-cli xclip htop tree jq silversearcher-ag
+    sudo apt install -y git zsh trash-cli xclip htop tree jq silversearcher-ag
 
     # tmux dependencies
-    sudo apt install libevent-dev build-essential g++ libncurses5-dev -y
+    # sudo apt install libevent-dev build-essential g++ libncurses5-dev -y
 
     # docker
     sudo apt-get install \
@@ -97,11 +92,6 @@ ln -s $cur_dir/vim ~/.vim
 ln -s $cur_dir/zsh/zshrc ~/.zshrc
 ln -s $cur_dir/tmux.conf ~/.tmux.conf
 ln -s $cur_dir/vim/init.vim ~/.config/nvim/
-
-# xonsh
-mkdir ~/.config/xonsh
-ln -s $cur_dir/xonsh/config.json ~/.config/xonsh/
-ln -s $cur_dir/xonsh/xonshrc ~/.xonshrc
 
 # post docker
 sudo usermod -aG docker $USER

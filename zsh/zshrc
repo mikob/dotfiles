@@ -76,7 +76,6 @@ alias rm="trash-put"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias vim='nvr'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -143,6 +142,11 @@ unset_docker()
 [ -s $HOME/.rvm/scripts/rvm ] && . "$HOME/.rvm/scripts/rvm"
 #source <(kubectl completion zsh)     # kubernetes auto-completion is slow (0.3s)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# if we're in neovim, make vim cmd in nvim terminal open up in the current vim session
+if [ -n "${NVIM_LISTEN_ADDRESS+1}" ]; then
+    alias vim="nvr"
+fi
 
 # hack to get things running after zshrc is loaded in gnome-terminal
 # eg. gnome-terminal -x sh -c 'export POST_RC="echo hi"; exec zsh'

@@ -6,7 +6,6 @@ Plug 'flazz/vim-colorschemes'
 Plug 'archseer/colibri.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'machakann/vim-sandwich'
-Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Heuristically set shift width options
 Plug 'tpope/vim-sleuth'

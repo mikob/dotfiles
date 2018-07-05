@@ -3,18 +3,18 @@
 # Things that must be done afterwards that are not automated are documented in the README.md
 if python -mplatform | grep -iq LinuxMint; then
     # ubuntu, mint
-    UBUNTU_EQUIV="beaver"
+    UBUNTU_EQUIV="bionic"
 
     # installs
 
     # general tools
-    sudo apt install -y git zsh trash-cli xclip htop tree jq silversearcher-ag
+    sudo apt install -y python3-pip git zsh trash-cli xclip htop tree jq silversearcher-ag mosh
 
     # tmux dependencies
     # sudo apt install libevent-dev build-essential g++ libncurses5-dev -y
 
     # docker
-    sudo apt-get install \
+    sudo apt-get install -y \
 	apt-transport-https \
 	ca-certificates \
 	curl \
@@ -23,7 +23,7 @@ if python -mplatform | grep -iq LinuxMint; then
     sudo add-apt-repository \
        "deb [arch=amd64] https://download.docker.com/linux/ubuntu $UBUNTU_EQUIV stable"
     sudo apt-get update
-    sudo apt install docker-ce
+    sudo apt install -y docker-ce
 
     # shell
     sudo chsh -s /bin/zsh $(whoami)
@@ -72,11 +72,10 @@ git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 ~/.zgen/junegunn/fzf-master/install --no-update-rc --no-fish --no-bash
 
 # python tools
-pip install --user httpie
-pip3 install --user neovim-remote
+pip3 install --user httpie neovim-remote
 
 cur_dir="$(pwd)"
-mkdir ~/.config/nvim
+mkdir -p ~/.config/nvim
 
 for x in gitconfig vimrc gvimrc vim tmux.conf zshrc config/nvim/init.vim; do
     echo $x;

@@ -164,6 +164,7 @@ autocmd BufNewFile,BufRead *.vue set syntax=typescript
 " misspellings
 iabbrev teh the
 
+" Colors
 colorscheme colibri
 if has('nvim')
 	set termguicolors
@@ -173,3 +174,20 @@ if has('nvim')
 	" use existing vim instance when running `git commit`
 	let $VISUAL = 'nvr --remote-wait'
 endif
+
+let g:terminal_color_0  = '#2e3436'
+let g:terminal_color_1  = '#F63333'
+let g:terminal_color_2  = '00CD00'
+let g:terminal_color_3  = '#c4a000'
+let g:terminal_color_4  = '#57A3E4'
+let g:terminal_color_5  = '#75507b'
+let g:terminal_color_6  = '#0b939b'
+let g:terminal_color_7  = '#d3d7cf'
+let g:terminal_color_8  = '#555753'
+let g:terminal_color_9  = '#FF6F6F'
+let g:terminal_color_10 = '#00FF00'
+let g:terminal_color_11 = '#fce94f'
+let g:terminal_color_12 = '#8CC9FF'
+let g:terminal_color_13 = '#ad7fa8'
+let g:terminal_color_14 = '#00f5e9'
+let g:terminal_color_15 = '#eeeeec'

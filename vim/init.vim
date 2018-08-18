@@ -30,6 +30,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-unimpaired'
+Plug 'rakr/vim-one'
 
 call plug#end()
 
@@ -119,7 +120,7 @@ let g:lsp_signs_hint = {'text': '♢'}
 
 au User lsp_setup call lsp#register_server({
 	\ 'name': 'pyls',
-	\ 'cmd': {server_info->['/home/mikob/.virtualenvs/ericson-WluOgqP2/bin/pyls']},
+	\ 'cmd': {server_info->['/home/mikob/.virtualenvs/avail-check-worker-92uV263A/bin/pyls']},
 	\ 'whitelist': ['python'],
 	\ })
 

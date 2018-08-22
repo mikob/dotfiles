@@ -34,10 +34,11 @@ Plug 'rakr/vim-one'
 
 call plug#end()
 
-set relativenumber
+" set relativenumber
 set number   		" show the line number of the currently active line
 set tabstop=4
 set shiftwidth=4
+set expandtab
 set ruler
 set mouse=a
 set hidden                 " allow buffer switching without saving
@@ -108,6 +109,10 @@ let g:gitgutter_sign_modified_removed = '▞'
 nnoremap <silent> K :LspHover<CR>
 nnoremap <leader>d :LspDefinition<CR>
 nnoremap <silent> <f4> :LspRename<CR>
+
+" zoom
+nnoremap <leader>z :tabedit %<CR>
+nnoremap <leader>Z :tabclose<CR>
 
 let g:deoplete#enable_at_startup = 1
 let g:lsp_async_completion = 1

@@ -71,6 +71,9 @@ wget https://github.com/vifm/vifm/releases/download/v0.9/vifm-0.9.tar.bz2 && cd 
 git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 ~/.zgen/junegunn/fzf-master/install --no-update-rc --no-fish --no-bash
 
+# diff-so-fancy
+wget wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy && chmod +x diff-so-fancy && sudo mv diff-so-fancy /usr/local/bin
+
 # python tools
 pip3 install --user httpie neovim-remote
 

@@ -45,7 +45,6 @@ zgen load zsh-users/zsh-syntax-highlighting
 zgen load zsh-users/zsh-autosuggestions
 
 zgen load Tarrasch/zsh-autoenv
-zgen load lukechilds/zsh-nvm
 zgen load jimeh/tmuxifier
 zgen load junegunn/fzf shell
 # adds 0.3s to startup
@@ -155,3 +154,6 @@ eval "$POST_RC"
 
 # added by Anaconda3 installer
 export PATH="/opt/anaconda3/bin:$PATH"
+# github.com/tj/n (node version manager)
+export N_PREFIX=~/.npm-global/node
+export PATH=~/.npm-global/node/bin:~/.npm-global/bin:$PATH

@@ -1,6 +1,7 @@
 #!/bin/bash
 # run from dotfiles/, not bin/
 # Things that must be done afterwards that are not automated are documented in the README.md
+set -e
 if python -mplatform | grep -iq LinuxMint; then
     # ubuntu, mint
     UBUNTU_EQUIV="bionic"
@@ -8,7 +9,7 @@ if python -mplatform | grep -iq LinuxMint; then
     # installs
 
     # general tools
-    sudo apt install -y python3-pip git zsh trash-cli xclip htop tree jq silversearcher-ag mosh
+    sudo apt-get update && sudo apt install -y python3-pip git zsh trash-cli xclip htop tree jq silversearcher-ag mosh
 
     # tmux dependencies
     # sudo apt install libevent-dev build-essential g++ libncurses5-dev -y
@@ -54,9 +55,6 @@ else
     exit 1
 fi
 
-# finish tmux plugins
-tmux source ~/.tmux.conf
-
 # stuff for both distros
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -65,7 +63,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # vifm (cmd line file manager)
-wget https://github.com/vifm/vifm/releases/download/v0.9/vifm-0.9.tar.bz2 && cd vifm-0.9 && ./configure && make && sudo make install
+wget https://github.com/vifm/vifm/releases/download/v0.9/vifm-0.9.tar.bz2 && tar -xf vifm-0.9* && cd vifm-0.9 && ./configure && make && sudo make install
 
 # shell tools
 git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
@@ -94,6 +92,10 @@ ln -s $cur_dir/vim ~/.vim
 ln -s $cur_dir/zsh/zshrc ~/.zshrc
 ln -s $cur_dir/tmux.conf ~/.tmux.conf
 ln -s $cur_dir/vim/init.vim ~/.config/nvim/
+
+# finish tmux plugins
+# todo run tmux server and detach it?
+tmux source ~/.tmux.conf
 
 # post docker
 sudo usermod -aG docker $USER

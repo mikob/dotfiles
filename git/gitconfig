@@ -1,7 +1,7 @@
 [core]
 	excludesfile = /home/mikob/.gitignore_global
 	ignorecase = false
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
 
 [push]
 	default = simple
@@ -14,11 +14,13 @@
     tk = commit -a --no-edit --amend # tack
     co = checkout
     cm = commit -m
-    br = branch
-    st = status
+    c = commit
+    b = branch
+    s = status
     gr = log --graph --pretty --oneline --all --decorate
     pl = pull
     p = push
+    d = diff
     create-pull-request = !sh -c 'stash pull-request $0 $@'
 
 [giggle]

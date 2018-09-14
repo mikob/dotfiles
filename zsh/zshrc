@@ -7,6 +7,7 @@ export KEYTIMEOUT=1       # elimate delay with switching to vi mode
 # RVM seems to be loaded quickly, so we don't need to lazy load
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/.zgen/jimeh/tmuxifier-master/bin
+export PATH=/snap/bin:$PATH
 export PATH=/usr/bin:$PATH     # hack to give /usr/bin priority
 export PATH="$HOME/tools/google_appengine/":$PATH
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH

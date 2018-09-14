@@ -17,7 +17,7 @@
     c = commit
     b = branch
     s = status
-    gr = log --graph --pretty --oneline --all --decorate
+    gr = !git --no-pager log --color=always --graph --pretty --oneline --all --decorate | less -r
     pl = pull
     p = push
     d = diff

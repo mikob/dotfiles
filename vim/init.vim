@@ -31,6 +31,7 @@ Plug 'iamcco/markdown-preview.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-unimpaired'
 Plug 'rakr/vim-one'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 

@@ -55,6 +55,13 @@ else
     exit 1
 fi
 
+# entr for watching for executing commands when files change
+wget http://entrproject.org/code/entr-4.1.tar.gz
+tar -xf entr-4.1.tar.gz
+pushd eradman-entr-*
+./configure && make && sudo make install
+popd
+
 # stuff for both distros
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 

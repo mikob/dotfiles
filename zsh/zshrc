@@ -71,6 +71,7 @@ bindkey '^r' history-incremental-search-backward
 bindkey '^p' fzf-file-widget
 bindkey '^l' autosuggest-execute
 bindkey '^e' end-of-line
+bindkey '^b' fzm
 
 # only the first of each command has an alias searched for. So
 # make the last character a space, so the next word following the alias

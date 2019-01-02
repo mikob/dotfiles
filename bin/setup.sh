@@ -2,7 +2,16 @@
 # run from dotfiles/, not bin/
 # Things that must be done afterwards that are not automated are documented in the README.md
 set -e
-if python -mplatform | grep -iq LinuxMint; then
+
+platform=`python3 -c '
+import platform
+flavor, version, codename = platform.dist()
+if flavor.lower() == "ubuntu":
+    print("ubuntu")
+elif flavor.lower() == "fedora":
+    print("fedora")
+'`
+if echo $platform | grep -iq ubuntu; then
     # ubuntu, mint
     UBUNTU_EQUIV="bionic"
 
@@ -29,8 +38,7 @@ if python -mplatform | grep -iq LinuxMint; then
     # shell
     sudo chsh -s /bin/zsh $(whoami)
     sudo chsh -s /bin/zsh
-elif python -mplatform | grep -iq fedora; then
-    exit 1
+elif echo $platform | grep -iq fedora; then
     # fedora
     curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo && yum -y install neovim
 
@@ -63,7 +71,9 @@ pushd eradman-entr-*
 popd
 
 # stuff for both distros
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 # nvim plugin manager
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -73,11 +83,13 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 wget https://github.com/vifm/vifm/releases/download/v0.9/vifm-0.9.tar.bz2 && tar -xf vifm-0.9* && cd vifm-0.9 && ./configure && make && sudo make install
 
 # shell tools
-git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
+if [ ! -d "${HOME}/.zgen" ]; then
+    git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
+fi
 ~/.zgen/junegunn/fzf-master/install --no-update-rc --no-fish --no-bash
 
 # diff-so-fancy
-wget wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy && chmod +x diff-so-fancy && sudo mv diff-so-fancy /usr/local/bin
+wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy && chmod +x diff-so-fancy && sudo mv diff-so-fancy /usr/local/bin
 
 # python tools
 pip3 install --user httpie neovim-remote

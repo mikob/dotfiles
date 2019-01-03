@@ -96,6 +96,7 @@ pip3 install --user httpie neovim-remote
 cur_dir="$(pwd)"
 mkdir -p ~/.config/nvim
 
+# remove pre-existing
 for x in gitconfig vimrc gvimrc vim tmux.conf zshrc config/nvim/init.vim; do
     echo $x;
     touch ~/.$x;
@@ -104,7 +105,6 @@ done
 
 ln -s $cur_dir/git/gitconfig ~/.gitconfig
 ln -s $cur_dir/vim/vimrc ~/.vimrc
-ln -s $cur_dir/zsh/custom/themes/prompt_miko_setup ~/.zgen/sorin-ionescu/prezto-master/modules/prompt/functions
 ln -s $cur_dir/vim/gvimrc ~/.gvimrc
 ln -s $cur_dir/vim ~/.vim
 ln -s $cur_dir/zsh/zshrc ~/.zshrc
@@ -119,5 +119,7 @@ tmux source ~/.tmux.conf
 sudo usermod -aG docker $USER
 sudo groupadd docker
 
-# run this after zgen has been init'd
+# zgen initialization
+zgen-init
 ~/.zgen/junegunn/fzf-master/install --no-update-rc --no-fish --no-bash
+ln -s $cur_dir/zsh/custom/themes/prompt_miko_setup ~/.zgen/sorin-ionescu/prezto-master/modules/prompt/functions

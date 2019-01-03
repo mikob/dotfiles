@@ -38,7 +38,9 @@ if echo $platform | grep -iq ubuntu; then
     # shell
     sudo chsh -s /bin/zsh $(whoami)
     sudo chsh -s /bin/zsh
+
 elif echo $platform | grep -iq fedora; then
+
     # fedora
     curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo && yum -y install neovim
 
@@ -74,6 +76,12 @@ popd
 if [ ! -d ~/.tmux/plugins/tpm ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+
+# nvim
+curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+sudo mv nvim.appimage /opt/nvim.appimage && sudo chmod u+x /opt/nvim.appimage
+ln -s /opt/nvim.appimage /usr/bin/nvim
+ln -s /opt/nvim.appimage /usr/bin/vim
 
 # nvim plugin manager
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -123,3 +131,5 @@ sudo groupadd docker
 zgen-init
 ~/.zgen/junegunn/fzf-master/install --no-update-rc --no-fish --no-bash
 ln -s $cur_dir/zsh/custom/themes/prompt_miko_setup ~/.zgen/sorin-ionescu/prezto-master/modules/prompt/functions
+
+echo "Done setting up!"

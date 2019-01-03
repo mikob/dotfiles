@@ -86,7 +86,6 @@ wget https://github.com/vifm/vifm/releases/download/v0.9/vifm-0.9.tar.bz2 && tar
 if [ ! -d "${HOME}/.zgen" ]; then
     git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 fi
-~/.zgen/junegunn/fzf-master/install --no-update-rc --no-fish --no-bash
 
 # diff-so-fancy
 wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy && chmod +x diff-so-fancy && sudo mv diff-so-fancy /usr/local/bin
@@ -119,3 +118,6 @@ tmux source ~/.tmux.conf
 # post docker
 sudo usermod -aG docker $USER
 sudo groupadd docker
+
+# run this after zgen has been init'd
+~/.zgen/junegunn/fzf-master/install --no-update-rc --no-fish --no-bash

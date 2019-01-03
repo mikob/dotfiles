@@ -3,6 +3,10 @@
 # Things that must be done afterwards that are not automated are documented in the README.md
 set -e
 
+echo "What would you like the hostname to be?"
+
+read hostname
+
 platform=`python3 -c '
 import platform
 flavor, version, codename = platform.dist()
@@ -12,6 +16,9 @@ elif flavor.lower() == "fedora":
     print("fedora")
 '`
 if echo $platform | grep -iq ubuntu; then
+    # TODO: set the hostname
+    sudo hostnamectl set-hostname $hostname
+
     # ubuntu, mint
     UBUNTU_EQUIV="bionic"
 
@@ -80,8 +87,8 @@ fi
 # nvim
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 sudo mv nvim.appimage /opt/nvim.appimage && sudo chmod u+x /opt/nvim.appimage
-ln -s /opt/nvim.appimage /usr/bin/nvim
-ln -s /opt/nvim.appimage /usr/bin/vim
+sudo ln -fs /opt/nvim.appimage /usr/bin/nvim
+sudo ln -fs /opt/nvim.appimage /usr/bin/vim
 
 # nvim plugin manager
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \

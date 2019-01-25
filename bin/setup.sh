@@ -4,7 +4,6 @@
 set -e
 
 echo "What would you like the hostname to be?"
-
 read hostname
 
 platform=`python3 -c '

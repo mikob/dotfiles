@@ -1,7 +1,7 @@
 [core]
 	excludesfile = /home/mikob/.gitignore_global
 	ignorecase = false
-	pager = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
+	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [push]
 	default = simple
@@ -18,7 +18,7 @@
     c = commit
     b = branch
     s = status
-    gr = !git --no-pager log --color=always --graph --pretty --oneline --all --decorate | less -r
+    gr = log --color=always --graph --pretty --oneline --all --decorate
     pl = pull
     p = push
     d = diff

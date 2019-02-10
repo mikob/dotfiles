@@ -98,8 +98,8 @@ alias rsync='rsync -zav'
 alias dl='docker logs -f --tail 1000'
 alias rbd="echo \"keys $@\" | xargs redis-cli | cut --delimiter ' ' -f 1 | xargs redis-cli DEL"
 # Fix cinnamon when it get's f'd up
-alias cinn_restart='pkill -HUP -f "cinnamon --replace"'
-alias rm_font='rm ~/.local/share/fonts/$@ && sudo fc-cache -fv'
+alias cinnrestart='pkill -HUP -f "cinnamon --replace"'
+alias rmfont='rm ~/.local/share/fonts/$@ && sudo fc-cache -fv'
 
 # Miko's custom shell functions
 function cds() { cd "$@" && ls; }

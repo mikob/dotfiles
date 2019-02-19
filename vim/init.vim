@@ -32,6 +32,7 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-unimpaired'
 Plug 'rakr/vim-one'
 Plug 'mattn/emmet-vim'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 

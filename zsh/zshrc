@@ -20,6 +20,7 @@ export LC_ALL=en_US.UTF-8
 export TMUXIFIER=$HOME/.zgen/jimeh/tmuxifier-master
 export FZF_DEFAULT_COMMAND='ag -g "" -U'
 export PIP_PROCESS_DEPENDENCY_LINKS=1
+export NVM_LAZY_LOAD=true
 
 
 # IMPORTANT:
@@ -50,6 +51,7 @@ zgen load jimeh/tmuxifier
 zgen load junegunn/fzf shell
 # adds 0.3s to startup
 #zgen load felixr/docker-zsh-completion
+zgen load lukechilds/zsh-nvm
 
 # folder bookmarks
 zgen load urbainvaes/fzf-marks
@@ -160,8 +162,6 @@ eval "$POST_RC"
 
 # added by Anaconda3 installer
 export PATH="/opt/anaconda3/bin:$PATH"
-# github.com/tj/n (node version manager)
-export N_PREFIX=~/.npm-global/node
-export PATH=~/.npm-global/node/bin:~/.npm-global/bin:$PATH
 
+export PATH=~/.npm-global/node/bin:~/.npm-global/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

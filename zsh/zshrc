@@ -159,9 +159,5 @@ fi
 # hack to get things running after zshrc is loaded in gnome-terminal
 # eg. gnome-terminal -x sh -c 'export POST_RC="echo hi"; exec zsh'
 eval "$POST_RC"
-
-# added by Anaconda3 installer
-export PATH="/opt/anaconda3/bin:$PATH"
-
 export PATH=~/.npm-global/node/bin:~/.npm-global/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

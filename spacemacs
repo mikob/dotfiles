@@ -350,3 +350,9 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(defun my-wrap-lines ()
+  "Disable `truncate-lines' in the current buffer."
+  (setq truncate-lines nil))
+
+(add-hook 'magit-diff-mode-hook #'my-wrap-lines)

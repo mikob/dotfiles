@@ -23,6 +23,7 @@ Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'junegunn/vim-slash'
 Plug 'leafgarland/typescript-vim'
 Plug 'vim-airline/vim-airline'
+Plug 'jreybert/vimagit'
 " TODO: remove this now that we have langugage server support?
 "if has("python3")
 	"Plug 'roxma/nvim-completion-manager'
@@ -199,3 +200,18 @@ let g:terminal_color_12 = '#8CC9FF'
 let g:terminal_color_13 = '#ad7fa8'
 let g:terminal_color_14 = '#00f5e9'
 let g:terminal_color_15 = '#eeeeec'
+
+" remember the chan id (buffer id) of the last terminal buffer
+augroup Terminal
+  au!
+  au TermOpen * let g:last_terminal_chan_id = b:terminal_job_id
+augroup END
+
+
+function! REPLSend()
+    call chansend(g:last_terminal_chan_id, "!!\<cr>")
+endfunction
+
+command! REPLSendLine call REPLSend()
+
+nnoremap <silent> <f5> :REPLSendLine<cr>

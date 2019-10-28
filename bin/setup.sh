@@ -3,6 +3,7 @@
 # Things that must be done afterwards that are not automated are documented in the README.md
 set -e
 
+cur_dir="$(pwd)"
 echo "What would you like the hostname to be?"
 read hostname
 
@@ -107,7 +108,6 @@ wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party
 # python tools
 pip3 install --user httpie neovim-remote
 
-cur_dir="$(pwd)"
 mkdir -p ~/.config/nvim
 
 # remove pre-existing

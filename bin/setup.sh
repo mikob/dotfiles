@@ -25,7 +25,7 @@ if echo $platform | grep -iq ubuntu; then
     # installs
 
     # general tools
-    sudo apt-get update && sudo apt install -y python3-pip git zsh trash-cli xclip htop tree jq silversearcher-ag mosh
+    sudo apt-get update && sudo apt install -y python3-pip git zsh trash-cli xclip htop tree jq silversearcher-ag mosh nethogs
 
     # tmux dependencies
     # sudo apt install libevent-dev build-essential g++ libncurses5-dev -y
@@ -52,7 +52,7 @@ elif echo $platform | grep -iq fedora; then
     curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo && yum -y install neovim
 
     # general tools
-    sudo dnf -y install zsh xclip htop tree tmux trash-cli parcellite the_silver_searcher jq
+    sudo dnf -y install zsh xclip htop tree tmux trash-cli parcellite the_silver_searcher jq nethogs
 
     # for vifm
     sudo dnf -y install ncurses-static.x86_64

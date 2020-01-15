@@ -119,6 +119,7 @@ for x in gitconfig vimrc gvimrc vim tmux.conf zshrc config/nvim/init.vim; do
 done
 
 ln -s $cur_dir/git/gitconfig ~/.gitconfig
+ln -s $cur_dir/git/gitignore_global ~/.gitignore_global
 ln -s $cur_dir/vim/vimrc ~/.vimrc
 ln -s $cur_dir/vim/gvimrc ~/.gvimrc
 ln -s $cur_dir/vim ~/.vim

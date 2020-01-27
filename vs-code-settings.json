@@ -1,1 +1,48 @@
-/home/mikob/.config/Code/User/settings.json
+{
+    "terminal.integrated.commandsToSkipShell": [
+        "workbench.action.focusActiveEditorGroup"
+    ],
+    "terminal.integrated.scrollback": 10000,
+
+    "mjml.previewBackgroundColor": "#ffffff",
+    "html.mirrorCursorOnMatchingTag": false,
+
+	"html.autoClosingTags": false,
+
+    "vim.handleKeys": {
+        "<C-w>": false,
+        "<C-s>": false,
+        "<C-c>": false,
+        "<C-p>": false,
+        "<C-h>": false,
+    },
+
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["Z", "Z"],
+            "commands": [
+                {
+                    "command": ":wq"
+                },
+            ]
+        }
+    ],
+
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": [
+        "--enable=W0614"
+    ],
+
+    "vetur.format.defaultFormatter.html": "js-beautify-html",
+    "vim.leader": "<space>",
+    "explorer.confirmDragAndDrop": false,
+    "window.zoomLevel": 0,
+    "keyboard.dispatch": "keyCode",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "editor.lineNumbers": "relative",
+    "[typescript]": {},
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.jediEnabled": false
+}

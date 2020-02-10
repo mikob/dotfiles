@@ -6,6 +6,7 @@
 
     "mjml.previewBackgroundColor": "#ffffff",
     "html.mirrorCursorOnMatchingTag": false,
+    "editor.selectionClipboard": false,
 
 	"html.autoClosingTags": false,
 

@@ -37,7 +37,7 @@
     "vetur.format.defaultFormatter.html": "js-beautify-html",
     "vim.leader": "<space>",
     "explorer.confirmDragAndDrop": false,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": -1,
     "keyboard.dispatch": "keyCode",
     "typescript.updateImportsOnFileMove.enabled": "always",
     "typescript.tsdk": "node_modules/typescript/lib",
@@ -45,5 +45,7 @@
     "[typescript]": {},
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "python.jediEnabled": false
+    "python.jediEnabled": false,
+    "workbench.colorTheme": "Default Light+",
+    "explorer.autoReveal": false
 }

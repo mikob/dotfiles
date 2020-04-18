@@ -11,7 +11,7 @@ export PATH=/snap/bin:$PATH
 export PATH=/usr/bin:$PATH     # hack to give /usr/bin priority
 export PATH="$HOME/tools/google_appengine/":$PATH
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export EDITOR=nvim
 export INPUTRC=$HOME/.inputrc
 export DEV_ENV=1
@@ -21,6 +21,11 @@ export TMUXIFIER=$HOME/.zgen/jimeh/tmuxifier-master
 export FZF_DEFAULT_COMMAND='ag --hidden -g "" -U'
 export PIP_PROCESS_DEPENDENCY_LINKS=1
 export NVM_LAZY_LOAD=true
+export NNN_TRASH=1
+export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgviu;t:imgthumb'
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
 
 
 # IMPORTANT:

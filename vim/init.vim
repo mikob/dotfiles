@@ -215,3 +215,5 @@ endfunction
 command! REPLSendLine call REPLSend()
 
 nnoremap <silent> <f5> :REPLSendLine<cr>
+
+set directory=$HOME/.local/nvim/swap//

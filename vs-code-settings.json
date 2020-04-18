@@ -37,7 +37,7 @@
     "vetur.format.defaultFormatter.html": "js-beautify-html",
     "vim.leader": "<space>",
     "explorer.confirmDragAndDrop": false,
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 0,
     "keyboard.dispatch": "keyCode",
     "typescript.updateImportsOnFileMove.enabled": "always",
     "typescript.tsdk": "node_modules/typescript/lib",

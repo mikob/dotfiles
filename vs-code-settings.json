@@ -46,6 +46,10 @@
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "python.jediEnabled": false,
-    "workbench.colorTheme": "Default Light+",
-    "explorer.autoReveal": false
+    "explorer.autoReveal": false,
+    "vetur.useWorkspaceDependencies": true,
+    "editor.minimap.enabled": false,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    }
 }

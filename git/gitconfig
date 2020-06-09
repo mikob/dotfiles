@@ -27,6 +27,8 @@
     d = diff
     a = add
     create-pull-request = !sh -c 'stash pull-request $0 $@'
+    ; branch diff
+    bd = log --decorate --pretty=oneline --abbrev-commit --no-merges --first-parent master..
 
 [giggle]
 	main-window-maximized = false

@@ -1,7 +1,7 @@
 [core]
 	excludesfile = /home/mikob/.gitignore_global
 	ignorecase = false
-	pager = delta --dark --plus-color="#012800" --minus-color="#340001" --theme="ansi-dark"
+	pager = delta --theme="ansi-dark"
 
 [interactive]
 	diffFilter = delta --color-only

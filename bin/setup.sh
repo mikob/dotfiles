@@ -28,6 +28,9 @@ if echo $platform | grep -iq ubuntu; then
     # xclip and xsel are for neovim clipboard
     sudo apt-get update && sudo apt install -y python3-pip git zsh trash-cli xclip htop tree jq silversearcher-ag mosh nethogs xsel xclip
 
+    # desktop tools (not needed on server)
+    sudo apt-get install earlyoom
+
     # tmux dependencies
     # sudo apt install libevent-dev build-essential g++ libncurses5-dev -y
 
@@ -126,6 +129,7 @@ ln -s $cur_dir/vim ~/.vim
 ln -s $cur_dir/zsh/zshrc ~/.zshrc
 ln -s $cur_dir/tmux.conf ~/.tmux.conf
 ln -s $cur_dir/vim/init.vim ~/.config/nvim/
+sudo ln -s $cur_dir/earlyoom /etc/default/
 
 # finish tmux plugins
 # todo run tmux server and detach it?

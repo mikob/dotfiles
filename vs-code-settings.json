@@ -51,5 +51,7 @@
     "editor.minimap.enabled": false,
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
-    }
+    },
+    "python.languageServer": "Microsoft",
+    "workbench.colorTheme": "Default Light+"
 }

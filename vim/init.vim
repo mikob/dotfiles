@@ -215,5 +215,7 @@ endfunction
 command! REPLSendLine call REPLSend()
 
 nnoremap <silent> <f5> :REPLSendLine<cr>
+" write file with elevated privileges (:sudow)
+cnoremap sudow w !sudo tee % >/dev/null
 
 set directory=$HOME/.local/nvim/swap//

@@ -18,6 +18,11 @@
         "<C-h>": false,
     },
 
+    "vim.easymotion": true,
+    "vim.easymotionMarkerBackgroundColor": "#fcba03",
+    "vim.easymotionMarkerForegroundColorOneChar": "#000000",
+    "vim.easymotionMarkerForegroundColorTwoChar": "#333333",
+
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": ["Z", "Z"],
@@ -25,6 +30,22 @@
                 {
                     "command": ":wq"
                 },
+            ]
+        },
+        {
+            "before": ["s"],
+            "after": ["leader", "/"]
+        },
+        {
+            "before": ["<leader>", "m"],
+            "commands": [
+                "bookmarks.toggle"
+            ]
+        },
+        {
+            "before": ["<leader>", "b"],
+            "commands": [
+                "bookmarks.list"
             ]
         }
     ],
@@ -42,7 +63,9 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "typescript.tsdk": "node_modules/typescript/lib",
     "editor.lineNumbers": "relative",
-    "[typescript]": {},
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "python.jediEnabled": false,
@@ -53,5 +76,22 @@
         "editor.defaultFormatter": "vscode.html-language-features"
     },
     "python.languageServer": "Microsoft",
-    "workbench.colorTheme": "Default Light+"
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false
+    },
+    "workbench.colorTheme": "Default Light+",
+    "prettier.packageManager": "yarn",
+    "prettier.tabWidth": 4,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
 }

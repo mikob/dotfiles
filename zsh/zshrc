@@ -107,6 +107,7 @@ alias rbd="echo \"keys $@\" | xargs redis-cli | cut --delimiter ' ' -f 1 | xargs
 # Fix cinnamon when it get's f'd up
 alias cinnrestart='pkill -HUP -f "cinnamon --replace"'
 alias rmfont='rm ~/.local/share/fonts/$@ && sudo fc-cache -fv'
+alias y='yarn'
 
 # Miko's custom shell functions
 function cds() { cd "$@" && ls; }

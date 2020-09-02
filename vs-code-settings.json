@@ -88,10 +88,11 @@
         "editor.tabCompletion": "onlySnippets",
         "editor.wordBasedSuggestions": false
     },
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "One Dark Pro",
     "prettier.packageManager": "yarn",
     "prettier.tabWidth": 4,
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
-    }
+    },
+    "update.mode": "manual"
 }

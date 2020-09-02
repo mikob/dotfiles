@@ -27,6 +27,12 @@ export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgviu;t:imgthumb
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 
+# zsh vi mode cursor styling
+MODE_CURSOR_VIINS="#ffffff blinking bar"
+MODE_CURSOR_REPLACE="$MODE_CURSOR_VIINS #ff0000"
+MODE_CURSOR_VICMD="#7d7748 block"
+MODE_CURSOR_VISUAL="$MODE_CURSOR_VICMD steady bar"
+MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #00ffff"
 
 # IMPORTANT:
 # Need to edit zgen save file manually anytime it's changed to make sure autoenv loads after python in order for
@@ -60,6 +66,9 @@ zgen load lukechilds/zsh-nvm
 
 # folder bookmarks
 zgen load urbainvaes/fzf-marks
+
+# cursor shape for vim mode
+zgen load softmoth/zsh-vim-mode
 
 zgen save
 fi

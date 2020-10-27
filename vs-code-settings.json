@@ -71,7 +71,7 @@
     "python.jediEnabled": false,
     "explorer.autoReveal": false,
     "vetur.useWorkspaceDependencies": true,
-    "editor.minimap.enabled": false,
+    "editor.minimap.enabled": true,
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
@@ -88,11 +88,14 @@
         "editor.tabCompletion": "onlySnippets",
         "editor.wordBasedSuggestions": false
     },
-    "workbench.colorTheme": "One Dark Pro",
     "prettier.packageManager": "yarn",
     "prettier.tabWidth": 4,
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "update.mode": "manual"
+    "update.mode": "manual",
+    "[vue]": {
+        "editor.defaultFormatter": "octref.vetur"
+    },
+    "workbench.colorTheme": "One Dark Pro"
 }

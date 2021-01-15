@@ -74,7 +74,9 @@ zgen load urbainvaes/fzf-marks
 zgen load softmoth/zsh-vim-mode
 
 # notification when long running command finishes
-zgen load mikob/zsh-auto-notify
+# got annoying when using vim terminals not recognizing that the window was open - giving
+# notifications for practically all commands.
+# zgen load mikob/zsh-auto-notify
 
 zgen save
 fi
@@ -184,5 +186,8 @@ export PATH=~/.npm-global/node/bin:~/.npm-global/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # notification when a long running command finishes
-AUTO_NOTIFY_IGNORE+=("git diff")
+AUTO_NOTIFY_IGNORE+=("git diff" "mosh" "g d" "git d" "g diff")
+AUTO_NOTIFY_EXPIRE_TIME=2500
 # export AUTO_NOTIFY_IGNORE_WINDOW_CHECK=true
+
+export PATH="$HOME/.poetry/bin:$PATH"

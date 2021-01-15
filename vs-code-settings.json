@@ -71,11 +71,11 @@
     "python.jediEnabled": false,
     "explorer.autoReveal": false,
     "vetur.useWorkspaceDependencies": true,
-    "editor.minimap.enabled": true,
+    "editor.minimap.enabled": false,
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
-    "python.languageServer": "Microsoft",
+    "python.languageServer": "Pylance",
     "[dart]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": true,
@@ -97,5 +97,12 @@
     "[vue]": {
         "editor.defaultFormatter": "octref.vetur"
     },
-    "workbench.colorTheme": "One Dark Pro"
+    "extensions.ignoreRecommendations": false,
+    "javascript.autoClosingTags": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.formatOnSave": true,
+    "workbench.colorTheme": "Default Dark+",
+    "editor.tabSize": 2
 }

@@ -91,8 +91,8 @@ fi
 # nvim
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 sudo mv nvim.appimage /opt/nvim.appimage && sudo chmod u+x /opt/nvim.appimage
-sudo ln -fs /opt/nvim.appimage /usr/bin/nvim
-sudo ln -fs /opt/nvim.appimage /usr/bin/vim
+sudo ln -fs /opt/nvim.appimage /usr/local/bin/nvim
+sudo ln -fs /opt/nvim.appimage /usr/local/bin/vim
 
 # nvim plugin manager
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \

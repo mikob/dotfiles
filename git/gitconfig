@@ -3,6 +3,9 @@
 	ignorecase = false
 	pager = delta --theme="ansi-dark"
 
+[log]
+	date = iso-local
+
 [interactive]
 	diffFilter = delta --color-only
 

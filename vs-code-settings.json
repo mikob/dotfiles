@@ -104,5 +104,13 @@
     },
     "editor.formatOnSave": true,
     "editor.tabSize": 2,
-    "window.autoDetectColorScheme": true
+    "spellright.addToSystemDictionary": true,
+    "spellright.notificationClass": "information",
+    "spellright.suggestionsInHints": false,
+    "gitlens.codeLens.enabled": false,
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "window.autoDetectColorScheme": true,
+    "workbench.colorTheme": "Default Light+"
 }

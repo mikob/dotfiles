@@ -11,9 +11,9 @@ if not os.path.isdir(cache_dir):
 if not os.path.exists(config_file):
 	with open(config_file, 'w') as conf_file:
 		### Fill with some sensible defaults
-		conf_file.write('22:00\n09:00\n' + 
-		                'Mint-Y\nMint-Y-Blue\nMint-Y-Blue\nDMZ-White\nMint-Y-Blue\n' + 
-		                'Mint-Y-Dark\nMint-Y-Blue\nMint-Y-Dark-Blue\nDMZ-Black\nMint-Y-Dark-Blue')
+		conf_file.write('20:00\n07:00\n' +
+		                'Mint-Y\nMint-Y\nMint-Y\nDMZ-White\nMint-Y\n' +
+		                'Mint-Y-Dark\nMint-Y-Dark\nMint-Y-Dark\nDMZ-Black\nMint-Y-Dark')
 
 ### Global theme variables
 light_or_dark = ''
@@ -94,8 +94,8 @@ def get_mode_for_now():
 			return 'dark'
 
 def find_number_of_other_instances_of_this_script():
-	procs = subprocess.Popen("ps -p $(pgrep -d, automatic_theme) -o state", 
-	             shell=True, 
+	procs = subprocess.Popen("ps -p $(pgrep -d, automatic_theme) -o state",
+	             shell=True,
 	             stdout=subprocess.PIPE).stdout.read().decode('UTF-8')
 	procs = procs[2:][:-1] # Remove first 'S' (means state) and first and last endl
 	other_alive_found = -1 # So that it doesn't count self
@@ -134,8 +134,8 @@ def configure():
 	global dark_ds
 	start = input('Dark start time (format=HH:MM): ') or '22:00'
 	end   = input('Dark end   time (format=HH:MM): ') or '09:00'
-	print('/!\\ You can leave whichever of the following settings ' + 
-	      'you want empty and the script will not attempt ' + 
+	print('/!\\ You can leave whichever of the following settings ' +
+	      'you want empty and the script will not attempt ' +
 	      'to change theme when switching to that theme')
 	print('===Light theme settings===')
 	light_wb = input('\tWindow borders: ') or '-'
@@ -207,7 +207,7 @@ if mode == 'configure':
 	configure()
 	write_config_to_file()
 	if find_number_of_other_instances_of_this_script() == 0:
-		print('\nConfigured! Please run using: \n' + 
+		print('\nConfigured! Please run using: \n' +
 		      sys.argv[0] + ' --on')
 	exit(0)
 

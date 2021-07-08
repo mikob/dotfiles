@@ -54,15 +54,12 @@
     "python.linting.pylintArgs": [
         "--enable=W0614"
     ],
-
-    "vetur.format.defaultFormatter.html": "js-beautify-html",
     "vim.leader": "<space>",
     "explorer.confirmDragAndDrop": false,
-    "window.zoomLevel": 0,
     "keyboard.dispatch": "keyCode",
     "typescript.updateImportsOnFileMove.enabled": "always",
     "typescript.tsdk": "node_modules/typescript/lib",
-    "editor.lineNumbers": "relative",
+    "editor.lineNumbers": "on",
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -102,8 +99,7 @@
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "editor.formatOnSave": true,
-    "editor.tabSize": 2,
+    "editor.tabSize": 8,
     "spellright.addToSystemDictionary": true,
     "spellright.notificationClass": "information",
     "spellright.suggestionsInHints": false,
@@ -112,5 +108,14 @@
         "editor.defaultFormatter": "vscode.json-language-features"
     },
     "window.autoDetectColorScheme": true,
-    "workbench.colorTheme": "Default Light+"
+    "vim.useSystemClipboard": true,
+    "vetur.experimental.templateInterpolationService": true,
+    "editor.formatOnSaveMode": "modifications",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "editor.cursorStyle": "line",
+    "editor.insertSpaces": false,
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.wordWrap": "off"
 }

@@ -1,7 +1,7 @@
-# timing, ~0.35s
-
-# Source Prezto.
-source "${HOME}/.zgen/zgen.zsh"
+# timing, ~0.21s x1c7 7/2021
+# to test timing: for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
+# Uncomment the following to profile (comment 1/2, see bottom of file for 2/2):
+# zmodload zsh/zprof
 
 export KEYTIMEOUT=1       # elimate delay with switching to vi mode
 # RVM seems to be loaded quickly, so we don't need to lazy load
@@ -41,45 +41,47 @@ MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #00ffff"
 # IMPORTANT:
 # Need to edit zgen save file manually anytime it's changed to make sure autoenv loads after python in order for
 # .autoenv.zsh to work properly with workon command
+# load zgen
+source "${HOME}/.zgen/zgen.zsh"
 if ! zgen saved; then
-zgen prezto prompt theme 'miko'
-zstyle ':prezto:*:*' color 'yes'
+    zgen prezto prompt theme 'miko'
+    zstyle ':prezto:*:*' color 'yes'
 
-zgen prezto
-zgen prezto git
-zgen prezto completion
-#zgen prezto python
-zgen prezto command-not-found
-#zgen prezto syntax-highlighting
-zgen prezto ssh
-zgen prezto tmux
-# zgen prezto autosuggestions
-# zgen prezto history-substring-search # causes issues with ctrl-y
+    zgen prezto
+    zgen prezto git
+    zgen prezto completion
+    #zgen prezto python
+    zgen prezto command-not-found
+    #zgen prezto syntax-highlighting
+    zgen prezto ssh
+    zgen prezto tmux
+    # zgen prezto autosuggestions
+    # zgen prezto history-substring-search # causes issues with ctrl-y
 
-# these two have prezto modules but the autosuggestions are white (instead of grey)
-# when using the prezto versions
-zgen load zsh-users/zsh-syntax-highlighting
-zgen load zsh-users/zsh-autosuggestions
+    # these two have prezto modules but the autosuggestions are white (instead of grey)
+    # when using the prezto versions
+    zgen load zsh-users/zsh-syntax-highlighting
+    zgen load zsh-users/zsh-autosuggestions
 
-zgen load Tarrasch/zsh-autoenv
-zgen load jimeh/tmuxifier
-zgen load junegunn/fzf shell
-# adds 0.3s to startup
-#zgen load felixr/docker-zsh-completion
-zgen load lukechilds/zsh-nvm
+    zgen load Tarrasch/zsh-autoenv
+    zgen load jimeh/tmuxifier
+    zgen load junegunn/fzf shell
+    # adds 0.3s to startup
+    #zgen load felixr/docker-zsh-completion
+    zgen load Riatre/zsh-nvm
 
-# folder bookmarks
-zgen load urbainvaes/fzf-marks
+    # folder bookmarks
+    zgen load urbainvaes/fzf-marks
 
-# cursor shape for vim mode
-zgen load softmoth/zsh-vim-mode
+    # cursor shape for vim mode
+    zgen load softmoth/zsh-vim-mode
 
-# notification when long running command finishes
-# got annoying when using vim terminals not recognizing that the window was open - giving
-# notifications for practically all commands.
-# zgen load mikob/zsh-auto-notify
+    # notification when long running command finishes
+    # got annoying when using vim terminals not recognizing that the window was open - giving
+    # notifications for practically all commands.
+    # zgen load mikob/zsh-auto-notify
 
-zgen save
+    zgen save
 fi
 
 setopt vi 	 	  # edit command in vi mode
@@ -136,7 +138,7 @@ function rmhist() {
     args="$@"
     if [ "${#args}" -gt 2 ]
     then
-	grep -v "$@" ~/.zhistory > ~/.zhistory_backup && swp ~/.zhistory ~/.zhistory_backup
+	grep -v "$@" ~/.zsh_history > ~/.zsh_history_backup && swp ~/.zsh_history ~/.zsh_history_backup
     else
 	echo "argument should be at least 3 characters"
     fi
@@ -192,3 +194,15 @@ AUTO_NOTIFY_EXPIRE_TIME=2500
 # export AUTO_NOTIFY_IGNORE_WINDOW_CHECK=true
 
 export PATH="$HOME/.poetry/bin:$PATH"
+
+# taken from zprofile, unneeded for now
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
+#if command -v pyenv 1>/dev/null 2>&1; then
+    #eval "$(pyenv init -)"
+#fi
+source "$HOME/.cargo/env"
+
+
+# uncomment the following to profile 2/2
+# zprof

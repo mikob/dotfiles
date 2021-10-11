@@ -11,7 +11,10 @@
 	"html.autoClosingTags": false,
 
     "vim.handleKeys": {
+        
+
         "<C-w>": false,
+        "<C-f>": false,
         "<C-s>": false,
         "<C-c>": false,
         "<C-p>": false,
@@ -99,7 +102,6 @@
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "editor.tabSize": 8,
     "spellright.addToSystemDictionary": true,
     "spellright.notificationClass": "information",
     "spellright.suggestionsInHints": false,
@@ -110,13 +112,20 @@
     "window.autoDetectColorScheme": true,
     "vim.useSystemClipboard": true,
     "vetur.experimental.templateInterpolationService": true,
-    "editor.formatOnSaveMode": "modifications",
     "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
+        "*.ipynb": "jupyter-notebook"
     },
     "editor.cursorStyle": "line",
     "editor.insertSpaces": false,
     "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
     "editor.wordWrap": "off",
+    "editor.formatOnSave": true,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "workbench.colorTheme": "Default Light+"
 }

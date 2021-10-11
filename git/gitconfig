@@ -14,7 +14,7 @@
 
 [user]
 	name = mikob
-	email = mikojunky@fastmail.com
+	email = 492864+mikob@users.noreply.github.com
 
 [alias]
     tk = commit -a --no-edit --amend # tack

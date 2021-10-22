@@ -16,7 +16,7 @@ export EDITOR=nvim
 export INPUTRC=$HOME/.inputrc
 export DEV_ENV=1
 export NODE_ENV=development
-export NODE_OPTIONS='--max_old_space_size=4096'
+export NODE_OPTIONS="$NODE_OPTIONS --max_old_space_size=4096"
 export LC_ALL=en_US.UTF-8
 export TMUXIFIER=$HOME/.zgen/jimeh/tmuxifier-master
 export FZF_DEFAULT_COMMAND='ag --hidden -g "" -U'

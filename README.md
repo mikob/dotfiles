@@ -11,3 +11,9 @@ gnome-terminal --tab -e 'zsh -c "POST_RC=\"hra && cd webapp && ./manage.py runse
 
 Trackpoint Fixes:
 Check in `bin`
+
+Auto light/dark theme based on timer
+`bin/automatic_theme_cinnamon.py --configure`
+
+Make a startup script with
+`bin/automatic_theme_cinnamon.py --on`

@@ -11,6 +11,7 @@
 
 [push]
 	default = simple
+	followTags = true
 
 [user]
 	name = mikob

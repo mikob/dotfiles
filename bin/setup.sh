@@ -9,11 +9,15 @@ read hostname
 
 platform=`python3 -c '
 import platform
-flavor, version, codename = platform.dist()
-if flavor.lower() == "ubuntu":
-    print("ubuntu")
-elif flavor.lower() == "fedora":
-    print("fedora")
+system = platform.system()
+if system == "Linux":
+    flavor, version, codename = platform.dist()
+    if flavor.lower() == "ubuntu":
+        print("ubuntu")
+    elif flavor.lower() == "fedora":
+        print("fedora")
+elif system == "Darwin":
+    print("mac")
 '`
 if echo $platform | grep -iq ubuntu; then
     # TODO: set the hostname
@@ -71,6 +75,8 @@ elif echo $platform | grep -iq fedora; then
     sudo systemctl start docker
 
     sudo lchsh -i $USER /bin/zsh
+elif echo $platform | grep -iq mac; then
+    brew install wget
 else
     echo "Could not recognize OS"
     exit 1

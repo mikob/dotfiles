@@ -208,12 +208,6 @@ source "$HOME/.cargo/env"
 # zprof
 
 source /home/mikob/.config/broot/launcher/bash/br
-# mcfly is a replacement for ctrl-r
-eval "$(mcfly init zsh)"
-export MCFLY_FUZZY=true
-export MCFLY_KEY_SCHEME=vim
-export MCFLY_INTERFACE_VIEW=TOP
-
 eval "$(zoxide init zsh --cmd cd)"
 
 export NVM_DIR="$HOME/.nvm"

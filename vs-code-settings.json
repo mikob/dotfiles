@@ -3,16 +3,16 @@
         "workbench.action.focusActiveEditorGroup"
     ],
     "terminal.integrated.scrollback": 10000,
-
     "mjml.previewBackgroundColor": "#ffffff",
     "html.mirrorCursorOnMatchingTag": false,
     "editor.selectionClipboard": false,
-
-	"html.autoClosingTags": false,
-
+    "html.autoClosingTags": false,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "vue"
+    ],
     "vim.handleKeys": {
-        
-
         "<C-w>": false,
         "<C-f>": false,
         "<C-s>": false,
@@ -20,15 +20,16 @@
         "<C-p>": false,
         "<C-h>": false,
     },
-
     "vim.easymotion": true,
     "vim.easymotionMarkerBackgroundColor": "#fcba03",
     "vim.easymotionMarkerForegroundColorOneChar": "#000000",
     "vim.easymotionMarkerForegroundColorTwoChar": "#333333",
-
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": ["Z", "Z"],
+            "before": [
+                "Z",
+                "Z"
+            ],
             "commands": [
                 {
                     "command": ":wq"
@@ -36,23 +37,33 @@
             ]
         },
         {
-            "before": ["s"],
-            "after": ["leader", "/"]
+            "before": [
+                "s"
+            ],
+            "after": [
+                "leader",
+                "/"
+            ]
         },
         {
-            "before": ["<leader>", "m"],
+            "before": [
+                "<leader>",
+                "m"
+            ],
             "commands": [
                 "bookmarks.toggle"
             ]
         },
         {
-            "before": ["<leader>", "b"],
+            "before": [
+                "<leader>",
+                "b"
+            ],
             "commands": [
                 "bookmarks.list"
             ]
         }
     ],
-
     "python.linting.pylintEnabled": true,
     "python.linting.pylintArgs": [
         "--enable=W0614"
@@ -71,7 +82,6 @@
     "python.jediEnabled": false,
     "explorer.autoReveal": false,
     "vetur.useWorkspaceDependencies": true,
-    "editor.minimap.enabled": false,
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
@@ -109,7 +119,6 @@
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "window.autoDetectColorScheme": true,
     "vim.useSystemClipboard": true,
     "vetur.experimental.templateInterpolationService": true,
     "workbench.editorAssociations": {
@@ -127,5 +136,20 @@
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "window.autoDetectColorScheme": true,
+    "vetur.format.defaultFormatterOptions": {
+        "js-beautify-html": {
+            "wrap_attributes": "force-expand-multiline"
+        },
+        "prettyhtml": {
+            "printWidth": 100,
+            "singleQuote": false,
+            "wrapAttributes": false,
+            "sortAttributes": false
+        }
+    },
+    "editor.minimap.enabled": false,
+    "vetur.trace.server": "verbose",
+    "editor.unicodeHighlight.ambiguousCharacters": false,
     "workbench.colorTheme": "Default Light+"
 }

@@ -203,6 +203,9 @@ export PATH="$HOME/.poetry/bin:$PATH"
 #fi
 source "$HOME/.cargo/env"
 
+# histdb (better zsh history)
+source $HOME/.oh-my-zsh/custom/plugins/zsh-histdb/sqlite-history.zsh
+autoload -Uz add-zsh-hook
 
 # uncomment the following to profile 2/2
 # zprof

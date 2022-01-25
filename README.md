@@ -1,4 +1,4 @@
-Run `bin/setup.sh` to create the proper symbolic links. To make sure
+Run `scripts/setup.sh` to create the proper symbolic links. To make sure
 nothing you wanted to keep is overwritten, check the script before running.
 
 Run `^A I` in tmux to install the tmux plugins.
@@ -10,10 +10,10 @@ hard this was to figure out and do properly):
 gnome-terminal --tab -e 'zsh -c "POST_RC=\"hra && cd webapp && ./manage.py runserver\" exec zsh"' --tab-with-profile=default -e 'zsh -c "POST_RC=\"hra && cd webapp && grunt watch\" exec zsh"' --tab-with-profile=default -e 'zsh -c "POST_RC=\"hra && cd webapp\" exec zsh"'
 
 Trackpoint Fixes:
-Check in `bin`
+Check in `scripts`
 
 Auto light/dark theme based on timer
-`bin/automatic_theme_cinnamon.py --configure`
+`scripts/automatic_theme_cinnamon.py --configure`
 
 Make a startup script with
-`bin/automatic_theme_cinnamon.py --on`
+`scripts/automatic_theme_cinnamon.py --on`

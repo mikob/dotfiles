@@ -1,5 +1,7 @@
 # timing, ~0.21s x1c7 7/2021
-# to test timing: for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
+# timing, ~1.33s x1c7 3/2022
+# to test timing:
+#    for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
 # Uncomment the following to profile (comment 1/2, see bottom of file for 2/2):
 # zmodload zsh/zprof
 
@@ -209,12 +211,8 @@ source "$HOME/.cargo/env"
 source $HOME/.oh-my-zsh/custom/plugins/zsh-histdb/sqlite-history.zsh
 autoload -Uz add-zsh-hook
 
-# uncomment the following to profile 2/2
-# zprof
-
 source /home/mikob/.config/broot/launcher/bash/br
 eval "$(zoxide init zsh --cmd cd)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# uncomment the following to profile 2/2
+# zprof

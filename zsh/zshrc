@@ -38,6 +38,9 @@ MODE_CURSOR_VICMD="#7d7748 block"
 MODE_CURSOR_VISUAL="$MODE_CURSOR_VICMD steady bar"
 MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #00ffff"
 
+# needs to be loaded before fzm
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # IMPORTANT:
 # Need to edit zgen save file manually anytime it's changed to make sure autoenv loads after python in order for
 # .autoenv.zsh to work properly with workon command
@@ -175,7 +178,6 @@ unset_docker()
 [ -f "$HOME/.zshrc-custom" ] && source "$HOME/.zshrc-custom"
 [ -s $HOME/.rvm/scripts/rvm ] && . "$HOME/.rvm/scripts/rvm"
 #source <(kubectl completion zsh)     # kubernetes auto-completion is slow (0.3s)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # if we're in neovim, make vim cmd in nvim terminal open up in the current vim session
 if [ -n "${NVIM_LISTEN_ADDRESS+1}" ]; then

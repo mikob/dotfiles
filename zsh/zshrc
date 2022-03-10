@@ -112,6 +112,8 @@ bindkey '^e' end-of-line
 bindkey '^b' fzm
 
 # Fzf Key bindings
+# IMPORTANT these have been modified to let tab=select and enter=execute
+# https://github.com/junegunn/fzf/issues/477#issuecomment-631707533
 source "/home/mikob/.zgen/junegunn/fzf-master/shell/key-bindings.zsh"
 
 # only the first of each command has an alias searched for. So

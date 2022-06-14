@@ -83,6 +83,7 @@ elif echo $platform | grep -iq mac; then
     brew install htop
     brew install tmux
     brew install git-delta
+    brew install the_silver_searcher
     sudo chsh -s /bin/zsh
 else
     echo "Could not recognize OS"

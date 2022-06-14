@@ -83,6 +83,7 @@ elif echo $platform | grep -iq mac; then
     brew install htop
     brew install tmux
     brew install git-delta
+    sudo chsh -s /bin/zsh
 else
     echo "Could not recognize OS"
     exit 1

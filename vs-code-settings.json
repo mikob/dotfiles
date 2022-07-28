@@ -6,12 +6,6 @@
     "mjml.previewBackgroundColor": "#ffffff",
     "html.mirrorCursorOnMatchingTag": false,
     "editor.selectionClipboard": false,
-    "html.autoClosingTags": false,
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "vue"
-    ],
     "vim.handleKeys": {
         "<C-w>": false,
         "<C-f>": false,
@@ -81,7 +75,6 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "python.jediEnabled": false,
     "explorer.autoReveal": false,
-    "vetur.useWorkspaceDependencies": true,
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
@@ -98,6 +91,13 @@
         "editor.tabCompletion": "onlySnippets",
         "editor.wordBasedSuggestions": false
     },
+    "colorize.languages": [
+        "typescript",
+        "javascript",
+        "css",
+        "scss",
+        "typescriptreact"
+    ],
     "prettier.packageManager": "yarn",
     "prettier.tabWidth": 4,
     "[json]": {
@@ -150,6 +150,24 @@
     "editor.minimap.enabled": false,
     "vetur.trace.server": "verbose",
     "editor.unicodeHighlight.ambiguousCharacters": false,
+    "tailwindCSS.includeLanguages": {
+        "plaintext": "javascript",
+        "typescriptreact": "html"
+    },
+    "html.autoClosingTags": false,
+    "typescript.autoClosingTags": false,
+    "vetur.useWorkspaceDependencies": true,
+    "go.toolsManagement.autoUpdate": true,
+    "deno.enable": true,
+    "python.formatting.provider": "none",
+    "editor.inlineSuggest.enabled": true,
     "editor.formatOnSave": true,
-    "workbench.colorTheme": "Default Light+"
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": false,
+        "git-commit": false,
+        "git-rebase": false
+    }
 }

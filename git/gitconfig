@@ -1,7 +1,7 @@
 [core]
 	excludesfile = /home/mikob/.gitignore_global
 	ignorecase = false
-	pager = delta --theme="ansi-dark"
+	pager = delta --syntax-theme="ansi-dark"
 
 [log]
 	date = iso-local

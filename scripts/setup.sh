@@ -76,16 +76,24 @@ elif echo $platform | grep -iq fedora; then
 
     sudo lchsh -i $USER /bin/zsh
 elif echo $platform | grep -iq mac; then
+    # install homebrew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brew install zsh
     brew install wget
+    brew install htop
+    brew install tmux
+    brew install git-delta
+    brew install the_silver_searcher
+    sudo chsh -s /bin/zsh
 else
     echo "Could not recognize OS"
     exit 1
 fi
 
 # entr for watching for executing commands when files change
-wget http://entrproject.org/code/entr-4.1.tar.gz
-tar -xf entr-4.1.tar.gz
-pushd eradman-entr-*
+wget https://github.com/eradman/entr/archive/refs/tags/5.2.tar.gz
+tar -xf 5.2.tar.gz
+pushd entr-*
 ./configure && make && sudo make install
 popd
 
@@ -135,7 +143,11 @@ ln -s $cur_dir/vim ~/.vim
 ln -s $cur_dir/zsh/zshrc ~/.zshrc
 ln -s $cur_dir/tmux.conf ~/.tmux.conf
 ln -s $cur_dir/vim/init.vim ~/.config/nvim/
-sudo ln -s $cur_dir/earlyoom /etc/default/
+
+# if not mac
+if echo $platform | grep -viq mac; then
+    sudo ln -s $cur_dir/earlyoom /etc/default/
+fi
 
 # finish tmux plugins
 # todo run tmux server and detach it?

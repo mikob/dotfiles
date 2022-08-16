@@ -30,7 +30,7 @@ if echo $platform | grep -iq ubuntu; then
 
     # general tools
     # xclip and xsel are for neovim clipboard
-    sudo apt-get update && sudo apt install -y python3-pip git zsh trash-cli xclip htop tree jq silversearcher-ag mosh nethogs xsel xclip
+    sudo apt-get update && sudo apt install -y python3-pip git zsh trash-cli xclip htop tree jq silversearcher-ag mosh nethogs xsel xclip fd-find
 
     # desktop tools (not needed on server)
     sudo apt-get install earlyoom

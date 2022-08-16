@@ -169,5 +169,6 @@
         "markdown": false,
         "git-commit": false,
         "git-rebase": false
-    }
+    },
+    "workbench.colorTheme": "Default Light+"
 }

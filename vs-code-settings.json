@@ -98,7 +98,7 @@
         "scss",
         "typescriptreact"
     ],
-    "prettier.packageManager": "yarn",
+    "prettier.packageManager": "pnpm",
     "prettier.tabWidth": 4,
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
@@ -170,5 +170,5 @@
         "git-commit": false,
         "git-rebase": false
     },
-    "workbench.colorTheme": "Default Light+"
+    "volar.icon.preview": false
 }

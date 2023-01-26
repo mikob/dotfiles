@@ -110,18 +110,38 @@
   [
    { :title "🔥 DUE"
     :query [:find (pull ?b [*])
-     :in $ ?duetoday
+     :in $ ?start ?today
      :where
-     [?b :block/marker ?m]
-     (not [?b :block/marker "DONE"])
-     (not [?b :block/marker "CANCELED"])
      [?b :block/deadline ?d]
-     [(<= ?d ?duetoday)]]
-:inputs [:today]
+     (not [?b :block/marker ?m]
+          [(contains? #{"DONE" "CANCELED"} ?m)])
+     [(<= ?d ?today)]
+     [(>= ?d ?start)]
+    ]
+:inputs [:365d :today]
 :result-transform (fn [result]
      (sort-by (fn [h]
              (get-in h [:block/deadline])) result))
 :breadcrumb-show? false}
+
+;; unfinished tasks that were scheduled for before
+   {:title "🚧 UNFINISHED"
+    :query [:find (pull ?b [*])
+            :in $ ?start ?today
+            :where
+              [?b :block/scheduled ?d]
+              [(> ?d ?start)]
+              [(< ?d ?today)]
+              (not [?b :block/marker ?m]
+                   [(contains? #{"DONE" "CANCELED"} ?m)])
+              (not [?b :block/path-refs ?t]
+                   [?t :block/name "habit-tracker"])
+    ]
+    :inputs [:365d :today]
+    :result-transform (fn [result]
+                        (sort-by (fn [h]
+                                   (get h :block/priority "Z")) result))
+    :collapsed? false}
 
    {:title "🔨 NOW"
     :query [:find (pull ?b [*])
@@ -140,22 +160,22 @@
                                    (get h :block/priority "Z")) result))
     :collapsed? false}
 
-    {:title "🧠 Mastermind TODOs"
+    {:title "🧠 MASTERMIND"
      :query (and (todo TODO) [[Mastermind]] )
           :result-transform (fn [result]
                                (sort-by (fn [h]
-                                                (get h :block/priority "Z")) result))
-}
+                                        (get h :block/priority "Z")) result))
+     }
 
-;; either a TODO in a journal of an upcoming day, or a scheduled/deadline task
+   ;; either a TODO in a journal of an upcoming day, or a scheduled/deadline task
    {:title "📅 UPCOMING"
      :query [:find (pull ?b [*])
              :in $ ?start ?next
               :where
-              [?h :block/marker ?marker]
-              [(contains? #{"LATER" "TODO"} ?marker)]
               (or-join [?b ?d]
                 (and
+                        [?b :block/marker ?marker]
+                        [(contains? #{"LATER" "TODO"} ?marker)]
                         [?b :block/page ?p]
                         [?p :block/journal? true]
                         [?p :block/journal-day ?d])

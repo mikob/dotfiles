@@ -144,6 +144,7 @@ alias rbd="echo \"keys $@\" | xargs redis-cli | cut --delimiter ' ' -f 1 | xargs
 alias cinnrestart='pkill -HUP -f "cinnamon --replace"'
 alias rmfont='rm ~/.local/share/fonts/$@ && sudo fc-cache -fv'
 alias y='yarn'
+alias md='git checkout master && git merge dev && git push && git checkout dev'
 
 # Miko's custom shell functions
 function cds() { cd "$@" && ls; }
@@ -207,8 +208,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 AUTO_NOTIFY_IGNORE+=("git diff" "mosh" "g d" "git d" "g diff")
 AUTO_NOTIFY_EXPIRE_TIME=2500
 # export AUTO_NOTIFY_IGNORE_WINDOW_CHECK=true
-
-export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/tools/monorepo-tools:$PATH"
 
 # taken from zprofile, unneeded for now
@@ -240,3 +239,19 @@ export PATH="$PNPM_HOME:$PATH"
 # bun
 export BUN_INSTALL="/home/mikob/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+ #>>> conda initialize >>>
+ #!! Contents within this block are managed by 'conda init' !!
+ #__conda_setup="$('/home/mikob/tools/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+ #if [ $? -eq 0 ]; then
+     #eval "$__conda_setup"
+ #else
+     #if [ -f "/home/mikob/tools/anaconda3/etc/profile.d/conda.sh" ]; then
+	 #. "/home/mikob/tools/anaconda3/etc/profile.d/conda.sh"
+     #else
+	 #export PATH="/home/mikob/tools/anaconda3/bin:$PATH"
+     #fi
+ #fi
+ #unset __conda_setup
+ #<<< conda initialize <<<
+

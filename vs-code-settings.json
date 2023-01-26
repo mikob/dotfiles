@@ -2,6 +2,9 @@
     "terminal.integrated.commandsToSkipShell": [
         "workbench.action.focusActiveEditorGroup"
     ],
+    "[astro]": {
+        "editor.formatOnSave": false
+    },
     "terminal.integrated.scrollback": 10000,
     "mjml.previewBackgroundColor": "#ffffff",
     "html.mirrorCursorOnMatchingTag": false,
@@ -152,7 +155,8 @@
     "editor.unicodeHighlight.ambiguousCharacters": false,
     "tailwindCSS.includeLanguages": {
         "plaintext": "javascript",
-        "typescriptreact": "html"
+        "typescriptreact": "html",
+        "html": "html"
     },
     "html.autoClosingTags": false,
     "typescript.autoClosingTags": false,
@@ -161,7 +165,6 @@
     "deno.enable": true,
     "python.formatting.provider": "none",
     "editor.inlineSuggest.enabled": true,
-    "editor.formatOnSave": true,
     "github.copilot.enable": {
         "*": true,
         "yaml": false,
@@ -170,5 +173,8 @@
         "git-commit": false,
         "git-rebase": false
     },
-    "volar.icon.preview": false
+    "volar.icon.preview": false,
+    "explorer.confirmDelete": false,
+    "npm.packageManager": "pnpm",
+    "editor.formatOnSave": true
 }

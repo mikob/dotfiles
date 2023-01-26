@@ -140,33 +140,36 @@
                                    (get h :block/priority "Z")) result))
     :collapsed? false}
 
-   {:title "📅 NEXT"
-    :query [:find (pull ?b [*])
-            :in $ ?start ?next
-            :where
-            [?b :block/marker ?marker]
-            [(contains? #{"NOW" "LATER" "TODO"} ?marker)]
-            [?b :block/ref-pages ?p]
-            [?p :block/journal? true]
-            [?p :block/journal-day ?d]
-            [(> ?d ?start)]
-            [(< ?d ?next)]]
-    :inputs [:today :7d-after]
-    :collapsed? false}
+    {:title "🧠 Mastermind TODOs"
+     :query (and (todo TODO) [[Mastermind]] )
+          :result-transform (fn [result]
+                               (sort-by (fn [h]
+                                                (get h :block/priority "Z")) result))
+}
 
-   {:title "🔜 UPCOMING"
+;; either a TODO in a journal of an upcoming day, or a scheduled/deadline task
+   {:title "📅 UPCOMING"
      :query [:find (pull ?b [*])
              :in $ ?start ?next
               :where
-              (or
+              [?h :block/marker ?marker]
+              [(contains? #{"LATER" "TODO"} ?marker)]
+              (or-join [?b ?d]
+                (and
+                        [?b :block/page ?p]
+                        [?p :block/journal? true]
+                        [?p :block/journal-day ?d])
                 [?b :block/scheduled ?d]
-                [?b :block/deadline ?d]
-              )
+                [?b :block/deadline ?d])
               [(> ?d ?start)]
               [(< ?d ?next)]
-              (not [?b :block/marker "CANCELED"])
-              (not [?b :block/marker "DONE"])]
+              (not [?b :block/path-refs ?t]
+                   [?t :block/name "habit-tracker"])
+     ]
      :inputs [:today :14d-after]
+     :result-transform (fn [result]
+                        (sort-by (fn [h]
+                                (get h :block/priority "Z")) result))
      :collapsed? false}
  
   {:title "⌛ WAITING"

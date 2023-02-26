@@ -108,7 +108,7 @@
     },
     "update.mode": "manual",
     "[vue]": {
-        "editor.defaultFormatter": "johnsoncodehk.volar"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "extensions.ignoreRecommendations": false,
     "javascript.autoClosingTags": false,
@@ -176,5 +176,8 @@
     "volar.icon.preview": false,
     "explorer.confirmDelete": false,
     "npm.packageManager": "pnpm",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "[python]": {
+        "editor.formatOnType": true
+    }
 }

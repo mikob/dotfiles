@@ -239,7 +239,7 @@
 
  :ref/linked-references-collapsed-threshold 50
  :preferred-format :markdown
- :favorites ["Spoon or Shovel" "Ángulo Cowork" "Bring in the Specialist" "hairgen.ai" "2022 goals" "Emoji" "TODO" "Idea" "Recipe" "LipSurf" "Health & Fitness"]
+ :favorites ["US Trip Feb 2023" "Spoon or Shovel" "Ángulo Cowork" "Bring in the Specialist" "hairgen.ai" "2022 goals" "Emoji" "TODO" "Idea" "Recipe" "LipSurf" "Health & Fitness"]
  :journal/page-title-format "yyyy/MM/dd"
  :feature/enable-flashcards? false
 

@@ -144,7 +144,7 @@ alias rbd="echo \"keys $@\" | xargs redis-cli | cut --delimiter ' ' -f 1 | xargs
 alias cinnrestart='pkill -HUP -f "cinnamon --replace"'
 alias rmfont='rm ~/.local/share/fonts/$@ && sudo fc-cache -fv'
 alias y='yarn'
-alias md='git checkout master && git merge dev && git push && git checkout dev'
+alias md='git stash; git checkout master && git merge dev && git push && git checkout dev && git stash pop'
 
 # Miko's custom shell functions
 function cds() { cd "$@" && ls; }

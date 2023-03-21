@@ -23,6 +23,7 @@ export LC_ALL=en_US.UTF-8
 export TMUXIFIER=$HOME/.zgen/jimeh/tmuxifier-master
 export FZF_DEFAULT_COMMAND='ag --hidden -g "" -U'
 export PIP_PROCESS_DEPENDENCY_LINKS=1
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('pnpm')
 export NVM_LAZY_LOAD=true
 export NNN_TRASH=1
 export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgviu;t:imgthumb'

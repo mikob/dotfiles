@@ -32,7 +32,7 @@ function prompt_miko_precmd {
 function prompt_miko_setup {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
-  prompt_opts=(cr percent subst)
+  prompt_opts=(percent subst)
 
   # Load required functions.
   autoload -Uz add-zsh-hook

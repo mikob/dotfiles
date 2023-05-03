@@ -12,10 +12,3 @@ function prompt_venv {
 		echo "%{$fg[grey]%}(`basename $VIRTUAL_ENV`)%{$reset_color%}"
 	fi
 }
-
-PROMPT='%(?, ,%{$fg[red]%}FAIL: $?%{$reset_color%}
-)
-%{$fg[magenta]%}%n%{$reset_color%}%{$fg[grey]%}@%{$reset_color%}%{$fg[yellow]%}%m%{$reset_color%}: %{$fg_bold[blue]%}%~%{$reset_color%}$(git_prompt_info) $(prompt_venv)
-%_$(prompt_char) '
-
-RPROMPT='%{$fg[green]%}[%*]%{$reset_color%}'

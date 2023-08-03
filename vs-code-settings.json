@@ -138,7 +138,6 @@
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "window.autoDetectColorScheme": true,
     "vetur.format.defaultFormatterOptions": {
         "js-beautify-html": {
             "wrap_attributes": "force-expand-multiline"
@@ -180,7 +179,10 @@
     "[python]": {
         "editor.formatOnType": true
     },
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
     "CodeGPT.model": "gpt-4",
-    "workbench.colorTheme": "Default Light+"
+    "window.autoDetectColorScheme": true,
+    "playwright.env": {},
+    "playwright.reuseBrowser": true,
+    "workbench.colorTheme": "Default Light Modern"
 }

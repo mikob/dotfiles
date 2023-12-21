@@ -92,7 +92,7 @@
         "editor.suggest.snippetsPreventQuickSuggestions": false,
         "editor.suggestSelection": "first",
         "editor.tabCompletion": "onlySnippets",
-        "editor.wordBasedSuggestions": false
+        "editor.wordBasedSuggestions": "off"
     },
     "colorize.languages": [
         "typescript",
@@ -184,5 +184,8 @@
     "window.autoDetectColorScheme": true,
     "playwright.env": {},
     "playwright.reuseBrowser": true,
-    "workbench.colorTheme": "Default Light Modern"
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "playwright.showTrace": false
 }

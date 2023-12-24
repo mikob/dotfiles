@@ -16,6 +16,7 @@
         "<C-c>": false,
         "<C-p>": false,
         "<C-h>": false,
+        "<C-n>": false,
     },
     "vim.easymotion": true,
     "vim.easymotionMarkerBackgroundColor": "#fcba03",
@@ -187,5 +188,6 @@
     "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "playwright.showTrace": false
+    "playwright.showTrace": false,
+    "vim.normalModeKeyBindings": []
 }

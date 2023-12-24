@@ -1,5 +1,11 @@
+F1
+    ~/dotfiles/scripts/focus-win.sh gnome-terminal
+
+F2
+    ~/dotfiles/scripts/focus-win.sh code
+
 super + space
     pgrep rofi > /dev/null && pkill rofi || rofi -normal-window -show combi
 
-super + j
-    xdotool windowactivate $(xdotool search --desktop $(xdotool get_desktop) --class "chrome" | tail -1) && sleep 0.05 && xdotool key --clearmodifiers ctrl+shift+a
+super + k
+    xdotool windowactivate $(xdotool search --desktop $(xdotool get_desktop) --class "chrome" | tail -1) && sleep 0.1 && xdotool key --clearmodifiers ctrl+shift+a

@@ -38,6 +38,9 @@ if echo $platform | grep -iq ubuntu; then
     # tmux dependencies
     # sudo apt install libevent-dev build-essential g++ libncurses5-dev -y
 
+    # global keyboard shortcuts
+    sudo apt install sxhkd
+
     # docker
     sudo apt-get install -y \
 	apt-transport-https \

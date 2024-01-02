@@ -130,6 +130,7 @@ wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party
 pip3 install --user httpie neovim-remote
 
 mkdir -p ~/.config/nvim
+mkdir -p ~/.config/rofi
 
 # remove pre-existing
 for x in gitconfig vimrc gvimrc vim tmux.conf zshrc config/nvim/init.vim; do
@@ -146,6 +147,7 @@ ln -s $cur_dir/vim ~/.vim
 ln -s $cur_dir/zsh/zshrc ~/.zshrc
 ln -s $cur_dir/tmux.conf ~/.tmux.conf
 ln -s $cur_dir/vim/init.vim ~/.config/nvim/
+ln -s $cur_dir/config.rasi ~/.config/rofi/
 
 # if not mac
 if echo $platform | grep -viq mac; then

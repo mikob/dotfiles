@@ -1,5 +1,5 @@
 F1
-    ~/dotfiles/scripts/focus-win.sh gnome-terminal
+    ~/dotfiles/scripts/focus-win.sh kitty
 
 F2
     ~/dotfiles/scripts/focus-win.sh code

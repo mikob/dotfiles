@@ -1,0 +1,26 @@
+#!/usr/bin/expect
+
+#trap sigwinch and pass it to the child we spawned
+#this allows the gnome-terminal window to be resized
+trap {
+ set rows [stty rows]
+ set cols [stty columns]
+ stty rows $rows columns $cols < $spawn_out(slave,name)
+} WINCH
+
+# Get a Bash shell
+spawn -noecho zsh
+
+# Iterate over each argument in argv
+foreach arg $argv {
+    # Optionally, wait for the prompt again before sending the next command
+    expect "$ "
+
+    # Type the argument followed by a newline
+    send "$arg\n"
+}
+
+# Hand over control to the user
+interact
+
+exit

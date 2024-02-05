@@ -166,10 +166,11 @@
     "python.formatting.provider": "none",
     "editor.inlineSuggest.enabled": true,
     "github.copilot.enable": {
-        "*": true,
-        "yaml": false,
+        "*": false,
         "plaintext": false,
         "markdown": false,
+        "scminput": false,
+        "yaml": false,
         "git-commit": false,
         "git-rebase": false
     },
@@ -189,5 +190,6 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "playwright.showTrace": false,
-    "vim.normalModeKeyBindings": []
+    "vim.normalModeKeyBindings": [],
+    "CodeGPT.apiKey": "CodeGPT Plus"
 }

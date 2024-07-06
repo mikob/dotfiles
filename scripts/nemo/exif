@@ -1,0 +1,10 @@
+#! /bin/bash
+
+exiftool "$@" | sed -r "s/:[ ]*/\n/" | zenity --list \
+                                              --title="Exif info of $@" \
+                                              --text="" \
+                                              --no-markup \
+                                              --width=700 \
+                                              --height=500 \
+                                              --column="Tag name" \
+                                              --column="Data"

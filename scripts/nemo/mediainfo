@@ -1,0 +1,10 @@
+#! /bin/bash
+
+mediainfo "$@" | sed -r "s/:[ ]*/\n/" | zenity --list \
+                                              --title="Media info of $@" \
+                                              --text="" \
+                                              --no-markup \
+                                              --width=700 \
+                                              --height=500 \
+                                              --column="Tag name" \
+                                              --column="Data"

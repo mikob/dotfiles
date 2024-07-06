@@ -25,6 +25,7 @@ export FZF_DEFAULT_COMMAND='ag --hidden -g "" -U'
 export PIP_PROCESS_DEPENDENCY_LINKS=1
 export NNN_TRASH=1
 export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgviu;t:imgthumb'
+export PAGER=less # needs to be explicit for kitty it appears
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
@@ -142,7 +143,8 @@ alias rbd="echo \"keys $@\" | xargs redis-cli | cut --delimiter ' ' -f 1 | xargs
 alias cinnrestart='pkill -HUP -f "cinnamon --replace"'
 alias rmfont='rm ~/.local/share/fonts/$@ && sudo fc-cache -fv'
 alias y='yarn'
-alias md='git stash save "Temp stash for md alias" && STASH_RESULT=$?; git checkout master && git merge dev -m "merge from dev" && git push && git checkout dev && if [ $STASH_RESULT -eq 0 ]; then git stash pop; fi'
+alias md='STASH_OUTPUT=$(git stash save "Temp stash for md alias"); if [[ $STASH_OUTPUT == *"No local changes to save"* ]]; then git checkout master && git merge dev -m "merge from dev" && git push && git checkout dev; else git checkout master && git merge dev -m "merge from dev" && git push && git checkout dev && git stash pop; fi'
+alias ssh='kitty +kitten ssh'
 
 # Miko's custom shell functions
 function cds() { cd "$@" && ls; }
@@ -231,7 +233,10 @@ eval "$(zoxide init zsh --cmd cd)"
 
 # pnpm
 export PNPM_HOME="/home/mikob/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 # pnpm end
 
 # bun completions

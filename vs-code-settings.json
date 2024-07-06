@@ -116,6 +116,7 @@
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "cSpell.language": "en,es",
     "spellright.addToSystemDictionary": true,
     "spellright.notificationClass": "information",
     "spellright.suggestionsInHints": false,
@@ -183,7 +184,6 @@
     },
     "window.zoomLevel": 2,
     "CodeGPT.model": "gpt-4",
-    "window.autoDetectColorScheme": true,
     "playwright.env": {},
     "playwright.reuseBrowser": true,
     "[css]": {
@@ -191,5 +191,7 @@
     },
     "playwright.showTrace": false,
     "vim.normalModeKeyBindings": [],
-    "CodeGPT.apiKey": "CodeGPT Plus"
+    "CodeGPT.apiKey": "OpenAI",
+    "vim.insertModeKeyBindings": [],
+    "github.copilot.editor.enableAutoCompletions": true
 }

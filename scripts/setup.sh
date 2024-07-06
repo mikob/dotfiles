@@ -149,6 +149,9 @@ ln -s $cur_dir/tmux.conf ~/.tmux.conf
 ln -s $cur_dir/vim/init.vim ~/.config/nvim/
 ln -s $cur_dir/config.rasi ~/.config/rofi/
 
+# scripts
+ln -s $cur_dir/scripts/nemo/ ~/.local/share/nemo/scripts/
+
 # if not mac
 if echo $platform | grep -viq mac; then
     sudo ln -s $cur_dir/earlyoom /etc/default/

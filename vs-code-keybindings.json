@@ -41,11 +41,6 @@
         "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
     },
     {
-        "key": "ctrl+space",
-        "command": "-editor.action.triggerSuggest",
-        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
-    },
-    {
         "key": "ctrl+alt+o",
         "command": "workbench.action.files.openFile"
     },
@@ -139,5 +134,15 @@
         "key": "f12",
         "command": "-editor.gotoNextSymbolFromResult",
         "when": "hasSymbols"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "inlineChat.start",
+        "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "-inlineChat.start",
+        "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
     }
 ]

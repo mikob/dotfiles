@@ -9,6 +9,7 @@
     "mjml.previewBackgroundColor": "#ffffff",
     "html.mirrorCursorOnMatchingTag": false,
     "editor.selectionClipboard": false,
+    "vim.leader": "<space>",
     "vim.handleKeys": {
         "<C-w>": false,
         "<C-f>": false,
@@ -19,9 +20,12 @@
         "<C-n>": false,
     },
     "vim.easymotion": true,
+    "vim.useSystemClipboard": true,
     "vim.easymotionMarkerBackgroundColor": "#fcba03",
     "vim.easymotionMarkerForegroundColorOneChar": "#000000",
     "vim.easymotionMarkerForegroundColorTwoChar": "#333333",
+    "vim.normalModeKeyBindings": [],
+    "vim.insertModeKeyBindings": [],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -66,7 +70,6 @@
     "python.linting.pylintArgs": [
         "--enable=W0614"
     ],
-    "vim.leader": "<space>",
     "explorer.confirmDragAndDrop": false,
     "keyboard.dispatch": "keyCode",
     "typescript.updateImportsOnFileMove.enabled": "always",
@@ -124,7 +127,6 @@
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "vim.useSystemClipboard": true,
     "vetur.experimental.templateInterpolationService": true,
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
@@ -190,8 +192,21 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "playwright.showTrace": false,
-    "vim.normalModeKeyBindings": [],
     "CodeGPT.apiKey": "OpenAI",
-    "vim.insertModeKeyBindings": [],
-    "github.copilot.editor.enableAutoCompletions": true
+    "github.copilot.editor.enableAutoCompletions": true,
+    "cSpell.userWords": [
+        "bigmailer",
+        "BIGMAILER",
+        "composables",
+        "hairgen",
+        "posthog",
+        "supabase"
+    ],
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "vue.server.hybridMode": true,
+    "chat.agent.enabled": true,
+    "python.defaultInterpreterPath": "/home/mikob/.venvs/comfyui",
+    "javascript.updateImportsOnFileMove.enabled": "always"
 }

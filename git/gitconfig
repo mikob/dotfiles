@@ -2,12 +2,16 @@
 	excludesfile = /home/mikob/.gitignore_global
 	ignorecase = false
 	pager = delta --syntax-theme="ansi-dark"
+	editor = true
 
 [log]
 	date = iso-local
 
 [interactive]
 	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
 
 [push]
 	default = simple
@@ -46,6 +50,7 @@
 
 [merge]
 	tool = meld
+	conflictstyle = zdiff3
 [mergetool]
 	prompt = true
 [mergetool "vimdiff"]

@@ -212,5 +212,32 @@
     "vue.server.hybridMode": true,
     "chat.agent.enabled": true,
     "python.defaultInterpreterPath": "/home/mikob/.venvs/comfyui",
-    "javascript.updateImportsOnFileMove.enabled": "always"
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "pgsql.connections": [
+        {
+            "id": "26DF2120-42BA-403A-B7FC-2CAADA4B79EC",
+            "groupId": "F63E595A-EF75-4580-ACCB-26CB46EEEAD0",
+            "authenticationType": "SqlLogin",
+            "connectTimeout": 15,
+            "applicationName": "vscode-pgsql",
+            "clientEncoding": "utf8",
+            "sslmode": "prefer",
+            "savePassword": true,
+            "user": "postgres",
+            "password": "",
+            "profileName": "hairgen.ai local",
+            "server": "127.0.0.1",
+            "port": "54322",
+            "database": "postgres",
+            "expiresOn": 0
+        }
+    ],
+    "pgsql.serverGroups": [
+        {
+            "name": "Servers",
+            "id": "F63E595A-EF75-4580-ACCB-26CB46EEEAD0",
+            "isDefault": true
+        }
+    ],
+    "gitlens.graph.minimap.enabled": false
 }

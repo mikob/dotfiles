@@ -85,6 +85,17 @@ nnoremap <f3> :Buffers<cr>
 tnoremap <f3> <c-\><c-n>:Buffers<cr>
 nnoremap <leader>` :Marks<cr>
 
+" more sensible copy paste
+" Ctrl+C to copy
+vnoremap <C-c> "+y
+
+" Ctrl+V to paste in insert mode
+inoremap <C-v> <C-r>+
+cnoremap <C-v> <C-r>+
+
+" Ctrl-Shift-V = start visual block mode (like 'ctrl-v')
+nnoremap <C-S-v> <C-v>
+
 " buffers
 nnoremap b] :bnext<cr>
 nnoremap b[ :bprevious<cr>

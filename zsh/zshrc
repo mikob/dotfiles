@@ -30,7 +30,7 @@ export PAGER=less # needs to be explicit for kitty it appears
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 # Android SDK
-export ANDROID_HOME=$HOME/tools/android
+export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/emulator:$PATH
@@ -286,3 +286,6 @@ zle -N _sgpt_zsh
 bindkey '^a' _sgpt_zsh
 # Shell-GPT integration ZSH v0.2
 export PATH=$PATH:$HOME/.maestro/bin
+
+# opencode
+export PATH=/home/mikob/.opencode/bin:$PATH

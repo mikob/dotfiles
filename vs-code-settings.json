@@ -203,6 +203,7 @@
         "BIGMAILER",
         "composables",
         "hairgen",
+        "pgmq",
         "posthog",
         "supabase"
     ],
@@ -244,5 +245,51 @@
     "github.copilot.chat.agent.thinkingTool": true,
     "github.copilot.chat.languageContext.fix.typescript.enabled": true,
     "github.copilot.chat.languageContext.inline.typescript.enabled": true,
-    "github.copilot.chat.languageContext.typescript.enabled": true
+    "github.copilot.chat.languageContext.typescript.enabled": true,
+    "xml.server.vmargs": "-Xmx256M",
+    "chat.tools.terminal.autoApprove": {
+        "npm test": true,
+        "node --version": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "npx vitest run src/converters/evernote/tests/evernote.test.ts --reporter verbose": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "node -v": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "npm install": true,
+        "npm run build": true,
+        "npm run test": true,
+        "npx vitest run --reporter=dot": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "npx vitest --version": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^cd /home/mikob/workspace/hotel-alerts/adminapp && /home/mikob/\\.local/bin/poetry install$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/home/mikob/.local/bin/poetry": true,
+        "git tag": true
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.panel.showLabels": false,
+    "workbench.browser.enableChatTools": true,
+    "chat.tools.urls.autoApprove": {
+        "https://code.visualstudio.com": true,
+        "https://github.com/microsoft/vscode/wiki/*": true,
+        "http://127.0.0.1:8000": {
+            "approveRequest": false,
+            "approveResponse": true
+        }
+    },
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:gpt-4.1"
 }

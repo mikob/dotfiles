@@ -1,0 +1,166 @@
+#!/usr/bin/env python3
+"""A small, safe arithmetic calculator presented through rofi."""
+
+from __future__ import annotations
+
+import argparse
+import ast
+import math
+import operator
+import os
+import shutil
+import subprocess
+from pathlib import Path
+from typing import Callable
+
+
+HOME = Path.home()
+ROFI = str(HOME / ".local" / "bin" / "rofi")
+
+BINARY_OPERATORS: dict[type[ast.operator], Callable[[object, object], object]] = {
+    ast.Add: operator.add,
+    ast.Sub: operator.sub,
+    ast.Mult: operator.mul,
+    ast.Div: operator.truediv,
+    ast.FloorDiv: operator.floordiv,
+    ast.Mod: operator.mod,
+    ast.Pow: operator.pow,
+}
+UNARY_OPERATORS: dict[type[ast.unaryop], Callable[[object], object]] = {
+    ast.UAdd: operator.pos,
+    ast.USub: operator.neg,
+}
+FUNCTIONS: dict[str, Callable[..., object]] = {
+    "abs": abs,
+    "acos": math.acos,
+    "asin": math.asin,
+    "atan": math.atan,
+    "ceil": math.ceil,
+    "cos": math.cos,
+    "degrees": math.degrees,
+    "exp": math.exp,
+    "floor": math.floor,
+    "log": math.log,
+    "log10": math.log10,
+    "max": max,
+    "min": min,
+    "radians": math.radians,
+    "round": round,
+    "sin": math.sin,
+    "sqrt": math.sqrt,
+    "tan": math.tan,
+}
+CONSTANTS = {"e": math.e, "pi": math.pi, "tau": math.tau}
+
+
+class CalculationError(ValueError):
+    pass
+
+
+def evaluate_node(node: ast.AST) -> int | float:
+    if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+        if isinstance(node.value, bool):
+            raise CalculationError("booleans are not supported")
+        return node.value
+    if isinstance(node, ast.Name) and node.id in CONSTANTS:
+        return CONSTANTS[node.id]
+    if isinstance(node, ast.UnaryOp) and type(node.op) in UNARY_OPERATORS:
+        return UNARY_OPERATORS[type(node.op)](evaluate_node(node.operand))
+    if isinstance(node, ast.BinOp) and type(node.op) in BINARY_OPERATORS:
+        left = evaluate_node(node.left)
+        right = evaluate_node(node.right)
+        if isinstance(node.op, ast.Pow) and abs(right) > 1000:
+            raise CalculationError("exponent is too large")
+        result = BINARY_OPERATORS[type(node.op)](left, right)
+        if isinstance(result, int) and result.bit_length() > 4096:
+            raise CalculationError("result is too large")
+        return result
+    if (
+        isinstance(node, ast.Call)
+        and isinstance(node.func, ast.Name)
+        and node.func.id in FUNCTIONS
+        and not node.keywords
+    ):
+        arguments = [evaluate_node(argument) for argument in node.args]
+        return FUNCTIONS[node.func.id](*arguments)
+    raise CalculationError("unsupported expression")
+
+
+def calculate(expression: str) -> int | float:
+    normalized = expression.strip().replace("×", "*").replace("÷", "/").replace("^", "**")
+    if not normalized:
+        raise CalculationError("enter an expression")
+    try:
+        tree = ast.parse(normalized, mode="eval")
+        result = evaluate_node(tree.body)
+    except (SyntaxError, TypeError, ValueError, ZeroDivisionError, OverflowError) as error:
+        if isinstance(error, CalculationError):
+            raise
+        raise CalculationError(str(error)) from error
+    if isinstance(result, float) and not math.isfinite(result):
+        raise CalculationError("result is not finite")
+    return result
+
+
+def format_result(result: int | float) -> str:
+    if isinstance(result, int):
+        return str(result)
+    if result == 0:
+        return "0"
+    return f"{result:.12g}"
+
+
+def copy_to_clipboard(text: str) -> None:
+    if shutil.which("wl-copy") and os.environ.get("WAYLAND_DISPLAY"):
+        command = ["wl-copy"]
+    elif shutil.which("xclip"):
+        command = ["xclip", "-selection", "clipboard"]
+    else:
+        return
+    subprocess.run(command, input=text, text=True, check=False)
+
+
+def prompt_expression() -> str | None:
+    examples = ["2 + 2", "sqrt(2)", "sin(pi / 2)", "100 * 1.16"]
+    result = subprocess.run(
+        [ROFI, "-dmenu", "-p", "Calculate:", "-i", "-l", "4"],
+        input="\n".join(examples) + "\n",
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        return None
+    return result.stdout.rstrip("\n") or None
+
+
+def show_message(message: str) -> None:
+    subprocess.run([ROFI, "-e", message], check=False)
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--evaluate", metavar="EXPRESSION", help="evaluate without opening rofi")
+    args = parser.parse_args()
+
+    expression = args.evaluate if args.evaluate is not None else prompt_expression()
+    if expression is None:
+        return 0
+    try:
+        formatted = format_result(calculate(expression))
+    except CalculationError as error:
+        if args.evaluate is not None:
+            parser.error(str(error))
+        show_message(f"Could not calculate {expression!r}:\n{error}")
+        return 1
+
+    if args.evaluate is not None:
+        print(formatted)
+        return 0
+    copy_to_clipboard(formatted)
+    show_message(f"{expression} = {formatted}\n\nResult copied to the clipboard.")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

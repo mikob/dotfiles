@@ -149,6 +149,7 @@ alias rmfont='rm ~/.local/share/fonts/$@ && sudo fc-cache -fv'
 alias y='yarn'
 alias md='STASH_OUTPUT=$(git stash save "Temp stash for md alias"); if [[ $STASH_OUTPUT == *"No local changes to save"* ]]; then git checkout master && git merge dev -m "merge from dev" && git push && git checkout dev; else git checkout master && git merge dev -m "merge from dev" && git push && git checkout dev && git stash pop; fi'
 alias ssh='kitty +kitten ssh'
+alias rofi="$HOME/.local/bin/rofi"
 
 # Miko's custom shell functions
 function cds() { cd "$@" && ls; }

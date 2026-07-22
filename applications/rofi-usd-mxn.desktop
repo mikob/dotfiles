@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=USD → MXN Converter
+Comment=Convert between US dollars and Mexican pesos using the Google Finance rate
+Exec=/home/mikob/.local/bin/rofi-usd-mxn
+Icon=accessories-calculator
+Terminal=false
+Categories=Office;Finance;
+Keywords=rofi;currency;USD;MXN;dollar;peso;

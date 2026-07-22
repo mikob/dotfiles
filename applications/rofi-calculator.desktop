@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Calculator
+Comment=Calculate an arithmetic expression with rofi
+Exec=/home/mikob/.local/bin/rofi-calculator
+Icon=accessories-calculator
+Terminal=false
+Categories=Utility;Calculator;
+Keywords=rofi;math;calculate;

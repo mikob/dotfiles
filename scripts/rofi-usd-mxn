@@ -1,0 +1,260 @@
+#!/usr/bin/env python3
+"""Live USD to MXN conversion using a cached Google Finance quote and rofi."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import re
+import shutil
+import subprocess
+import time
+import urllib.request
+from decimal import Decimal, InvalidOperation
+from pathlib import Path
+from typing import Any
+
+
+HOME = Path.home()
+ROFI = str(HOME / ".local" / "bin" / "rofi")
+PLUGIN = HOME / ".local" / "lib" / "rofi" / "usd-mxn.so"
+CACHE_FILE = Path(
+    os.environ.get(
+        "ROFI_USD_MXN_CACHE",
+        str(HOME / ".cache" / "rofi-usd-mxn" / "rate.json"),
+    )
+).expanduser()
+RATE_URL = "https://www.google.com/finance/beta/quote/USD-MXN?hl=en"
+CACHE_SECONDS = 15 * 60
+RATE_PATTERN = re.compile(
+    r"United States Dollar / Mexican Peso.*?"
+    r'jsname="Pdsbrc"[^>]*>\s*<span>([0-9][0-9,.]*)</span>',
+    re.DOTALL,
+)
+
+
+def valid_rate_record(value: Any) -> dict[str, Any] | None:
+    if not isinstance(value, dict):
+        return None
+    try:
+        if value["source"] != "Google Finance":
+            return None
+        rate = Decimal(str(value["rate"]))
+        fetched_at = float(value["fetched_at"])
+        date = str(value["date"])
+    except (KeyError, InvalidOperation, TypeError, ValueError):
+        return None
+    if not rate.is_finite() or rate <= 0 or not date:
+        return None
+    return {"rate": rate, "date": date, "fetched_at": fetched_at}
+
+
+def read_cache() -> dict[str, Any] | None:
+    try:
+        return valid_rate_record(json.loads(CACHE_FILE.read_text(encoding="utf-8")))
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
+def write_cache(rate: Decimal, date: str) -> None:
+    CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    temporary = CACHE_FILE.with_suffix(".tmp")
+    temporary.write_text(
+        json.dumps(
+            {
+                "source": "Google Finance",
+                "rate": str(rate),
+                "date": date,
+                "fetched_at": time.time(),
+            }
+        ),
+        encoding="utf-8",
+    )
+    temporary.replace(CACHE_FILE)
+
+
+def parse_google_finance_rate(page: str) -> Decimal:
+    match = RATE_PATTERN.search(page)
+    if not match:
+        raise ValueError("Google Finance did not return a recognizable USD/MXN quote")
+    rate = Decimal(match.group(1).replace(",", ""))
+    if not rate.is_finite() or not Decimal("5") < rate < Decimal("50"):
+        raise ValueError("Google Finance returned an invalid USD/MXN quote")
+    return rate
+
+
+def fetch_rate() -> tuple[Decimal, str]:
+    request = urllib.request.Request(
+        RATE_URL,
+        headers={
+            "User-Agent": "Mozilla/5.0",
+            "Accept-Language": "en-US,en;q=0.9",
+        },
+    )
+    with urllib.request.urlopen(request, timeout=5) as response:
+        page = response.read().decode("utf-8")
+    rate = parse_google_finance_rate(page)
+    date = time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime())
+    write_cache(rate, date)
+    return rate, date
+
+
+def current_rate() -> tuple[Decimal, str, bool]:
+    cached = read_cache()
+    if cached and time.time() - cached["fetched_at"] < CACHE_SECONDS:
+        return cached["rate"], cached["date"], True
+    try:
+        rate, date = fetch_rate()
+        return rate, date, False
+    except (OSError, ValueError, KeyError, json.JSONDecodeError, InvalidOperation):
+        if cached:
+            return cached["rate"], cached["date"], True
+        raise
+
+
+def parse_amount(text: str) -> Decimal:
+    cleaned = (
+        text.strip()
+        .lower()
+        .replace("usd", "")
+        .replace("mxn", "")
+        .replace("$", "")
+        .replace(",", "")
+    )
+    try:
+        amount = Decimal(cleaned)
+    except InvalidOperation as error:
+        raise ValueError("enter a numeric USD amount") from error
+    if not amount.is_finite():
+        raise ValueError("enter a finite USD amount")
+    return amount
+
+
+def convert(amount: Decimal, rate: Decimal, direction: str = "usd-mxn") -> Decimal:
+    converted = amount / rate if direction == "mxn-usd" else amount * rate
+    return converted.quantize(Decimal("0.01"))
+
+
+def copy_to_clipboard(text: str) -> bool:
+    if shutil.which("wl-copy") and os.environ.get("WAYLAND_DISPLAY"):
+        command = ["wl-copy"]
+    elif shutil.which("xclip"):
+        command = ["xclip", "-selection", "clipboard"]
+    else:
+        return False
+    result = subprocess.run(command, input=text, text=True, check=False)
+    return result.returncode == 0
+
+
+def show_message(message: str) -> None:
+    subprocess.run([ROFI, "-e", message], check=False)
+
+
+def notify(message: str) -> None:
+    notifier = shutil.which("notify-send")
+    if notifier:
+        subprocess.Popen(
+            [notifier, "USD → MXN", message],
+            stdin=subprocess.DEVNULL,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            start_new_session=True,
+        )
+
+
+def launch_live_converter(rate: Decimal, rate_date: str, cached: bool) -> int:
+    if not PLUGIN.is_file():
+        raise OSError(f"live converter plugin not found at {PLUGIN}")
+
+    environment = os.environ.copy()
+    environment.update(
+        {
+            "ROFI_USD_MXN_RATE": str(rate),
+            "ROFI_USD_MXN_RATE_DATE": rate_date,
+            "ROFI_USD_MXN_CACHED": "1" if cached else "0",
+            "ROFI_USD_MXN_HELPER": str(Path(__file__).resolve()),
+        }
+    )
+    result = subprocess.run(
+        [
+            ROFI,
+            "-normal-window",
+            "-modes",
+            "usd-mxn",
+            "-show",
+            "usd-mxn",
+            "-no-sort",
+            "-kb-element-next",
+            "",
+            "-kb-custom-1",
+            "Tab",
+        ],
+        env=environment,
+        check=False,
+    )
+    return result.returncode
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--convert", metavar="AMOUNT", help="convert without opening rofi"
+    )
+    parser.add_argument(
+        "--copy", metavar="AMOUNT", help="convert and copy without opening rofi"
+    )
+    parser.add_argument("--rate", metavar="MXN_PER_USD", help="override the fetched rate")
+    parser.add_argument(
+        "--direction",
+        choices=("usd-mxn", "mxn-usd"),
+        default="usd-mxn",
+        help="conversion direction (default: usd-mxn)",
+    )
+    args = parser.parse_args()
+
+    if args.convert is not None and args.copy is not None:
+        parser.error("--convert and --copy cannot be used together")
+
+    try:
+        if args.rate is not None:
+            rate = Decimal(args.rate)
+            if not rate.is_finite() or rate <= 0:
+                raise ValueError("rate must be a positive number")
+            rate_date, cached = "manual", False
+        else:
+            rate, rate_date, cached = current_rate()
+
+        if args.convert is None and args.copy is None:
+            return launch_live_converter(rate, rate_date, cached)
+
+        amount_text = args.convert if args.convert is not None else args.copy
+        assert amount_text is not None
+        amount = parse_amount(amount_text)
+        converted = convert(amount, rate, args.direction)
+    except (OSError, ValueError, KeyError, json.JSONDecodeError, InvalidOperation) as error:
+        if args.convert is not None or args.copy is not None:
+            parser.error(str(error))
+        show_message(f"Could not convert USD to MXN:\n{error}")
+        return 1
+
+    if args.direction == "mxn-usd":
+        result = f"{amount:,.2f} MXN = {converted:,.2f} USD"
+        clipboard_result = f"{converted:,.2f} USD"
+    else:
+        result = f"{amount:,.2f} USD = {converted:,.2f} MXN"
+        clipboard_result = f"{converted:,.2f} MXN"
+    if args.convert is not None:
+        print(result)
+        return 0
+
+    if copy_to_clipboard(clipboard_result):
+        notify(f"Copied {result}")
+        return 0
+
+    notify(f"No clipboard tool found. {result}")
+    return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

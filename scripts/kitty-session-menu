@@ -1,0 +1,429 @@
+#!/usr/bin/env python3
+"""Save and launch kitty sessions through rofi."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import re
+import shlex
+import shutil
+import subprocess
+import sys
+import time
+from pathlib import Path
+from typing import Any
+from urllib.parse import quote, unquote
+
+
+HOME = Path.home()
+SESSION_DIR = Path(
+    os.environ.get(
+        "KITTY_SESSION_DIR", str(HOME / ".local" / "share" / "kitty" / "sessions")
+    )
+).expanduser()
+SESSION_SUFFIXES = (".kitty-session", ".kitty_session", ".session")
+SAVE_LABEL = "Kitty: Save current session…"
+LOAD_PREFIX = "Kitty: Load session: "
+SOCKET_RE = re.compile(r"@kitty-(\d+)$")
+
+
+def executable(name: str) -> str:
+    local = HOME / ".local" / "bin" / name
+    if local.exists():
+        return str(local)
+    return shutil.which(name) or name
+
+
+ROFI = executable("rofi")
+KITTEN = executable("kitten")
+KITTY = executable("kitty")
+
+
+def notify(title: str, message: str) -> None:
+    print(f"{title}: {message}", file=sys.stderr)
+    notifier = shutil.which("notify-send")
+    if notifier:
+        subprocess.run(
+            [notifier, title, message],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=False,
+        )
+
+
+def rofi_menu(options: list[str], prompt: str, *, list_menu: bool = True) -> str | None:
+    args = [ROFI, "-dmenu", "-p", prompt]
+    if list_menu:
+        args += ["-i", "-l", "12"]
+    extra_args = os.environ.get("KITTY_SESSION_ROFI_ARGS")
+    if extra_args:
+        args += shlex.split(extra_args)
+
+    try:
+        result = subprocess.run(
+            args,
+            input="\n".join(options) + ("\n" if options else ""),
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+    except FileNotFoundError:
+        notify("Kitty sessions", f"Could not find rofi at {ROFI}")
+        return None
+
+    if result.returncode != 0:
+        return None
+    selection = result.stdout.rstrip("\n")
+    return selection or None
+
+
+def focused_window_pid() -> int | None:
+    try:
+        window = subprocess.run(
+            ["xdotool", "getactivewindow"],
+            text=True,
+            capture_output=True,
+            check=True,
+            timeout=2,
+        ).stdout.strip()
+        value = subprocess.run(
+            ["xdotool", "getwindowpid", window],
+            text=True,
+            capture_output=True,
+            check=True,
+            timeout=2,
+        ).stdout.strip()
+        return int(value)
+    except (FileNotFoundError, ValueError, subprocess.SubprocessError):
+        return None
+
+
+def socket_for_pid(pid: int) -> str:
+    return f"unix:@kitty-{pid}"
+
+
+def kitty_state(pid: int) -> list[dict[str, Any]] | None:
+    try:
+        result = subprocess.run(
+            [KITTEN, "@", "--to", socket_for_pid(pid), "ls"],
+            text=True,
+            capture_output=True,
+            check=False,
+            timeout=2,
+        )
+    except (FileNotFoundError, subprocess.SubprocessError):
+        return None
+
+    if result.returncode != 0:
+        return None
+    try:
+        state = json.loads(result.stdout)
+    except json.JSONDecodeError:
+        return None
+    return state if isinstance(state, list) else None
+
+
+def socket_pids() -> list[int]:
+    try:
+        socket_table = Path("/proc/net/unix").read_text(encoding="utf-8")
+    except OSError:
+        return []
+
+    found: set[int] = set()
+    for line in socket_table.splitlines():
+        match = SOCKET_RE.search(line)
+        if match:
+            found.add(int(match.group(1)))
+    return sorted(found)
+
+
+def state_title(state: list[dict[str, Any]]) -> str:
+    fallback = "kitty"
+    for os_window in state:
+        os_title = os_window.get("platform_window_id") or os_window.get("id")
+        if os_title:
+            fallback = f"kitty window {os_title}"
+        for tab in os_window.get("tabs", []):
+            for window in tab.get("windows", []):
+                title = window.get("title")
+                if title and window.get("is_focused"):
+                    return str(title)
+                if title and fallback.startswith("kitty window"):
+                    fallback = str(title)
+    return fallback
+
+
+def choose_kitty(preferred_pid: int | None) -> int | None:
+    if preferred_pid is not None and kitty_state(preferred_pid) is not None:
+        return preferred_pid
+
+    candidates: dict[int, list[dict[str, Any]]] = {}
+    for pid in socket_pids():
+        state = kitty_state(pid)
+        if state is not None:
+            candidates[pid] = state
+
+    if not candidates:
+        notify(
+            "Kitty sessions",
+            "No controllable kitty window was found. Restart kitty once to enable its new control socket.",
+        )
+        return None
+    if len(candidates) == 1:
+        return next(iter(candidates))
+
+    labels = {
+        f"{pid}: {state_title(state)}": pid for pid, state in candidates.items()
+    }
+    selected = rofi_menu(list(labels), "Kitty window:")
+    return labels.get(selected) if selected else None
+
+
+def session_display_name(path: Path) -> str:
+    for suffix in SESSION_SUFFIXES:
+        if path.name.endswith(suffix):
+            return path.name[: -len(suffix)]
+    return path.name
+
+
+def saved_sessions() -> list[Path]:
+    if not SESSION_DIR.is_dir():
+        return []
+    sessions = [
+        path
+        for path in SESSION_DIR.iterdir()
+        if path.is_file() and path.name.endswith(SESSION_SUFFIXES)
+    ]
+    return sorted(sessions, key=lambda path: (-path.stat().st_mtime, path.name.lower()))
+
+
+def unique_session_labels() -> dict[str, Path]:
+    labels: dict[str, Path] = {}
+    for path in saved_sessions():
+        display = session_display_name(path)
+        label = LOAD_PREFIX + display
+        if label in labels:
+            label = LOAD_PREFIX + path.name
+        labels[label] = path
+    return labels
+
+
+def normalize_session_name(name: str) -> str | None:
+    name = name.strip()
+    if (
+        not name
+        or name in {".", ".."}
+        or any(character in name for character in "/\x00\n\r")
+    ):
+        return None
+    if not name.endswith(SESSION_SUFFIXES):
+        name += SESSION_SUFFIXES[0]
+    return name
+
+
+def save_session(preferred_pid: int | None = None) -> int:
+    target_pid = choose_kitty(preferred_pid)
+    if target_pid is None:
+        return 1
+
+    entered_name = rofi_menu([], "Save kitty session as:", list_menu=False)
+    if entered_name is None:
+        return 0
+    filename = normalize_session_name(entered_name)
+    if filename is None:
+        notify(
+            "Kitty sessions",
+            "Use a non-empty filename without '/' (the .kitty-session suffix is optional).",
+        )
+        return 1
+
+    SESSION_DIR.mkdir(parents=True, exist_ok=True)
+    destination = SESSION_DIR / filename
+    if destination.exists():
+        confirmed = rofi_menu(
+            ["Cancel", "Replace"], f"Replace {session_display_name(destination)}?"
+        )
+        if confirmed != "Replace":
+            return 0
+
+    action = shlex.join(
+        ["save_as_session", "--save-only", "--base-dir", str(SESSION_DIR), filename]
+    )
+    try:
+        result = subprocess.run(
+            [KITTEN, "@", "--to", socket_for_pid(target_pid), "action", action],
+            text=True,
+            capture_output=True,
+            check=False,
+            timeout=15,
+        )
+    except (FileNotFoundError, subprocess.SubprocessError) as error:
+        notify("Kitty sessions", f"Could not save the session: {error}")
+        return 1
+
+    if result.returncode != 0:
+        detail = result.stderr.strip() or result.stdout.strip() or "unknown kitty error"
+        notify("Kitty sessions", f"Could not save the session: {detail}")
+        return 1
+
+    notify("Kitty sessions", f"Saved {session_display_name(destination)}")
+    return 0
+
+
+def load_session(path: Path) -> int:
+    if not path.is_file() or path.parent != SESSION_DIR:
+        notify("Kitty sessions", f"Session file not found: {path}")
+        return 1
+    try:
+        subprocess.Popen(
+            [KITTY, "--session", str(path)],
+            stdin=subprocess.DEVNULL,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            start_new_session=True,
+        )
+    except OSError as error:
+        notify("Kitty sessions", f"Could not load the session: {error}")
+        return 1
+    return 0
+
+
+def find_session(name: str) -> Path | None:
+    if not name or any(character in name for character in "/\x00\n\r"):
+        return None
+    for path in saved_sessions():
+        if name in {path.name, session_display_name(path)}:
+            return path
+    return None
+
+
+def print_entries() -> int:
+    print(SAVE_LABEL)
+    for label in unique_session_labels():
+        print(label)
+    return 0
+
+
+def rofi_script_row(text: str, *, icon: str, info: str, meta: str) -> None:
+    """Write one row using rofi's script-mode row format."""
+    safe_text = text.replace("\n", " ").replace("\r", " ")
+    safe_meta = meta.replace("\n", " ").replace("\r", " ")
+    options = "\x1f".join(("icon", icon, "info", info, "meta", safe_meta))
+    print(f"{safe_text}\0{options}")
+
+
+def launch_deferred_save(preferred_pid: int | None) -> int:
+    """Let the parent rofi close before opening the save-name prompt."""
+    command = [sys.executable, str(Path(__file__).resolve()), "deferred-save"]
+    if preferred_pid is not None:
+        command += ["--pid", str(preferred_pid)]
+    try:
+        subprocess.Popen(
+            command,
+            stdin=subprocess.DEVNULL,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            start_new_session=True,
+        )
+    except OSError as error:
+        notify("Kitty sessions", f"Could not open the save prompt: {error}")
+        return 1
+    return 0
+
+
+def rofi_script_mode() -> int:
+    """Expose saved sessions as entries inside rofi's combined launcher."""
+    retv = os.environ.get("ROFI_RETV", "0")
+    if retv == "0":
+        preferred_pid = focused_window_pid()
+        print("\0no-custom\x1ftrue")
+        print(f"\0data\x1f{preferred_pid or ''}")
+        rofi_script_row(
+            SAVE_LABEL,
+            icon="document-save",
+            info="save",
+            meta="kitty save current terminal session",
+        )
+        for label, path in unique_session_labels().items():
+            display_name = session_display_name(path)
+            rofi_script_row(
+                label,
+                icon="utilities-terminal",
+                info=f"load:{quote(path.name, safe='')}",
+                meta=f"kitty load saved terminal session {display_name}",
+            )
+        return 0
+
+    if retv != "1":
+        return 0
+
+    info = os.environ.get("ROFI_INFO", "")
+    if info == "save":
+        try:
+            preferred_pid = int(os.environ.get("ROFI_DATA", ""))
+        except ValueError:
+            preferred_pid = None
+        return launch_deferred_save(preferred_pid)
+
+    if info.startswith("load:"):
+        filename = unquote(info.removeprefix("load:"))
+        return load_session(SESSION_DIR / filename)
+
+    notify("Kitty sessions", "Rofi returned an unknown session entry.")
+    return 1
+
+
+def open_menu(preferred_pid: int | None = None) -> int:
+    if preferred_pid is None:
+        preferred_pid = focused_window_pid()
+    session_labels = unique_session_labels()
+    selected = rofi_menu([SAVE_LABEL, *session_labels], "Kitty sessions:")
+    if selected is None:
+        return 0
+    if selected == SAVE_LABEL:
+        return save_session(preferred_pid)
+    path = session_labels.get(selected)
+    if path is None:
+        notify("Kitty sessions", f"Unknown selection: {selected}")
+        return 1
+    return load_session(path)
+
+
+def main() -> int:
+    if "ROFI_RETV" in os.environ:
+        return rofi_script_mode()
+
+    default_command = (
+        "save" if Path(sys.argv[0]).name == "kitty-session-save" else "menu"
+    )
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "command",
+        nargs="?",
+        default=default_command,
+        choices=("menu", "save", "load", "entries", "deferred-save"),
+    )
+    parser.add_argument("name", nargs="?")
+    parser.add_argument("--pid", type=int, help="prefer this kitty process")
+    args = parser.parse_args()
+
+    if args.command == "entries":
+        return print_entries()
+    if args.command == "save":
+        return save_session(args.pid if args.pid is not None else focused_window_pid())
+    if args.command == "deferred-save":
+        time.sleep(0.2)
+        return save_session(args.pid)
+    if args.command == "load":
+        path = find_session(args.name or "")
+        if path is None:
+            notify("Kitty sessions", f"Unknown session: {args.name or ''}")
+            return 1
+        return load_session(path)
+    return open_menu(args.pid)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

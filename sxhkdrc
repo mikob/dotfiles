@@ -4,8 +4,9 @@ F1
 F2
     ~/dotfiles/scripts/focus-win.sh code
 
-super + space
-    pgrep rofi > /dev/null && pkill rofi || rofi -normal-window -show combi
+# Open or close rofi's combined launcher.
+F3
+    pgrep rofi > /dev/null && pkill rofi || ~/.local/bin/rofi -normal-window -show combi
 
 super + k
     xdotool windowactivate $(xdotool search --desktop $(xdotool get_desktop) --class "chrome" | tail -1) && sleep 0.1 && xdotool key --clearmodifiers ctrl+shift+a

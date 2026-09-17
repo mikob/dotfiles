@@ -289,7 +289,5 @@
             "approveRequest": false,
             "approveResponse": true
         }
-    },
-    "gitlens.ai.model": "vscode",
-    "gitlens.ai.vscode.model": "copilot:gpt-4.1"
+    }
 }

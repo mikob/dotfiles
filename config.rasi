@@ -1,5 +1,7 @@
 configuration {
     modes: "window,run,drun,combi,kitty:/home/mikob/.local/bin/kitty-session-menu";
+    display-run: "Run command";
+    display-kitty: "Kitty sessions";
     display-usd-mxn: "USD → MXN";
 /*	font: "mono 12";*/
 /*	location: 0;*/
@@ -34,6 +36,7 @@ configuration {
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
     combi-modes: "window,drun,run,kitty";
+    combi-display-format: "{mode}: {text}";
 /*	matching: "normal";*/
 /*	tokenize: true;*/
 /*	m: "-5";*/

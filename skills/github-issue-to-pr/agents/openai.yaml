@@ -1,4 +1,4 @@
 interface:
   display_name: "GitHub Issue to PR"
-  short_description: "Fix the oldest open issue and create a pull request"
-  default_prompt: "Use $github-issue-to-pr in the current repository: start with the oldest open issue, branch from dev or else main or master, implement and test a fix, and open a PR. Ask for clarification in both this task and the GitHub issue at the same time, use the first response, and check GitHub hourly while waiting."
+  short_description: "Fix oldest issues in a loop using fresh agent tasks"
+  default_prompt: "Use $github-issue-to-pr to fix the current repository's oldest open issues continuously, checking every minute between jobs and starting each issue in a fresh agent task."
